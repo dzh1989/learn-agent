@@ -1,0 +1,23 @@
+# macOS
+.DS_Store
+._*
+
+# IDE
+.idea/
+.vscode/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# 环境变量与密钥（绝不入库）
+.env
+.env.*
+*.pem
+*.key
+
+# 日志
+*.log

@@ -162,8 +162,18 @@ def execute_tool(call: dict) -> str:
 # 第二部分：模型接口（OpenAI 兼容 / Mock 双模式）
 # ============================================================
 
-def call_llm_real(messages: list, model: str, base_url: str, api_key: str) -> dict:
-    """调 OpenAI 兼容接口。用标准库 urllib，避免安装依赖。"""
+def call_llm_real(messages: list, model: str = None, base_url: str = None,
+                  api_key: str = None) -> dict:
+    """调 OpenAI 兼容接口。用标准库 urllib，避免安装依赖。
+
+    未传参时从环境变量读取（OPENAI_API_KEY / OPENAI_BASE_URL / MODEL_NAME）。
+    缺 API Key 时直接抛清晰错误，避免在循环深处冒出难看的 KeyError。
+    """
+    api_key = api_key or os.environ.get("OPENAI_API_KEY")
+    if not api_key:
+        raise RuntimeError("真实模式需要 OPENAI_API_KEY 环境变量，未设置则无法调用。")
+    model = model or os.environ.get("MODEL_NAME", "deepseek-chat")
+    base_url = (base_url or os.environ.get("OPENAI_BASE_URL", "https://api.deepseek.com")).rstrip("/")
     payload = {
         "model": model,
         "messages": messages,
@@ -172,7 +182,7 @@ def call_llm_real(messages: list, model: str, base_url: str, api_key: str) -> di
         "temperature": 0,
     }
     req = urllib.request.Request(
-        url=f"{base_url.rstrip('/')}/chat/completions",
+        url=f"{base_url}/chat/completions",
         data=json.dumps(payload).encode("utf-8"),
         headers={"Content-Type": "application/json", "Authorization": f"Bearer {api_key}"},
         method="POST",
@@ -187,20 +197,20 @@ def call_llm_real(messages: list, model: str, base_url: str, api_key: str) -> di
 
 _SCENARIO_CALC = [  # 场景A：模型先调计算器，拿到结果后给最终回答
     {"tool_calls": [{"id": "call_1", "function": {"name": "calculate",
-        "arguments": json.dumps({"expression": "3.5 * (12 + 8)"})}}]},
+        "arguments": json.dumps({"expression": "3.5 * (12 + 8)"}, ensure_ascii=False)}}]},
     {"content": "3.5 × (12 + 8) = 3.5 × 20 = 70。"},
 ]
 
 _SCENARIO_WEATHER_ERR = [  # 场景B：模型先查了个不存在的城市 → 收到错误 → 自我纠错换城市
     {"tool_calls": [{"id": "call_1", "function": {"name": "get_weather",
-        "arguments": json.dumps({"city": "纽约"})}}]},
+        "arguments": json.dumps({"city": "纽约"}, ensure_ascii=False)}}]},
     {"content": "抱歉，目前只支持国内主要城市的天气查询。请问您想查询杭州、上海还是北京的天气？"},
 ]
 
 _SCENARIO_MULTI = [  # 场景C：一次并行调两个工具（Day 02 会细讲）
     {"tool_calls": [
-        {"id": "call_1", "function": {"name": "get_weather", "arguments": json.dumps({"city": "杭州"})}},
-        {"id": "call_2", "function": {"name": "calculate", "arguments": json.dumps({"expression": "100 / 8"})}},
+        {"id": "call_1", "function": {"name": "get_weather", "arguments": json.dumps({"city": "杭州"}, ensure_ascii=False)}},
+        {"id": "call_2", "function": {"name": "calculate", "arguments": json.dumps({"expression": "100 / 8"}, ensure_ascii=False)}},
     ]},
     {"content": "杭州当前多云 21°C；100 ÷ 8 = 12.5。"},
 ]
@@ -219,6 +229,16 @@ class MockLLM:
         out = self._script[self._idx]
         self._idx += 1
         return out
+
+
+class RealLLM:
+    """真实模型客户端，复用 call_llm_real，对外暴露统一的 .next(messages) 接口。
+
+    这样 run_agent 内部无需 isinstance 判断——Mock 与真实只是同一个接口的两个实现。
+    """
+
+    def next(self, messages: list) -> dict:
+        return extract_message(call_llm_real(messages))
 
 
 # ============================================================
@@ -263,12 +283,8 @@ def run_agent(user_question: str, llm, verbose: bool = True) -> str:
                     print(f"   [{role}] {str(m.get('content'))[:60]}")
 
         # ---------- 调模型 ----------
-        resp = llm.next(messages) if isinstance(llm, MockLLM) else extract_message(call_llm_real(
-            messages,
-            model=os.environ.get("MODEL_NAME", "deepseek-chat"),
-            base_url=os.environ.get("OPENAI_BASE_URL", "https://api.deepseek.com"),
-            api_key=os.environ["OPENAI_API_KEY"],
-        ))
+        # 统一入口：Mock 与真实客户端都暴露 .next(messages)，循环里无需区分
+        resp = llm.next(messages)
 
         # ---------- 终止条件①：模型不再要工具，给出最终回答 ----------
         tool_calls = resp.get("tool_calls")
@@ -324,7 +340,7 @@ def main():
     for title, script, question in scenarios:
         print(f"\n\n{'#'*64}\n# {title}\n{'#'*64}")
         if use_real:
-            run_agent(question, llm=None)   # 真实模式下 llm 参数不参与，循环内部走 call_llm_real
+            run_agent(question, llm=RealLLM())
         else:
             run_agent(question, llm=MockLLM(script))
 

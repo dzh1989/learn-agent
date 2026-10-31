@@ -68,6 +68,7 @@ def build_header():
         "# learn-agent",
         "",
         "> **35 岁阿里后端，用 30 天把自己重训成 Agent 工程师 —— 配套学习代码库。**",
+        "> **终极目标**：具备大型分布式系统经验、能负责企业级 AI Agent 平台与应用工程化落地的技术负责人。",
         "",
         "本仓库是公众号系列 **「30 天把自己重训成 Agent 工程师」**（公众号：**溪月散人**）的",
         "**代码落地**。计划本身见 [`AI-Agent-30天学习执行手册.html`](AI-Agent-30天学习执行手册.html)；",
@@ -78,7 +79,7 @@ def build_header():
         "- **每天一个目录** `dayN/`，里面包含当天全部学习产物。",
         "- **每目录三件套**：① 可运行代码（零依赖，`python3 xxx.py` 直接跑）；",
         "  ② 时序图 / 架构图（GitHub 用 Mermaid，公众号用交互式 HTML）；",
-        "  ③ `README.md`（目标 / 资料 / 验收 / 面试题）。",
+        "  ③ `README.md`（目标 / 资料 / 验收 / 自测题）。",
         "- **进度驱动**：下面的进度表会自动识别哪些 `dayN/` 已建，已建的标 ✅ 并链接。",
         "- **改计划后重跑**：编辑源稿 Markdown，执行 `python3 scripts/gen_readme.py` 即可刷新本文件。",
         "",
@@ -107,7 +108,7 @@ def main():
     for i, line in enumerate(src_lines):
         if i == 0 and line.startswith("# "):
             continue  # 跳过源稿 h1
-        if line.startswith("## 第"):
+        if line.startswith("## "):
             started = True
         if started:
             body.append(line)

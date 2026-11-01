@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>AI Agent 中高级岗位 30 天学习与面试执行手册</title>
+<title>企业级 AI Agent 平台技术负责人 · 30 天能力构建与系统复习手册</title>
 <style>
 :root{
   --accent:#2f5bff; --bg:#eef1f6; --card:#fff; --text:#1f2430; --muted:#6b7385;
@@ -41,6 +41,16 @@ body{
   background:#fff;border:1px solid var(--line);border-left:4px solid var(--accent);
   border-radius:8px;padding:12px 16px;margin:14px 0 18px;color:#3a4252;font-size:15px;
 }
+.goal-banner{
+  background:linear-gradient(120deg,#16224a,#243a78);color:#eaf0ff;
+  border-radius:12px;padding:20px 22px;margin:0 0 22px;
+}
+.goal-banner .gb-tag{
+  display:inline-block;font-size:12px;letter-spacing:.14em;color:#9fb4ff;
+  border:1px solid #3a4f8f;border-radius:20px;padding:2px 12px;margin-bottom:10px;
+}
+.goal-banner p{margin:0;font-size:16.5px;line-height:1.8;color:#f3f6ff}
+.goal-banner strong{color:#ffd479}
 .day{
   background:var(--card);border:1px solid var(--line);border-radius:12px;
   padding:18px 20px;margin:0 0 16px;box-shadow:0 6px 22px -18px rgba(20,30,60,.4);
@@ -75,16 +85,174 @@ footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
 </head>
 <body>
 <header class="doc-header">
-  <h1>AI Agent 中高级岗位 30 天学习与面试执行手册</h1>
-  <p>不依赖框架 · 独立写 Agent 循环 · 生产化 · 系统设计 · 面试冲刺</p>
+  <h1>企业级 AI Agent 平台技术负责人</h1>
+  <p>30 节能力构建与系统复习手册 · Workflow vs Agent 判断 · 独立写 Agent 循环 · 生产化落地 · 企业级系统设计 · 技术领导力复盘</p>
 </header>
 <div class="wrap">
-['<nav class="toc"><div class="toc-title">目录</div><ul>', '<li><a href="#week-1">第 1 周：Agent 底层原理与工具编排</a></li>', '<li><a href="#week-2">第 2 周：LangGraph、RAG、Memory 与生产化</a></li>', '<li><a href="#week-3">第 3 周：企业级 Agent 平台系统设计</a></li>', '<li><a href="#week-4">第 4 周：项目深挖、Coding、英文与模拟面试</a></li>', '</ul></nav>']
-<section class="week" id="week-1">
-<h2><span class="week-no">第 1 周</span>第 1 周：Agent 底层原理与工具编排</h2>
+['<nav class="toc"><div class="toc-title">目录（6 模块 / 30 节）</div><ul>', '<li><a href="#mod-1">模块 A · 认知框架：Workflow 与 Agent 的本质</a></li>', '<li><a href="#mod-2">模块 B · Agent 核心能力（第 4–9 节）</a></li>', '<li><a href="#mod-3">模块 C · 生产化（第 10–16 节）</a></li>', '<li><a href="#mod-4">模块 D · 改造实战（第 17–18 节，用户特需）</a></li>', '<li><a href="#mod-5">模块 E · 系统设计（第 19–24 节）</a></li>', '<li><a href="#mod-6">模块 F · 落地与复盘（第 25–30 节）</a></li>', '</ul></nav>']
+<div class="goal-banner"><span class="gb-tag">终极目标</span><p>具备大型分布式系统经验、能够负责企业级 AI Agent 平台和应用工程化落地的技术负责人。 30 节结束时，应能够： - 不依赖框架，独立写出 Agent 核心循环（Loop / 工具编排 / 上下文工程）； - 设计有状态、可恢复、可评测、可控成本的生产级 Agent 应用（LangGraph / RAG / Memory / Evaluation）； - 主导企业级 Agent 平台与典型业务场景（客服 / 代码 / 多 Agent / Gateway）的系统设计，讲清架构、Trade-off、失败模式、成本与容量； - 补齐分布式与工程化短板，并具备技术负责人的架构评审、决策记录（ADR）与跨团队对齐能力； - 最重要的是：能判断一个需求到底该用 Workflow 还是 Agent，并在该升级时知道改哪里。 ---</p></div>
+<section class="week" id="mod-1">
+<h2><span class="week-no">模块 1</span>模块 A · 认知框架：Workflow 与 Agent 的本质</h2>
 <article class="day" id="d1">
 <div class="day-head">
-<h3>Day 1｜Agent Loop：从模型调用到工具执行</h3>
+<h3>第 1 节 · Workflow 与 Agent 的本质区别</h3>
+<span class="time">⏱ 60～90 分钟</span>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#2f5bff">学习</span>
+<ul>
+<li>判定标准只有一条：流程的下一步由谁决定？代码（if/else、状态机）决定 = Workflow；模型自主决定下一步（含工具自决、循环） = Agent。</li>
+<li>Workflow 的特征：步骤固定、可复现、每一步的输入输出确定、易单测。</li>
+<li>Agent 的特征：模型在循环里自己选工具、自己看结果、自己决定继续还是停。</li>
+<li>常见误解：用了 LLM 不等于 Agent；LLM 只是流程里一个确定性节点时，它还是 Workflow。</li>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#1f8a70">案例</span>
+<ul>
+<li>读 `process_message`：意图分支是 `if/elif` 写死的，不是模型选的。</li>
+<li>读 `spec_checker.build`：verdict 由纯函数算，模型只给 gates 结果——分支可测、可复现。</li>
+<li>结论：这个 bot 用了 LLM，但它是 Workflow，不是 Agent。</li>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#0a8f6f">资料</span>
+<ul>
+<li>Anthropic · Building Effective Agents：<a href="https://www.anthropic.com/engineering/building-effective-agents" target="_blank" rel="noopener">https://www.anthropic.com/engineering/building-effective-agents</a></li>
+<li>12-Factor Agents：<a href="https://github.com/humanlayer/12-factor-agents" target="_blank" rel="noopener">https://github.com/humanlayer/12-factor-agents</a></li>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#7a4fd6">产出</span>
+<ul>
+<li>一张「Workflow vs Agent」对照卡（左侧代码决定、右侧模型决定）。</li>
+<li>一份 5 问判定清单：① 步骤固定吗 ② 需模型自决下一步吗 ③ 需多工具自治吗 ④ 需依中间结果决策吗 ⑤ 失败了能写死重试吗。</li>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#c23b6a">验收</span>
+<ul>
+<li>拿到任意一段 AI 代码，能一句话说清它是 Workflow 还是 Agent，并指出判定依据。</li>
+<li>能解释「用 LLM 的 Workflow」为什么仍可测、可复现。</li>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#1f6feb">自测题</span>
+<ol>
+<li>判定 Workflow 与 Agent 的那一条标准是什么？</li>
+<li>一个调用了 GPT 做文本分类的服务，是 Workflow 还是 Agent？为什么？</li>
+<li>为什么「用了 LLM」不等于「是 Agent」？</li>
+<li>你手头有没有一个「以为是 Agent 其实是 Workflow」的项目？</li>
+</ol>
+</div>
+</article>
+<article class="day" id="d2">
+<div class="day-head">
+<h3>第 2 节 · 什么时候该用 Workflow</h3>
+<span class="time">⏱ 60～90 分钟</span>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#2f5bff">学习</span>
+<ul>
+<li>Workflow 不是 Agent 的「低配版」，而是很多场景的更优解：更便宜、更可控、更好 debug、可单测覆盖。</li>
+<li>适合 Workflow 的信号：步骤明确、规则清晰、要可复现、要低成本、出错要可定位。</li>
+<li>Agent 的代价：更贵（多轮调用）、更难测（非确定性）、更难 debug（链路长）、需要 eval 才敢上线。</li>
+<li>工程现实：绝大多数「AI 功能」用 Workflow 就够了，硬上 Agent 是负担。</li>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#1f8a70">案例</span>
+<ul>
+<li>需求结构化（`structure_requirement`）、RAG 问答（`rag_engine`）：纯 Workflow 就稳，上 Agent 反而引入非确定性和成本。</li>
+<li>它的「确认卡片才提交编码」是代码触发的硬门，不需要模型判断。</li>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#0a8f6f">资料</span>
+<ul>
+<li>Anthropic · Effective Agents（何时用 / 何时不用）：<a href="https://www.anthropic.com/engineering/building-effective-agents" target="_blank" rel="noopener">https://www.anthropic.com/engineering/building-effective-agents</a></li>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#7a4fd6">产出</span>
+<ul>
+<li>一页「选型决策树」：从需求特征出发，输出 Workflow / Agent / 混合。</li>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#c23b6a">验收</span>
+<ul>
+<li>能给一个具体需求，画出决策树路径并说明为什么选 Workflow。</li>
+<li>能讲出 Agent 相对 Workflow 至少 3 个真实代价。</li>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#1f6feb">自测题</span>
+<ol>
+<li>什么场景下 Workflow 比 Agent 更优？</li>
+<li>为什么 Agent 需要评测体系才敢上线，而 Workflow 可以靠单测？</li>
+<li>如果把一个稳定 Workflow 硬改成 Agent，通常会引入哪些问题？</li>
+<li>「Agent 化」在你们团队是不是被当成了政治正确？举一个反例。</li>
+</ol>
+</div>
+</article>
+<article class="day" id="d3">
+<div class="day-head">
+<h3>第 3 节 · 什么时候需要升级到 Agent</h3>
+<span class="time">⏱ 60～90 分钟</span>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#2f5bff">学习</span>
+<ul>
+<li>该升级的 4 类信号：① 非确定性链路（步骤无法写死）② 需动态拆解任务 ③ 需依中间结果决策 ④ 需自主调度多个工具完成一个目标。</li>
+<li>升级不是「全改」，而是「把最该自治的那一段交给循环」，其余保持 Workflow。</li>
+<li>反例：硬上 Agent 翻车的典型——把能写死的状态机换成模型自决，结果不可测、成本爆炸、debug 无门。</li>
+<li>升级原则：先 Workflow 跑通，再识别瓶颈段，最后只把瓶颈段 Agent 化。</li>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#1f8a70">案例</span>
+<ul>
+<li>现状：编码甩给外部 Agent（`execute_task` fire-and-forget + `poll_agent_tasks` 轮询），bot 自身不参与端到端自治。</li>
+<li>升级信号：若要 bot 自己完成「读代码 → 改 → 测 → 建 PR → 看结果再改」这类无法写死步骤的链路，就超出 Workflow 能力，必须引入 Agent Loop。</li>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#0a8f6f">资料</span>
+<ul>
+<li>12-Factor Agents（何时引入循环）：<a href="https://github.com/humanlayer/12-factor-agents" target="_blank" rel="noopener">https://github.com/humanlayer/12-factor-agents</a></li>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#7a4fd6">产出</span>
+<ul>
+<li>一份「升级信号清单」（4 类信号 + 每条的判定问题）。</li>
+<li>一张反例卡：「硬上 Agent 翻车」的 3 个真实症状。</li>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#c23b6a">验收</span>
+<ul>
+<li>能从一个真实需求里，圈出「该 Agent 化的瓶颈段」和「应保留的 Workflow 段」。</li>
+<li>能解释为什么升级应是局部而非整体。</li>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#1f6feb">自测题</span>
+<ol>
+<li>哪 4 类信号出现时该考虑升级到 Agent？</li>
+<li>为什么升级应该是「局部 Agent 化」而不是「整体重写」？</li>
+<li>举一个你见过的「硬上 Agent 翻车」案例，问题出在哪？</li>
+<li>如果让你给团队定一条「上 Agent 的准入标准」，你会写哪三条？</li>
+</ol>
+</div>
+</article>
+</section>
+<section class="week" id="mod-2">
+<h2><span class="week-no">模块 2</span>模块 B · Agent 核心能力（第 4–9 节）</h2>
+<article class="day" id="d4">
+<div class="day-head">
+<h3>第 4 节 · Agent Loop 从零写</h3>
 <span class="time">⏱ 90～120 分钟</span>
 </div>
 <div class="sec">
@@ -92,8 +260,14 @@ footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
 <ul>
 <li>理解 LLM、Tool、Agent、Environment 的关系。</li>
 <li>理解一次 Agent 执行的完整生命周期。</li>
-<li>学习模型返回 tool_calls 后，应用层如何执行工具并回传结果。</li>
-<li>理解 Agent 终止条件：无工具调用、达到最大轮次、显式完成信号。</li>
+<li>模型返回 tool_calls 后，应用层如何执行工具并回传结果。</li>
+<li>Agent 终止条件：无工具调用、达到最大轮次、上下文预算熔断。</li>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#1f8a70">案例</span>
+<ul>
+<li>对比：bot 没有这个循环，所以「多步自治」它做不到——这正是它该保持 Workflow 的原因，也是第 17 节要补的东西。</li>
 </ul>
 </div>
 <div class="sec">
@@ -117,7 +291,7 @@ footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
 <span class="sec-label" style="background:#7a4fd6">产出</span>
 <ul>
 <li>一个可运行的 Agent Loop。</li>
-<li>一张 Agent 执行时序图。</li>
+<li>一张 Agent 执行时序图（九步）。</li>
 </ul>
 </div>
 <div class="sec">
@@ -129,7 +303,7 @@ footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#1f6feb">面试题</span>
+<span class="sec-label" style="background:#1f6feb">自测题</span>
 <ol>
 <li>Agent 和普通 LLM Chat 有什么区别？</li>
 <li>Agent Loop 的核心流程是什么？</li>
@@ -138,9 +312,9 @@ footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
 </ol>
 </div>
 </article>
-<article class="day" id="d2">
+<article class="day" id="d5">
 <div class="day-head">
-<h3>Day 2｜Function Calling 与工具设计</h3>
+<h3>第 5 节 · Function Calling 与工具设计</h3>
 <span class="time">⏱ 90～120 分钟</span>
 </div>
 <div class="sec">
@@ -151,6 +325,12 @@ footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
 <li>并行工具调用与串行依赖。</li>
 <li>结构化输出和工具调用的区别。</li>
 <li>工具粒度如何设计。</li>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#1f8a70">案例</span>
+<ul>
+<li>对比：bot 的工具是代码分支写死的（发卡片 / 查 RAG），不是模型按结果自选——这正是 Workflow 与 Agent 在「工具调用」上的分水岭。</li>
 </ul>
 </div>
 <div class="sec">
@@ -186,7 +366,7 @@ footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#1f6feb">面试题</span>
+<span class="sec-label" style="background:#1f6feb">自测题</span>
 <ol>
 <li>如何设计一个模型不容易误用的工具？</li>
 <li>Function Calling 和普通 HTTP API 有什么区别？</li>
@@ -195,9 +375,9 @@ footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
 </ol>
 </div>
 </article>
-<article class="day" id="d3">
+<article class="day" id="d6">
 <div class="day-head">
-<h3>Day 3｜MCP 协议与工具接入架构</h3>
+<h3>第 6 节 · MCP 协议与工具接入架构</h3>
 <span class="time">⏱ 90～120 分钟</span>
 </div>
 <div class="sec">
@@ -208,6 +388,12 @@ footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
 <li>stdio 和 Streamable HTTP 的使用场景。</li>
 <li>MCP 和传统插件体系的区别。</li>
 <li>MCP 的权限、安全和传输边界。</li>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#1f8a70">案例</span>
+<ul>
+<li>延伸：bot 的编码 Agent 适配器（Trace / Qoder）就是「外部工具接入」的雏形——MCP 把它标准化了。</li>
 </ul>
 </div>
 <div class="sec">
@@ -243,7 +429,7 @@ footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#1f6feb">面试题</span>
+<span class="sec-label" style="background:#1f6feb">自测题</span>
 <ol>
 <li>MCP 解决了什么问题？</li>
 <li>MCP 和 Function Calling 是什么关系？</li>
@@ -252,9 +438,9 @@ footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
 </ol>
 </div>
 </article>
-<article class="day" id="d4">
+<article class="day" id="d7">
 <div class="day-head">
-<h3>Day 4｜MCP 工程化与安全</h3>
+<h3>第 7 节 · MCP 工程化与安全</h3>
 <span class="time">⏱ 90～120 分钟</span>
 </div>
 <div class="sec">
@@ -264,6 +450,12 @@ footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
 <li>超时、错误码、大结果集处理。</li>
 <li>MCP Server 的部署和版本管理。</li>
 <li>工具注册、健康检查和能力发现。</li>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#1f8a70">案例</span>
+<ul>
+<li>延伸：bot 的飞书验签 + 人工确认门，正是「工具调用要受控」的真实样本——MCP 把这套机制做成了协议层。</li>
 </ul>
 </div>
 <div class="sec">
@@ -299,7 +491,7 @@ footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#1f6feb">面试题</span>
+<span class="sec-label" style="background:#1f6feb">自测题</span>
 <ol>
 <li>MCP Server 如何做身份认证和授权？</li>
 <li>工具执行结果过大怎么办？</li>
@@ -308,9 +500,9 @@ footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
 </ol>
 </div>
 </article>
-<article class="day" id="d5">
+<article class="day" id="d8">
 <div class="day-head">
-<h3>Day 5｜Agent 范式：ReAct、Plan-and-Execute、Reflexion</h3>
+<h3>第 8 节 · Agent 范式：ReAct、Plan-and-Execute、Reflexion</h3>
 <span class="time">⏱ 90～120 分钟</span>
 </div>
 <div class="sec">
@@ -319,8 +511,14 @@ footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
 <li>ReAct：思考、行动、观察。</li>
 <li>Plan-and-Execute：先规划，再执行。</li>
 <li>Reflexion：失败后反思和重试。</li>
-<li>Workflow 与 Agent 的区别。</li>
+<li>Workflow 与 Agent 的区别（呼应第 1 节）。</li>
 <li>多 Agent 的适用条件。</li>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#1f8a70">案例</span>
+<ul>
+<li>对比：bot 的 3 轮硬限追问 = 手写 Plan 的退化版，缺 Reflexion 的「失败后反思」——所以它卡在第 3 轮就停，不会自己换思路。</li>
 </ul>
 </div>
 <div class="sec">
@@ -342,7 +540,7 @@ footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
 <div class="sec">
 <span class="sec-label" style="background:#7a4fd6">产出</span>
 <ul>
-<li>Agent 范式对比表。</li>
+<li>Agent 范式对比表（实测数据）。</li>
 </ul>
 </div>
 <div class="sec">
@@ -354,7 +552,7 @@ footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#1f6feb">面试题</span>
+<span class="sec-label" style="background:#1f6feb">自测题</span>
 <ol>
 <li>ReAct 和 Plan-and-Execute 有什么区别？</li>
 <li>什么情况下需要多 Agent？</li>
@@ -363,9 +561,9 @@ footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
 </ol>
 </div>
 </article>
-<article class="day" id="d6">
+<article class="day" id="d9">
 <div class="day-head">
-<h3>Day 6｜上下文工程与 LLM 基础</h3>
+<h3>第 9 节 · 上下文工程与 LLM 基础</h3>
 <span class="time">⏱ 90～120 分钟</span>
 </div>
 <div class="sec">
@@ -376,6 +574,12 @@ footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
 <li>Transformer 和 Attention 的基本作用。</li>
 <li>Prefill、Decode、KV Cache 的基本概念。</li>
 <li>上下文压缩、摘要和外部检索。</li>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#1f8a70">案例</span>
+<ul>
+<li>看 bot 的 `_history_for`：它已经在手工管理上下文窗口（裁系统追加、限 6 轮）——这正是上下文工程的雏形，只是写死在代码里。</li>
 </ul>
 </div>
 <div class="sec">
@@ -400,6 +604,7 @@ footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
 <ul>
 <li>上下文管理模块。</li>
 <li>Token 预算表。</li>
+<li>第一周集成产物：项目 V0.1 + 3～5 分钟演示（把 Loop / 注册中心 / MCP 跑通端到端）。</li>
 </ul>
 </div>
 <div class="sec">
@@ -408,10 +613,11 @@ footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
 <li>能解释上下文窗口为什么会影响 Agent 效果。</li>
 <li>超长工具结果不会无限进入上下文。</li>
 <li>压缩后仍能保留用户关键约束。</li>
+<li>能脱离框架解释一次完整 Agent 调用、讲清工具调用与终止条件。</li>
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#1f6feb">面试题</span>
+<span class="sec-label" style="background:#1f6feb">自测题</span>
 <ol>
 <li>Context Window 和 Token 是什么关系？</li>
 <li>KV Cache 解决什么问题？</li>
@@ -420,60 +626,12 @@ footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
 </ol>
 </div>
 </article>
-<article class="day" id="d7">
-<div class="day-head">
-<h3>Day 7｜第一周集成与模拟面试</h3>
-<span class="time">⏱ 4 小时</span>
-</div>
-<div class="sec">
-<span class="sec-label" style="background:#6b7385">任务</span>
-<ul>
-<li>集成 Agent Loop、工具注册中心、MCP Server。</li>
-<li>补充 README、运行说明和架构图。</li>
-<li>录制 3～5 分钟项目演示。</li>
-<li>口头回答第一周面试题。</li>
-</ul>
-</div>
-<div class="sec">
-<span class="sec-label" style="background:#b8551b">代码</span>
-<ul>
-<li>完成一次“分析竞品 → 查询工具 → 汇总结果”的端到端执行。</li>
-<li>增加 5 个正常测试和 5 个异常测试。</li>
-</ul>
-</div>
-<div class="sec">
-<span class="sec-label" style="background:#7a4fd6">产出</span>
-<ul>
-<li>项目 V0.1。</li>
-<li>3～5 分钟演示视频。</li>
-<li>第一周复盘文档。</li>
-</ul>
-</div>
-<div class="sec">
-<span class="sec-label" style="background:#c23b6a">验收</span>
-<ul>
-<li>能脱离框架解释一次完整 Agent 调用。</li>
-<li>能现场运行 Demo。</li>
-<li>能讲清工具调用、异常处理和终止条件。</li>
-</ul>
-</div>
-<div class="sec">
-<span class="sec-label" style="background:#c2410c">模拟面试</span>
-<ol>
-<li>请介绍你实现的 Agent Loop。</li>
-<li>为什么需要工具注册中心？</li>
-<li>MCP 与 Function Calling 分别解决什么问题？</li>
-<li>Agent 执行中模型连续调用同一个工具怎么办？</li>
-<li>为什么不直接把整个业务流程写成普通代码？</li>
-</ol>
-</div>
-</article>
 </section>
-<section class="week" id="week-2">
-<h2><span class="week-no">第 2 周</span>第 2 周：LangGraph、RAG、Memory 与生产化</h2>
-<article class="day" id="d8">
+<section class="week" id="mod-3">
+<h2><span class="week-no">模块 3</span>模块 C · 生产化（第 10–16 节）</h2>
+<article class="day" id="d10">
 <div class="day-head">
-<h3>Day 8｜LangGraph 核心机制</h3>
+<h3>第 10 节 · LangGraph 核心机制</h3>
 <span class="time">⏱ 90～120 分钟</span>
 </div>
 <div class="sec">
@@ -484,6 +642,12 @@ footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
 <li>Checkpoint。</li>
 <li>LangGraph 与手写 Agent Loop 的关系。</li>
 <li>固定 Workflow 与动态 Agent 的组合。</li>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#1f8a70">案例</span>
+<ul>
+<li>点破：很多人以为「上了 LangGraph 就是 Agent」，其实它只是把 Workflow 用框架表达——Loop 才是 Agent 的灵魂。</li>
 </ul>
 </div>
 <div class="sec">
@@ -516,7 +680,7 @@ footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#1f6feb">面试题</span>
+<span class="sec-label" style="background:#1f6feb">自测题</span>
 <ol>
 <li>LangGraph 的 State、Node、Edge 分别是什么？</li>
 <li>为什么 Agent 需要状态管理？</li>
@@ -525,9 +689,9 @@ footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
 </ol>
 </div>
 </article>
-<article class="day" id="d9">
+<article class="day" id="d11">
 <div class="day-head">
-<h3>Day 9｜Checkpoint、恢复与 Human-in-the-loop</h3>
+<h3>第 11 节 · Checkpoint、恢复与 Human-in-the-loop</h3>
 <span class="time">⏱ 90～120 分钟</span>
 </div>
 <div class="sec">
@@ -538,6 +702,12 @@ footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
 <li>人工审批节点。</li>
 <li>长任务状态管理。</li>
 <li>重复执行和恢复时的幂等问题。</li>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#1f8a70">案例</span>
+<ul>
+<li>bot 的「确认卡片才提交编码」就是 HITL，但它是代码触发不是 Agent 判断——本节把它升级成 Agent 可暂停、可恢复。</li>
 </ul>
 </div>
 <div class="sec">
@@ -571,7 +741,7 @@ footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#1f6feb">面试题</span>
+<span class="sec-label" style="background:#1f6feb">自测题</span>
 <ol>
 <li>Checkpoint 解决什么问题？</li>
 <li>Human-in-the-loop 如何实现？</li>
@@ -580,9 +750,9 @@ footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
 </ol>
 </div>
 </article>
-<article class="day" id="d10">
+<article class="day" id="d12">
 <div class="day-head">
-<h3>Day 10｜RAG 全链路</h3>
+<h3>第 12 节 · RAG 全链路</h3>
 <span class="time">⏱ 90～120 分钟</span>
 </div>
 <div class="sec">
@@ -594,6 +764,12 @@ footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
 <li>Rerank。</li>
 <li>Query Rewrite。</li>
 <li>RAG 适用边界。</li>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#1f8a70">案例</span>
+<ul>
+<li>bot 的 `rag_engine` + `okf_parser` + `git_sync` 是现成的 RAG 全链路样本——直接当教材拆。</li>
 </ul>
 </div>
 <div class="sec">
@@ -629,7 +805,7 @@ footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#1f6feb">面试题</span>
+<span class="sec-label" style="background:#1f6feb">自测题</span>
 <ol>
 <li>RAG 的完整链路是什么？</li>
 <li>Chunking 如何选择？</li>
@@ -638,9 +814,9 @@ footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
 </ol>
 </div>
 </article>
-<article class="day" id="d11">
+<article class="day" id="d13">
 <div class="day-head">
-<h3>Day 11｜RAG 进阶与质量评估</h3>
+<h3>第 13 节 · RAG 进阶与质量评估</h3>
 <span class="time">⏱ 90～120 分钟</span>
 </div>
 <div class="sec">
@@ -651,6 +827,12 @@ footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
 <li>Rerank。</li>
 <li>Recall@K、MRR、NDCG 的概念。</li>
 <li>检索质量与最终答案质量的区别。</li>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#1f8a70">案例</span>
+<ul>
+<li>用 bot 的增量索引（`sync_files` by hash）讲工程化取舍：全量重跑 vs 增量同步。</li>
 </ul>
 </div>
 <div class="sec">
@@ -683,7 +865,7 @@ footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#1f6feb">面试题</span>
+<span class="sec-label" style="background:#1f6feb">自测题</span>
 <ol>
 <li>RAG 召回率低怎么排查？</li>
 <li>Rerank 有什么代价？</li>
@@ -692,9 +874,9 @@ footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
 </ol>
 </div>
 </article>
-<article class="day" id="d12">
+<article class="day" id="d14">
 <div class="day-head">
-<h3>Day 12｜Memory 记忆体系</h3>
+<h3>第 14 节 · Memory 记忆体系</h3>
 <span class="time">⏱ 90～120 分钟</span>
 </div>
 <div class="sec">
@@ -705,6 +887,12 @@ footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
 <li>结构化用户档案。</li>
 <li>长期向量记忆。</li>
 <li>记忆写入、更新、读取、过期和删除策略。</li>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#1f8a70">案例</span>
+<ul>
+<li>bot 的 `session_store` 是「短期上下文」的最小实现，缺长期档案——本节补齐。</li>
 </ul>
 </div>
 <div class="sec">
@@ -739,7 +927,7 @@ footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#1f6feb">面试题</span>
+<span class="sec-label" style="background:#1f6feb">自测题</span>
 <ol>
 <li>Agent Memory 与普通 Chat History 有什么区别？</li>
 <li>哪些信息应该进入长期记忆？</li>
@@ -748,9 +936,9 @@ footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
 </ol>
 </div>
 </article>
-<article class="day" id="d13">
+<article class="day" id="d15">
 <div class="day-head">
-<h3>Day 13｜Evaluation：Agent 评测体系</h3>
+<h3>第 15 节 · Agent 评测体系</h3>
 <span class="time">⏱ 90～120 分钟</span>
 </div>
 <div class="sec">
@@ -761,6 +949,12 @@ footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
 <li>结果层、过程层、系统层指标。</li>
 <li>LLM-as-judge。</li>
 <li>人工抽检和评测校准。</li>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#1f8a70">案例</span>
+<ul>
+<li>呼应第 1 节：bot 作为 Workflow 靠单测可测；Agent 必须建 eval 才敢上线——这是两者工程成本和可靠性的分水岭。</li>
 </ul>
 </div>
 <div class="sec">
@@ -795,7 +989,7 @@ footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#1f6feb">面试题</span>
+<span class="sec-label" style="background:#1f6feb">自测题</span>
 <ol>
 <li>如何评估 Agent？</li>
 <li>LLM-as-judge 有什么缺陷？</li>
@@ -804,9 +998,9 @@ footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
 </ol>
 </div>
 </article>
-<article class="day" id="d14">
+<article class="day" id="d16">
 <div class="day-head">
-<h3>Day 14｜可靠性、故障注入与成本优化</h3>
+<h3>第 16 节 · 可靠性、故障注入与成本优化</h3>
 <span class="time">⏱ 4 小时</span>
 </div>
 <div class="sec">
@@ -817,6 +1011,12 @@ footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
 <li>主模型失败后的降级。</li>
 <li>模型路由、Prompt Caching、并行调用。</li>
 <li>首字延迟、P95 延迟、单任务成本。</li>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#1f8a70">案例</span>
+<ul>
+<li>bot 的「立即 ACK + 异步队列 + 主动推送」就是可靠性范本（防飞书超时重试）——Agent 链路更长，这套更关键。</li>
 </ul>
 </div>
 <div class="sec">
@@ -854,7 +1054,7 @@ footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#c2410c">模拟面试</span>
+<span class="sec-label" style="background:#c2410c">实战复盘</span>
 <ol>
 <li>Agent 工具调用如何做幂等？</li>
 <li>模型服务超时如何处理？</li>
@@ -865,11 +1065,125 @@ footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
 </div>
 </article>
 </section>
-<section class="week" id="week-3">
-<h2><span class="week-no">第 3 周</span>第 3 周：企业级 Agent 平台系统设计</h2>
-<article class="day" id="d15">
+<section class="week" id="mod-4">
+<h2><span class="week-no">模块 4</span>模块 D · 改造实战（第 17–18 节，用户特需）</h2>
+<article class="day" id="d17">
 <div class="day-head">
-<h3>Day 15｜系统设计答题模板</h3>
+<h3>第 17 节 · 实战：把 bot 改造成 Agent</h3>
+<span class="time">⏱ 120～180 分钟</span>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#2f5bff">学习</span>
+<ul>
+<li>改造点逐条：状态机 → 循环；固定分支 → 工具自决；3 轮硬限 → 反思重试；甩外部 → 端到端。</li>
+<li>保留 Workflow 的部分：意图分发、人工确认门——这些不该 Agent 化。</li>
+<li>改造的边界：只在「非确定性瓶颈段」插 Agent Loop，其余不动。</li>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#1f8a70">案例</span>
+<ul>
+<li>以 `_handle_requirement` / `_submit_agent` 为改造起点，演示在哪插 Agent Loop（`agent/runtime/loop.py`）。</li>
+<li>对照：改造前（状态机 + 外部甩单）vs 改造后（bot 自身端到端自治读→改→测→PR→再改）。</li>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#0a8f6f">资料</span>
+<ul>
+<li>12-Factor Agents：<a href="https://github.com/humanlayer/12-factor-agents" target="_blank" rel="noopener">https://github.com/humanlayer/12-factor-agents</a></li>
+<li>Anthropic Building Effective Agents：<a href="https://www.anthropic.com/engineering/building-effective-agents" target="_blank" rel="noopener">https://www.anthropic.com/engineering/building-effective-agents</a></li>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#b8551b">代码</span>
+<ul>
+<li>在 `learn-agent/day17-bot-to-agent/` 新建改造分支。</li>
+<li>复用 `ai-requirement-bot` 作对照。</li>
+<li>把「需求→编码→验证→再改」链路接入 Agent Loop。</li>
+<li>保留意图分发与人工确认门为 Workflow 节点。</li>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#7a4fd6">产出</span>
+<ul>
+<li>改造前后对照文档。</li>
+<li>新增 `agent/runtime/loop.py` 接入点示意。</li>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#c23b6a">验收</span>
+<ul>
+<li>能讲清每一处「为什么这里要改、那里保留」。</li>
+<li>改造后链路可端到端跑通一个非确定性子任务。</li>
+<li>不把原本稳定的 Workflow 段弄坏。</li>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#1f6feb">自测题</span>
+<ol>
+<li>把 bot 改造成 Agent，哪几段该改、哪几段该保留？</li>
+<li>为什么「3 轮硬限追问」不等于「反思重试」？</li>
+<li>改造后如何保证原本可测的 Workflow 段不被破坏？</li>
+<li>你怎么验证「升级后真的更好」而不是更贵更难测？</li>
+</ol>
+</div>
+</article>
+<article class="day" id="d18">
+<div class="day-head">
+<h3>第 18 节 · Workflow 与 Agent 在一个系统里共存</h3>
+<span class="time">⏱ 90～120 分钟</span>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#2f5bff">学习</span>
+<ul>
+<li>分层：网关 / 路由层用 Workflow（快、可控、便宜）；复杂子任务交 Agent（慢、贵、但能自治）。</li>
+<li>不是二选一，是分层——这是企业级系统的常态。</li>
+<li>边界怎么划：哪些请求走 Workflow、哪些升级给 Agent、怎样平滑切换。</li>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#1f8a70">案例</span>
+<ul>
+<li>bot 现状就是分层范本：意图分发 = Workflow，编码 = 外部 Agent。本节把它抽象成可复用的边界决策。</li>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#0a8f6f">资料</span>
+<ul>
+<li>Anthropic Building Effective Agents：<a href="https://www.anthropic.com/engineering/building-effective-agents" target="_blank" rel="noopener">https://www.anthropic.com/engineering/building-effective-agents</a></li>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#7a4fd6">产出</span>
+<ul>
+<li>一张「分层架构图」（Workflow 层 + Agent 层 + 边界）。</li>
+<li>一份边界决策清单（何时升级给 Agent）。</li>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#c23b6a">验收</span>
+<ul>
+<li>能画出一个真实系统的 Workflow / Agent 分层。</li>
+<li>能写出「哪些请求走哪层」的判定规则。</li>
+<li>不把「全部 Agent 化」当成目标。</li>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#1f6feb">自测题</span>
+<ol>
+<li>为什么企业级系统里 Workflow 与 Agent 通常共存而非二选一？</li>
+<li>路由层该用 Workflow 还是 Agent？为什么？</li>
+<li>如何界定「哪些子任务该升级给 Agent」？</li>
+<li>分层后如何保证两层之间的失败不互相污染？</li>
+</ol>
+</div>
+</article>
+</section>
+<section class="week" id="mod-5">
+<h2><span class="week-no">模块 5</span>模块 E · 系统设计（第 19–24 节）</h2>
+<article class="day" id="d19">
+<div class="day-head">
+<h3>第 19 节 · 系统设计答题模板（六步法）</h3>
 <span class="time">⏱ 90 分钟</span>
 </div>
 <div class="sec">
@@ -887,13 +1201,19 @@ footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
 </ul>
 </div>
 <div class="sec">
+<span class="sec-label" style="background:#1f8a70">案例</span>
+<ul>
+<li>拿 bot 当「小系统」过一遍六步：它为什么是 Workflow、若升级 Agent 架构怎么变。</li>
+</ul>
+</div>
+<div class="sec">
 <span class="sec-label" style="background:#7a4fd6">产出</span>
 <ul>
 <li>一张 A4 系统设计速查卡。</li>
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#1f6feb">面试题</span>
+<span class="sec-label" style="background:#1f6feb">自测题</span>
 <ol>
 <li>为什么系统设计不能上来就画架构？</li>
 <li>什么是 Trade-off？</li>
@@ -901,10 +1221,32 @@ footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
 </ol>
 </div>
 </article>
-<article class="day" id="d16">
+<article class="day" id="d20">
 <div class="day-head">
-<h3>Day 16｜系统设计题 1：企业级 Agent 平台</h3>
+<h3>第 20 节 · 系统设计题 1：企业级 Agent 平台</h3>
 <span class="time">⏱ 90～120 分钟</span>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#0a8f6f">题目</span>
+<ul>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#b8551b">重点</span>
+<ul>
+<li>接入层、编排层、工具层、模型层、观测层。</li>
+<li>工具注册中心。</li>
+<li>MCP 与内部 API 的边界。</li>
+<li>模型网关、配额和限流。</li>
+<li>多租户、权限和审计。</li>
+<li>版本发布与兼容。</li>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#1f8a70">案例</span>
+<ul>
+<li>把 bot 的「编码 Agent 适配层」放大成平台视角：它只是平台里一个 Agent 接入点的雏形。</li>
+</ul>
 </div>
 <div class="sec">
 <span class="sec-label" style="background:#7a4fd6">产出</span>
@@ -915,7 +1257,7 @@ footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#1f6feb">面试题</span>
+<span class="sec-label" style="background:#1f6feb">自测题</span>
 <ol>
 <li>从 0 到 1 如何建设企业级 Agent 平台？</li>
 <li>为什么要建设统一模型网关？</li>
@@ -924,10 +1266,32 @@ footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
 </ol>
 </div>
 </article>
-<article class="day" id="d17">
+<article class="day" id="d21">
 <div class="day-head">
-<h3>Day 17｜系统设计题 2：企业客服 Agent</h3>
+<h3>第 21 节 · 系统设计题 2：企业客服 Agent</h3>
 <span class="time">⏱ 90 分钟</span>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#0a8f6f">题目</span>
+<ul>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#b8551b">重点</span>
+<ul>
+<li>意图识别。</li>
+<li>RAG 检索。</li>
+<li>工单工具调用。</li>
+<li>人工接管条件。</li>
+<li>会话状态和上下文交接。</li>
+<li>知识库更新和版本管理。</li>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#1f8a70">案例</span>
+<ul>
+<li>bot 的「意图分发 + 人工确认门」已是客服雏形——本节把它扩成完整客服 Agent 架构。</li>
+</ul>
 </div>
 <div class="sec">
 <span class="sec-label" style="background:#7a4fd6">产出</span>
@@ -937,7 +1301,7 @@ footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#1f6feb">面试题</span>
+<span class="sec-label" style="background:#1f6feb">自测题</span>
 <ol>
 <li>什么时候应该转人工？</li>
 <li>如何把上下文交给人工坐席？</li>
@@ -946,10 +1310,32 @@ footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
 </ol>
 </div>
 </article>
-<article class="day" id="d18">
+<article class="day" id="d22">
 <div class="day-head">
-<h3>Day 18｜系统设计题 3：代码 Agent</h3>
+<h3>第 22 节 · 系统设计题 3：代码 Agent</h3>
 <span class="time">⏱ 90 分钟</span>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#0a8f6f">题目</span>
+<ul>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#b8551b">重点</span>
+<ul>
+<li>沙箱隔离。</li>
+<li>仓库权限分级。</li>
+<li>命令执行策略。</li>
+<li>文件系统和网络出口控制。</li>
+<li>测试与 CI。</li>
+<li>Diff 审计和回滚。</li>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#1f8a70">案例</span>
+<ul>
+<li>bot 的 `execute_task` 是代码 Agent 调度的最小版——本节把它扩成带沙箱与审计的企业级形态。</li>
+</ul>
 </div>
 <div class="sec">
 <span class="sec-label" style="background:#7a4fd6">产出</span>
@@ -959,7 +1345,7 @@ footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#1f6feb">面试题</span>
+<span class="sec-label" style="background:#1f6feb">自测题</span>
 <ol>
 <li>代码 Agent 如何防止执行危险命令？</li>
 <li>如何限制 Agent 的文件和网络访问？</li>
@@ -968,10 +1354,32 @@ footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
 </ol>
 </div>
 </article>
-<article class="day" id="d19">
+<article class="day" id="d23">
 <div class="day-head">
-<h3>Day 19｜系统设计题 4：多 Agent 协作</h3>
+<h3>第 23 节 · 系统设计题 4：多 Agent 协作</h3>
 <span class="time">⏱ 90 分钟</span>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#0a8f6f">题目</span>
+<ul>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#b8551b">重点</span>
+<ul>
+<li>Supervisor、层级式、对等协作拓扑。</li>
+<li>子任务拆分。</li>
+<li>任务状态和消息传递。</li>
+<li>上下文与权限隔离。</li>
+<li>失败传播和任务恢复。</li>
+<li>A2A 的适用边界。</li>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#1f8a70">案例</span>
+<ul>
+<li>对比 bot 单 Agent 适配器：何时该拆多 Agent、拆了之后失败怎么定位。</li>
+</ul>
 </div>
 <div class="sec">
 <span class="sec-label" style="background:#7a4fd6">产出</span>
@@ -981,7 +1389,7 @@ footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#1f6feb">面试题</span>
+<span class="sec-label" style="background:#1f6feb">自测题</span>
 <ol>
 <li>多 Agent 的必要条件是什么？</li>
 <li>Supervisor 模式有什么问题？</li>
@@ -990,10 +1398,33 @@ footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
 </ol>
 </div>
 </article>
-<article class="day" id="d20">
+<article class="day" id="d24">
 <div class="day-head">
-<h3>Day 20｜系统设计题 5：Agent Gateway / 开放平台</h3>
+<h3>第 24 节 · 系统设计题 5：Agent Gateway / 开放平台</h3>
 <span class="time">⏱ 90～120 分钟</span>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#0a8f6f">题目</span>
+<ul>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#b8551b">重点</span>
+<ul>
+<li>统一模型 API。</li>
+<li>模型路由。</li>
+<li>Token 统计和计费。</li>
+<li>租户限流与配额。</li>
+<li>Prompt、模型和工具版本管理。</li>
+<li>Trace 和审计。</li>
+<li>灰度、回滚和 SLA。</li>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#1f8a70">案例</span>
+<ul>
+<li>bot 的「编码 Agent 适配层」就是内部 gateway 雏形——本节把它做成多租户开放平台。</li>
+</ul>
 </div>
 <div class="sec">
 <span class="sec-label" style="background:#7a4fd6">产出</span>
@@ -1004,7 +1435,16 @@ footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#1f6feb">面试题</span>
+<span class="sec-label" style="background:#c23b6a">验收</span>
+<ul>
+<li>任一题都能先澄清需求，再画架构。</li>
+<li>至少能讲出 3 个关键 Trade-off。</li>
+<li>至少能列出 6 种失败模式及处置。</li>
+<li>面对三层追问仍能给出有依据的答案（把第 21 节串讲能力落到这里）。</li>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#1f6feb">自测题</span>
 <ol>
 <li>模型网关需要解决哪些问题？</li>
 <li>如何统计单次任务的真实成本？</li>
@@ -1013,51 +1453,19 @@ footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
 </ol>
 </div>
 </article>
-<article class="day" id="d21">
-<div class="day-head">
-<h3>Day 21｜系统设计串讲与复盘</h3>
-<span class="time">⏱ 4 小时</span>
-</div>
-<div class="sec">
-<span class="sec-label" style="background:#6b7385">任务</span>
-<ul>
-<li>五道系统设计题，每道讲 8～10 分钟。</li>
-<li>随机抽一道题，限时 40 分钟完成白板设计。</li>
-<li>回听录音，记录逻辑断层、没有数据、没有 Trade-off 的地方。</li>
-<li>补齐失败模式、成本和容量估算。</li>
-</ul>
-</div>
-<div class="sec">
-<span class="sec-label" style="background:#7a4fd6">产出</span>
-<ul>
-<li>五份系统设计文档。</li>
-<li>五段讲解录音。</li>
-<li>一份薄弱点清单。</li>
-</ul>
-</div>
-<div class="sec">
-<span class="sec-label" style="background:#c23b6a">验收</span>
-<ul>
-<li>任一题都能先澄清需求，再画架构。</li>
-<li>至少能讲出 3 个关键 Trade-off。</li>
-<li>至少能列出 6 种失败模式及处置。</li>
-<li>面对三层追问仍能给出有依据的答案。</li>
-</ul>
-</div>
-</article>
 </section>
-<section class="week" id="week-4">
-<h2><span class="week-no">第 4 周</span>第 4 周：项目深挖、Coding、英文与模拟面试</h2>
-<article class="day" id="d22">
+<section class="week" id="mod-6">
+<h2><span class="week-no">模块 6</span>模块 F · 落地与复盘（第 25–30 节）</h2>
+<article class="day" id="d25">
 <div class="day-head">
-<h3>Day 22｜主项目完整集成</h3>
+<h3>第 25 节 · 主项目完整集成</h3>
 <span class="time">⏱ 90～120 分钟</span>
 </div>
 <div class="sec">
 <span class="sec-label" style="background:#6b7385">任务</span>
 <ul>
 <li>集成模型网关、Agent Runtime、工具中心、LangGraph、RAG、Memory。</li>
-<li>完成竞品监控端到端流程。</li>
+<li>完成竞品监控端到端流程（或直接以「改造后的 bot」作主项目 V0.8）。</li>
 <li>补充配置文件、异常处理和启动脚本。</li>
 </ul>
 </div>
@@ -1072,7 +1480,7 @@ footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
 <div class="sec">
 <span class="sec-label" style="background:#7a4fd6">产出</span>
 <ul>
-<li>Agent Platform Lite V0.8。</li>
+<li>Agent Platform Lite V0.8（或改造后 bot 的 Agent 版）。</li>
 <li>完整架构图。</li>
 </ul>
 </div>
@@ -1085,7 +1493,7 @@ footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#1f6feb">面试题</span>
+<span class="sec-label" style="background:#1f6feb">自测题</span>
 <ol>
 <li>请介绍你的 Agent 平台架构。</li>
 <li>为什么这样划分模块？</li>
@@ -1093,9 +1501,9 @@ footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
 </ol>
 </div>
 </article>
-<article class="day" id="d23">
+<article class="day" id="d26">
 <div class="day-head">
-<h3>Day 23｜项目指标、故障和安全复盘</h3>
+<h3>第 26 节 · 项目指标、故障和安全复盘</h3>
 <span class="time">⏱ 90 分钟</span>
 </div>
 <div class="sec">
@@ -1106,6 +1514,12 @@ footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
 <li>记录 3 个真实失败案例。</li>
 <li>检查 Prompt Injection、越权工具、跨租户数据访问。</li>
 <li>编写项目安全检查清单。</li>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#1f8a70">案例</span>
+<ul>
+<li>复盘 bot 已踩的硬伤（README 故障表）：飞书超时重试、上下文溢出、编码外部不可控——把 Workflow 的坑和 Agent 的坑分开记。</li>
 </ul>
 </div>
 <div class="sec">
@@ -1125,7 +1539,7 @@ footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#1f6feb">面试题</span>
+<span class="sec-label" style="background:#1f6feb">自测题</span>
 <ol>
 <li>你如何证明 Agent 的效果？</li>
 <li>Prompt Injection 能彻底防止吗？</li>
@@ -1134,28 +1548,29 @@ footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
 </ol>
 </div>
 </article>
-<article class="day" id="d24">
+<article class="day" id="d27">
 <div class="day-head">
-<h3>Day 24｜项目故事：2 分钟、10 分钟、30 分钟</h3>
+<h3>第 27 节 · 项目复盘与架构讲解（2 / 10 / 30 分钟三档）</h3>
 <span class="time">⏱ 90 分钟</span>
 </div>
 <div class="sec">
 <span class="sec-label" style="background:#6b7385">任务</span>
 <ul>
-<li>准备 2 分钟项目介绍。</li>
-<li>准备 10 分钟项目深挖。</li>
-<li>准备 30 分钟白板讲解。</li>
-<li>每个版本都包含业务背景、为什么用 Agent、架构取舍、指标、失败案例和复盘。</li>
+<li>准备 2 分钟版：业务背景 + 为什么用 Agent + 一句话成果。</li>
+<li>准备 10 分钟版：架构取舍 + 关键指标 + 1 个失败案例。</li>
+<li>准备 30 分钟版：白板从头推导架构，含 Trade-off 与容量。</li>
+<li>每档都包含：背景 / 为什么 Agent / 架构取舍 / 指标 / 失败复盘。</li>
+<li>用 bot 讲「从 Workflow 长成 Agent」的真实故事（呼应第 17–18 节）。</li>
 </ul>
 </div>
 <div class="sec">
 <span class="sec-label" style="background:#7a4fd6">产出</span>
 <ul>
-<li>三份项目讲解提纲。</li>
+<li>三档讲解提纲（可复用为技术评审 / 述职 / 内部分享素材）。</li>
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#1f6feb">面试题</span>
+<span class="sec-label" style="background:#1f6feb">自测题</span>
 <ol>
 <li>为什么这个场景需要 Agent？</li>
 <li>为什么不直接用规则引擎或普通 Workflow？</li>
@@ -1164,9 +1579,9 @@ footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
 </ol>
 </div>
 </article>
-<article class="day" id="d25">
+<article class="day" id="d28">
 <div class="day-head">
-<h3>Day 25｜Java / 分布式 / Coding 复习</h3>
+<h3>第 28 节 · Java / 分布式 / Coding 复习</h3>
 <span class="time">⏱ 90～120 分钟</span>
 </div>
 <div class="sec">
@@ -1209,7 +1624,7 @@ footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#1f6feb">面试题</span>
+<span class="sec-label" style="background:#1f6feb">自测题</span>
 <ol>
 <li>线程池参数如何设置？</li>
 <li>如何实现分布式幂等？</li>
@@ -1219,150 +1634,110 @@ footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
 </ol>
 </div>
 </article>
-<article class="day" id="d26">
-<div class="day-head">
-<h3>Day 26｜模拟面试 1：技术原理与项目深挖</h3>
-<span class="time">⏱ 4 小时</span>
-</div>
-<div class="sec">
-<span class="sec-label" style="background:#7a4fd6">产出</span>
-<ul>
-<li>一份模拟面试评分表。</li>
-<li>三个需要补强的问题。</li>
-</ul>
-</div>
-<div class="sec">
-<span class="sec-label" style="background:#c23b6a">验收</span>
-<ul>
-<li>不依赖背稿，能解释代码实现。</li>
-<li>被连续追问三层时不跑题。</li>
-<li>对项目数据不夸大、不编造。</li>
-</ul>
-</div>
-</article>
-<article class="day" id="d27">
-<div class="day-head">
-<h3>Day 27｜模拟面试 2：系统设计白板</h3>
-<span class="time">⏱ 4 小时</span>
-</div>
-<div class="sec">
-<span class="sec-label" style="background:#6b7385">任务</span>
-<ul>
-<li>随机抽一道系统设计题。</li>
-<li>40 分钟完成设计。</li>
-<li>20 分钟接受追问。</li>
-<li>再抽一道题做 30 分钟快速设计。</li>
-<li>复盘架构、Trade-off、容量和失败模式。</li>
-</ul>
-</div>
-<div class="sec">
-<span class="sec-label" style="background:#7a4fd6">产出</span>
-<ul>
-<li>两份白板设计稿。</li>
-<li>系统设计复盘报告。</li>
-</ul>
-</div>
-</article>
-<article class="day" id="d28">
-<div class="day-head">
-<h3>Day 28｜英文面试与行为面试</h3>
-<span class="time">⏱ 90 分钟</span>
-</div>
-<div class="sec">
-<span class="sec-label" style="background:#6b7385">任务</span>
-<ul>
-<li>英文自我介绍 2 分钟。</li>
-<li>英文讲项目 3 分钟。</li>
-<li>准备五类行为题：</li>
-<li>Conflict：团队冲突。</li>
-<li>Failure：失败经历。</li>
-<li>Ambiguity：模糊需求。</li>
-<li>Prioritization：优先级决策。</li>
-<li>Influence：跨团队影响力。</li>
-<li>准备反问面试官的问题。</li>
-</ul>
-</div>
-<div class="sec">
-<span class="sec-label" style="background:#7a4fd6">产出</span>
-<ul>
-<li>两段英文录音。</li>
-<li>五个行为题回答提纲。</li>
-</ul>
-</div>
-<div class="sec">
-<span class="sec-label" style="background:#c23b6a">验收</span>
-<ul>
-<li>能自然表达项目和技术取舍。</li>
-<li>不追求复杂语法，重点是准确、清晰、有逻辑。</li>
-</ul>
-</div>
-</article>
 <article class="day" id="d29">
 <div class="day-head">
-<h3>Day 29｜简历、岗位匹配与定级证据</h3>
+<h3>第 29 节 · 技术领导力与工程决策</h3>
 <span class="time">⏱ 90～120 分钟</span>
 </div>
 <div class="sec">
+<span class="sec-label" style="background:#2f5bff">学习</span>
+<ul>
+<li>技术负责人（Tech Lead）/ 架构师（Staff Engineer）的职责边界。</li>
+<li>架构决策记录（ADR）：何时写、写什么、怎么演进。</li>
+<li>方案评审流程：反对意见清单、决策标准、复盘机制。</li>
+<li>跨团队对齐：如何推动一个不归你管辖的技术方案。</li>
+<li>技术债的量化、可视化与排期。</li>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#1f8a70">案例</span>
+<ul>
+<li>第 1–3 节的「Workflow vs Agent 判定清单」，正是技术负责人要给团队定的规范——本节把它落成 ADR 与评审清单。</li>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#0a8f6f">资料</span>
+<ul>
+<li>Google Engineering Practices：<a href="https://google.github.io/eng-practices/" target="_blank" rel="noopener">https://google.github.io/eng-practices/</a></li>
+<li>ADR 模板：<a href="https://adr.github.io/" target="_blank" rel="noopener">https://adr.github.io/</a></li>
+<li>Staff Engineer 概念参考：<a href="https://staffeng.com/" target="_blank" rel="noopener">https://staffeng.com/</a></li>
+</ul>
+</div>
+<div class="sec">
 <span class="sec-label" style="background:#6b7385">任务</span>
 <ul>
-<li>更新中文简历和英文简历。</li>
-<li>将 Agent 平台项目放在显眼位置。</li>
-<li>使用真实数据表达成功率、成本、延迟、覆盖场景。</li>
-<li>梳理过往分布式系统、团队管理、跨团队影响力。</li>
-<li>准备中高级岗位定级证据。</li>
+<li>为主项目写 1 份 ADR：是否引入 Agent / 为什么选 LangGraph / 为什么用 MCP。</li>
+<li>模拟一次方案评审：列出至少 3 条反对意见与应对。</li>
+<li>画一张「业务团队—平台—基础设施」职责对齐图。</li>
+<li>对照技术负责人能力模型自评（分布式架构 / Agent 平台 / 工程化 / 技术领导力 / 业务理解），标注三态。</li>
 </ul>
 </div>
 <div class="sec">
 <span class="sec-label" style="background:#7a4fd6">产出</span>
 <ul>
-<li>中英文简历。</li>
-<li>项目介绍材料。</li>
-<li>定级证据清单。</li>
+<li>ADR 模板 + 1 份真实 ADR。</li>
+<li>方案评审清单（含反对意见应对）。</li>
+<li>技术领导力自查表 + 能力雷达自评表（五维 + 状态）。</li>
 </ul>
 </div>
 <div class="sec">
 <span class="sec-label" style="background:#c23b6a">验收</span>
 <ul>
-<li>每条关键经历都有背景、个人贡献和结果。</li>
-<li>项目指标可解释、可验证。</li>
-<li>不将 AI Coding 工具生成的代码量当作个人技术贡献。</li>
+<li>能说清在「做不做 / 怎么做 / 谁维护」上的决策框架。</li>
+<li>能区分技术决策与流程决策，并说明各自落地方式。</li>
+<li>ADR 能回答「为什么不是更简单方案」。</li>
 </ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#1f6feb">自测题</span>
+<ol>
+<li>技术负责人和架构师的核心区别是什么？</li>
+<li>如何推动一个跨团队但对你没有直接管辖权的技术方案？</li>
+<li>为什么要用 ADR 而不是只在 wiki 记结论？</li>
+<li>技术债如何量化并向业务方争取排期？</li>
+<li>你距离独立负责企业级 Agent 平台还差哪 2 项关键能力？</li>
+</ol>
 </div>
 </article>
 <article class="day" id="d30">
 <div class="day-head">
-<h3>Day 30｜最终模拟面试与投递准备</h3>
+<h3>第 30 节 · 综合复盘与 90 天进阶路线</h3>
 <span class="time">⏱ 4 小时</span>
 </div>
 <div class="sec">
 <span class="sec-label" style="background:#6b7385">任务</span>
 <ul>
-<li>进行一次完整模拟面试。</li>
-<li>复习 20 道 Agent 高频题。</li>
-<li>复习五道系统设计题。</li>
-<li>检查 GitHub 项目、README、演示视频。</li>
-<li>按真实 JD 更新简历关键词。</li>
-<li>建立投递跟踪表，准备内推沟通。</li>
+<li>回看 30 节全部产出（第 4 节起代码 / 时序图 / 报告）。</li>
+<li>绘制能力地图：已会 / 会但没上过生产 / 不会。</li>
+<li>写一份「后续 90 天」计划：真实业务场景落地、性能压测、线上值班、开源贡献。</li>
+<li>整理可对外分享的技术资产（GitHub README / 公众号文章 / 内部 TechTalk）。</li>
+<li>收尾：我的 bot 现在是 Workflow 还是 Agent，你怎么选（呼应第 1 节与第 17 节）。</li>
 </ul>
 </div>
 <div class="sec">
 <span class="sec-label" style="background:#7a4fd6">产出</span>
 <ul>
-<li>最终项目 V1。</li>
-<li>中英文简历。</li>
-<li>面试题清单。</li>
-<li>投递跟踪表。</li>
+<li>30 节复盘报告（认知变化 + 最强 / 最弱项）。</li>
+<li>能力地图（三态）。</li>
+<li>90 天进阶计划（可验收节点）。</li>
+<li>可分享资产清单。</li>
 </ul>
 </div>
 <div class="sec">
 <span class="sec-label" style="background:#c23b6a">验收</span>
 <ul>
-<li>能进行 2 分钟自我介绍。</li>
-<li>能讲解项目 10～30 分钟。</li>
-<li>能完成一轮系统设计。</li>
-<li>能解释核心代码、指标和架构取舍。</li>
-<li>能针对真实岗位 JD 说明匹配点和差距。</li>
+<li>能一句话说清这 30 节自己提升了什么。</li>
+<li>90 天计划有可验收里程碑，且至少有 1 项对外沉淀。</li>
+<li>能力地图能指导下一步，而非罗列知识点。</li>
 </ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#1f6feb">自测题</span>
+<ol>
+<li>这 30 节你最大的认知变化是什么？</li>
+<li>如果要带一个新人重走这条路，你会怎么改顺序？</li>
+<li>哪些能力必须靠真实生产事故 / 值班才能补齐？</li>
+</ol>
 </div>
 </article>
 </section>

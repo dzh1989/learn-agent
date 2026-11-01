@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>第 1 节 · 大模型基础认知（day01）</title>
+<style>
+  :root { --ink:#1f2328; --sub:#5b636b; --line:#e3e6ea; --card:#f7f8fa; --accent:#2f6df0; --warn:#b07a1e; }
+  * { box-sizing: border-box; }
+  body { margin:0; padding:32px 20px; background:#fff; color:var(--ink);
+         font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+         line-height:1.75; max-width:880px; margin:0 auto; }
+  h1 { font-size:26px; margin:0 0 6px; }
+  h2 { font-size:20px; margin:36px 0 10px; padding-left:10px; border-left:4px solid var(--accent); }
+  h3 { font-size:16px; margin:20px 0 6px; color:var(--sub); }
+  p { margin:8px 0; }
+  .lead { color:var(--sub); margin-top:0; }
+  .core { background:var(--card); border:1px solid var(--line); border-left:4px solid var(--warn);
+          padding:14px 16px; border-radius:8px; margin:16px 0; }
+  .core b { color:var(--warn); }
+  pre { background:#0f1115; color:#e6e6e6; padding:14px 16px; border-radius:8px; overflow:auto;
+        font-size:13px; line-height:1.6; font-family:"SF Mono",Menlo,Consolas,monospace; }
+  code { font-family:"SF Mono",Menlo,Consolas,monospace; font-size:13px; }
+  .file { color:var(--accent); font-weight:600; }
+  table { border-collapse:collapse; width:100%; margin:12px 0; font-size:14px; }
+  th, td { border:1px solid var(--line); padding:8px 10px; text-align:left; vertical-align:top; }
+  th { background:var(--card); }
+  .out { background:var(--card); border:1px dashed var(--line); padding:10px 14px; border-radius:8px;
+         font-family:"SF Mono",Menlo,Consolas,monospace; font-size:12.5px; color:var(--sub); white-space:pre-wrap; }
+  .tip { color:var(--sub); font-size:13.5px; }
+  .nav { margin-top:40px; padding-top:14px; border-top:1px solid var(--line); color:var(--sub); font-size:13.5px; }
+</style>
+</head>
+<body>
+
+<h1>第 1 节 · 大模型基础认知</h1>
+<p class="lead">不背定义，用代码把 LLM 的几个核心概念跑一遍。所有示例都支持离线 Mock（无需 key），配置 <code>OPENAI_API_KEY</code> 后自动走真实模型。</p>
+
+<div class="core">
+<b>一句话核心：</b>大模型本质上是一个 <b>“下一个 token 预测器”</b>——给它前文，它算出概率最高的下一个 token，接上去，再预测下一个，如此循环，直到说完。<code>06_tiny_predictor.py</code> 用几十行代码把这个机制从零复现了一遍。
+</div>
+
+<h2>00 · 一次最小调用</h2>
+<p>一次对话补全返回的对象里，最该记住三个字段：<code>content</code>（说了啥）、<code>usage</code>（花了多少 token）、<code>finish_reason</code>（为什么停）。</p>
+<pre><code>from llm_client import get_client
+client, _ = get_client()
+resp = client.create(
+    messages=[{"role":"user","content":"用一句话解释什么是 token"}],
+    temperature=0.2,
+)
+print(resp.choices[0].message.content)   # 模型说了啥
+print(resp.usage.total_tokens)           # 花了多少 token
+print(resp.choices[0].finish_reason)     # stop=正常 / length=被截断</code></pre>
+<div class="out">回答： token 是模型处理文本时的最小单元...
+用量： {'prompt_tokens': 18, 'completion_tokens': 42, 'total_tokens': 60}
+结束原因： stop</div>
+
+<h2>01 · Token 与成本</h2>
+<p>Token 是模型处理与<b>计费</b>的最小单元。同一段文字，英文近似“词”、中文近似“字”、代码因符号多而更碎——所以同样的预算，中文能处理的字数明显少于英文。</p>
+<pre><code>from llm_client import approx_tokens
+print(approx_tokens("Token 是大模型处理文本时的最小单元。"))   # CJK 每字≈1 token</code></pre>
+<p class="tip">装了 <code>tiktoken</code> 能看到真实切分（<code>enc.encode(text)</code> 返回 token id 列表）；没装则退化为估算，仅作量级参考。</p>
+
+<h2>02 · 上下文窗口与截断</h2>
+<p>两个上限要分清：<code>max_tokens</code> 是单次回答的生成上限（触顶则 <code>finish_reason=length</code> 被截断）；<code>Context Window</code> 是输入+输出的总 token 上限（超了要么报错，要么丢弃最早的历史）。</p>
+<div class="out">返回内容： ...（只生成了 20 token 就被掐断）
+结束原因： length</div>
+
+<h2>03 · Temperature</h2>
+<p>温度控制随机性：接近 0 每次输出稳定、可复现（适合 JSON、分类、抽取）；接近 1 发散、有创意（适合头脑风暴、文案）。</p>
+<pre><code>run_at(0.0, 3)   # 三次几乎一致
+run_at(1.2, 3)   # 三次各不相同</code></pre>
+
+<h2>04 · 流式输出</h2>
+<p><code>stream=True</code> 让首字延迟极低：用户边想边出，是大模型产品的标配体验。真实与 Mock 都支持，Mock 按字符逐个 yield。</p>
+
+<h2>05 · 结构化输出</h2>
+<p>模型默认吐自然语言，代码难直接用。用 JSON Mode（或 Function Calling）拿到结构化结果，Agent 才能把模型输出接进代码逻辑——这正是后面 Function Calling 章节的铺垫。</p>
+<pre><code>content = '{"name": "通义千问", "type": "对话大模型", "feature": "阿里发布"}'
+data = json.loads(content)   # 自然语言 → 可程序消费的对象</code></pre>
+
+<h2>06 · 从零实现“下一个字预测器”（重点）</h2>
+<p>不需要任何大模型、不需要联网。在一小段文本上统计「每个字后面最常跟哪个字」，就得到一个最简单的语言模型。GPT 做的事与下面完全同源，只是它用上亿参数的 Transformer、在万亿 token 上训练，把“概率”估得准得多。</p>
+<pre><code>def build_model(text):
+    counts = defaultdict(Counter)
+    for i in range(len(text)-1):
+        counts[text[i]][text[i+1]] += 1        # 统计 (前字 -> 后字)
+    return {a: {b: n/sum(c.values()) for b,n in c.items()}
+            for a, c in counts.items()}         # 转成概率分布
+
+def generate(model, seed, length=25, temperature=1.0):
+    cur = seed[-1]
+    for _ in range(length):
+        dist = model[cur]
+        nxt = max(dist, key=dist.get) if temperature<=0.01 \
+              else random.choices(list(dist), weights=dist.values())[0]
+        seed += nxt; cur = nxt
+    return seed</code></pre>
+<div class="out">演示 1：给定前文「大」，下一个字的概率分布 →  '模': 100.00%
+演示 2：从「大」接龙（temperature=0）→ 大模型在猜下一个字。大模型不懂语言...（固定）
+演示 3：从「大」接龙（temperature=1.5）→ 分叉处随机，更发散
+核心结论：上面的“接龙”和 GPT 是同一件事。</div>
+
+<h2>概念地图</h2>
+<table>
+<tr><th>概念</th><th>一句话</th><th>为什么重要</th></tr>
+<tr><td>Token</td><td>模型看见/计费的最小单元</td><td>成本与上下文长度都按它算</td></tr>
+<tr><td>Context Window</td><td>一次能“看到”的 token 上限</td><td>超了就截断或丢历史</td></tr>
+<tr><td>Temperature</td><td>输出随机性旋钮</td><td>低温求准、高温求活</td></tr>
+<tr><td>Streaming</td><td>逐字吐出</td><td>首字延迟低，体验好</td></tr>
+<tr><td>结构化输出</td><td>返回可解析 JSON</td><td>Agent 把模型接进代码的入口</td></tr>
+<tr><td>下一个字预测</td><td>LLM 的本质机制</td><td>所有能力都建立在这之上</td></tr>
+</table>
+
+<div class="nav">下一步：<span class="file">day02-prompt</span> · Prompt Engineering——怎么把“前文”写得更会引导模型。</div>
+
+</body>
+</html>

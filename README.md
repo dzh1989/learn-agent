@@ -4,7 +4,7 @@
 > **终极目标**：具备大型分布式系统经验、能负责企业级 AI Agent 平台与应用工程化落地的技术负责人。
 
 本仓库是公众号系列 **「30 天把自己重训成 Agent 工程师」**（公众号：**溪月散人**）的
-**代码落地**。计划本身见 [`AI-Agent-30天学习执行手册.html`](AI-Agent-30天学习执行手册.html)；
+**代码落地**。计划本身见 [`AI-Agent-系统学习手册.html`](AI-Agent-系统学习手册.html)；
 这里把计划每节变成可运行、可 review、可提交的真实产物。
 
 ## 这个仓库怎么用
@@ -19,1101 +19,1909 @@
 
 ## 关联资源
 
-- 30 节学习计划（自包含 HTML，可浏览器看 / 打印）：[`AI-Agent-30天学习执行手册.html`](AI-Agent-30天学习执行手册.html)
+- 30 节学习计划（自包含 HTML，可浏览器看 / 打印）：[`AI-Agent-系统学习手册.html`](AI-Agent-系统学习手册.html)
 - 同名公众号连载：搜索 **溪月散人**（《30 天把自己重训成 Agent 工程师》）
 
 ---
 
-## 学习进度（30 节）
+## 学习进度（42 节 · 初中高三级）
 
 | 节 | 主题 | 代码目录 | 状态 |
 |----|------|---------|------|
-| 第 1 节 | Workflow 与 Agent 的本质区别 | day01-*/（待建） | ⬜ 待产 |
-| 第 2 节 | 什么时候该用 Workflow | day02-*/（待建） | ⬜ 待产 |
-| 第 3 节 | 什么时候需要升级到 Agent | day03-*/（待建） | ⬜ 待产 |
-| [第 4 节](day04-agent-loop/) | Agent Loop 从零写 | [day04-agent-loop/](day04-agent-loop/) | ✅ 已完成 |
-| [第 5 节](day05-function-calling/) | Function Calling 与工具设计 | [day05-function-calling/](day05-function-calling/) | ✅ 已完成 |
-| 第 6 节 | MCP 协议与工具接入架构 | day06-*/（待建） | ⬜ 待产 |
-| 第 7 节 | MCP 工程化与安全 | day07-*/（待建） | ⬜ 待产 |
-| 第 8 节 | Agent 范式：ReAct、Plan-and-Execute、Reflexion | day08-*/（待建） | ⬜ 待产 |
-| 第 9 节 | 上下文工程与 LLM 基础 | day09-*/（待建） | ⬜ 待产 |
-| 第 10 节 | LangGraph 核心机制 | day10-*/（待建） | ⬜ 待产 |
-| 第 11 节 | Checkpoint、恢复与 Human-in-the-loop | day11-*/（待建） | ⬜ 待产 |
-| 第 12 节 | RAG 全链路 | day12-*/（待建） | ⬜ 待产 |
-| 第 13 节 | RAG 进阶与质量评估 | day13-*/（待建） | ⬜ 待产 |
-| 第 14 节 | Memory 记忆体系 | day14-*/（待建） | ⬜ 待产 |
-| 第 15 节 | Agent 评测体系 | day15-*/（待建） | ⬜ 待产 |
-| 第 16 节 | 可靠性、故障注入与成本优化 | day16-*/（待建） | ⬜ 待产 |
-| 第 17 节 | 实战：把 bot 改造成 Agent | day17-*/（待建） | ⬜ 待产 |
-| 第 18 节 | Workflow 与 Agent 在一个系统里共存 | day18-*/（待建） | ⬜ 待产 |
-| 第 19 节 | 系统设计答题模板（六步法） | day19-*/（待建） | ⬜ 待产 |
-| 第 20 节 | 系统设计题 1：企业级 Agent 平台 | day20-*/（待建） | ⬜ 待产 |
-| 第 21 节 | 系统设计题 2：企业客服 Agent | day21-*/（待建） | ⬜ 待产 |
-| 第 22 节 | 系统设计题 3：代码 Agent | day22-*/（待建） | ⬜ 待产 |
-| 第 23 节 | 系统设计题 4：多 Agent 协作 | day23-*/（待建） | ⬜ 待产 |
-| 第 24 节 | 系统设计题 5：Agent Gateway / 开放平台 | day24-*/（待建） | ⬜ 待产 |
-| 第 25 节 | 主项目完整集成 | day25-*/（待建） | ⬜ 待产 |
-| 第 26 节 | 项目指标、故障和安全复盘 | day26-*/（待建） | ⬜ 待产 |
-| 第 27 节 | 项目复盘与架构讲解（2 / 10 / 30 分钟三档） | day27-*/（待建） | ⬜ 待产 |
-| 第 28 节 | Java / 分布式 / Coding 复习 | day28-*/（待建） | ⬜ 待产 |
-| 第 29 节 | 技术领导力与工程决策 | day29-*/（待建） | ⬜ 待产 |
-| 第 30 节 | 综合复盘与 90 天进阶路线 | day30-*/（待建） | ⬜ 待产 |
+| 第 1 节 | 大模型基础认知 | day01-*/（待建） | ⬜ 待产 |
+| 第 2 节 | Prompt Engineering | day02-*/（待建） | ⬜ 待产 |
+| 第 3 节 | Workflow 与 Agent 的区别 | day03-*/（待建） | ⬜ 待产 |
+| [第 4 节](day04-agent-loop/) | Agent 的基本组成 | [day04-agent-loop/](day04-agent-loop/) | ✅ 已完成 |
+| [第 5 节](day05-function-calling/) | Agent Loop（手写主循环） | [day05-function-calling/](day05-function-calling/) | ✅ 已完成 |
+| 第 6 节 | Function Calling / Tool Calling | day06-*/（待建） | ⬜ 待产 |
+| 第 7 节 | Tool Registry 工具注册与管理 | day07-*/（待建） | ⬜ 待产 |
+| 第 8 节 | MCP 协议 | day08-*/（待建） | ⬜ 待产 |
+| 第 9 节 | MCP 实战 | day09-*/（待建） | ⬜ 待产 |
+| 第 10 节 | 多轮对话 Agent 实战 | day10-*/（待建） | ⬜ 待产 |
+| 第 11 节 | 执行范式（ReAct / Plan-and-Execute / Reflexion） | day11-*/（待建） | ⬜ 待产 |
+| 第 12 节 | Context Engineering | day12-*/（待建） | ⬜ 待产 |
+| 第 13 节 | RAG 基础 | day13-*/（待建） | ⬜ 待产 |
+| 第 14 节 | RAG 检索机制 | day14-*/（待建） | ⬜ 待产 |
+| 第 15 节 | RAG 实战 | day15-*/（待建） | ⬜ 待产 |
+| 第 16 节 | Agent Memory | day16-*/（待建） | ⬜ 待产 |
+| 第 17 节 | Workflow 与 Agent 混合编排 | day17-*/（待建） | ⬜ 待产 |
+| 第 18 节 | LangGraph | day18-*/（待建） | ⬜ 待产 |
+| 第 19 节 | Checkpoint、Human-in-the-loop 与 Evaluation | day19-*/（待建） | ⬜ 待产 |
+| 第 20 节 | Agent 可靠性 | day20-*/（待建） | ⬜ 待产 |
+| 第 21 节 | Agent 安全 | day21-*/（待建） | ⬜ 待产 |
+| 第 22 节 | 模型网关与模型管理 | day22-*/（待建） | ⬜ 待产 |
+| 第 23 节 | Agent 可观测性 | day23-*/（待建） | ⬜ 待产 |
+| 第 24 节 | Agent Runtime 与平台架构 | day24-*/（待建） | ⬜ 待产 |
+| 第 25 节 | 中级项目实战（竞品 Agent 骨架） | day25-*/（待建） | ⬜ 待产 |
+| 第 26 节 | 工具调用评测 | day26-*/（待建） | ⬜ 待产 |
+| 第 27 节 | 上下文压缩实战 | day27-*/（待建） | ⬜ 待产 |
+| 第 28 节 | 中级复盘与验收 | day28-*/（待建） | ⬜ 待产 |
+| 第 29 节 | Multi-Agent | day29-*/（待建） | ⬜ 待产 |
+| 第 30 节 | 综合项目架构设计 | day30-*/（待建） | ⬜ 待产 |
+| 第 31 节 | 综合项目开发 | day31-*/（待建） | ⬜ 待产 |
+| 第 32 节 | 综合项目增强 | day32-*/（待建） | ⬜ 待产 |
+| 第 33 节 | 综合项目评测与优化 | day33-*/（待建） | ⬜ 待产 |
+| 第 34 节 | 综合项目演示与阶段总结 | day34-*/（待建） | ⬜ 待产 |
+| 第 35 节 | 企业级平台深入（多租户与隔离） | day35-*/（待建） | ⬜ 待产 |
+| 第 36 节 | 企业级平台深入（调度与权限中心） | day36-*/（待建） | ⬜ 待产 |
+| 第 37 节 | 评测体系深入（基准与红队） | day37-*/（待建） | ⬜ 待产 |
+| 第 38 节 | 生产化部署与监控 | day38-*/（待建） | ⬜ 待产 |
+| 第 39 节 | Agent Skills 进阶 | day39-*/（待建） | ⬜ 待产 |
+| 第 40 节 | MCP 进阶 | day40-*/（待建） | ⬜ 待产 |
+| 第 41 节 | LangGraph 进阶 | day41-*/（待建） | ⬜ 待产 |
+| 第 42 节 | 长期延展与后续 90 天 | day42-*/（待建） | ⬜ 待产 |
 
 ---
 
-## 30 节学习计划（总纲）
+## 42 节学习计划（总纲 · 初中高三级）
 
 ## 目标
 
-具备大型分布式系统经验、能够负责企业级 AI Agent 平台和应用工程化落地的技术负责人。
+**北极星目标（个人成长）：** 具备大型分布式系统经验、能够负责企业级 AI Agent 平台和应用工程化落地的技术负责人。
 
-30 节结束时，应能够：
+**本手册定位（双轨）：** 上面是你的长期成长目标，也是你个人的北极星；但手册正文与配套公众号面向「有一定计算机基础的开发者 / AI 技术爱好者」，先理解再深入，不写零基础编程、不写面试题库、不写纯概念科普。你照着这本手册学完初+中+高三级，既能自己真正掌握 Agent，也能带着新人一起学。
 
-- 不依赖框架，独立写出 Agent 核心循环（Loop / 工具编排 / 上下文工程）；
-- 设计有状态、可恢复、可评测、可控成本的生产级 Agent 应用（LangGraph / RAG / Memory / Evaluation）；
-- 主导企业级 Agent 平台与典型业务场景（客服 / 代码 / 多 Agent / Gateway）的系统设计，讲清架构、Trade-off、失败模式、成本与容量；
-- 补齐分布式与工程化短板，并具备技术负责人的架构评审、决策记录（ADR）与跨团队对齐能力；
-- 最重要的是：能判断一个需求到底该用 Workflow 还是 Agent，并在该升级时知道改哪里。
+**节奏参考：** 「30 天」是个人学习节奏建议（约 65–76 小时：工作日 1.5–2h、周末 4h），不是节数硬约束。初级 + 中级约可在 30 天内攻完，高级作为进阶延展，可顺接「后续 90 天」。
 
----
+## 如何使用本手册
 
-## 模块 A · 认知框架：Workflow 与 Agent 的本质
+每一节统一包含 12 项：
 
-> 技术负责人最该有的不是「会不会写 Agent」，而是「知不知道什么时候不该上 Agent」。本模块用我真实跑着的 `ai-requirement-bot`（一个典型 Workflow）当标本，把这条判断线立起来。
+1. 今日学习目标　2. 为什么要学习　3. 知识点讲解（入门层/原理层/实践层）　4. 前置知识
+5. 学习资料（优先官方文档，标注是否收费/限制）　6. 动手实践（可复现步骤+预期输出）　7. 今日代码产出
+8. 今日知识产出（图/表/卡片）　9. 公众号素材　10. 验收标准（可验证）　11. 自测问题　12. 时间预算
 
-### 第 1 节 ｜ Workflow 与 Agent 的本质区别
-**时间：60～90 分钟**
+难度标签：**基础**（所有人完成）／**核心**（有编程基础）／**进阶**（有余力）。
 
-学习：
-- 判定标准只有一条：流程的下一步由谁决定？代码（if/else、状态机）决定 = Workflow；模型自主决定下一步（含工具自决、循环） = Agent。
-- Workflow 的特征：步骤固定、可复现、每一步的输入输出确定、易单测。
-- Agent 的特征：模型在循环里自己选工具、自己看结果、自己决定继续还是停。
-- 常见误解：用了 LLM 不等于 Agent；LLM 只是流程里一个确定性节点时，它还是 Workflow。
+## 三级总览
 
-案例：
-- 读 `process_message`：意图分支是 `if/elif` 写死的，不是模型选的。
-- 读 `spec_checker.build`：verdict 由纯函数算，模型只给 gates 结果——分支可测、可复现。
-- 结论：这个 bot 用了 LLM，但它是 Workflow，不是 Agent。
+| 层级 | 节数 | 目标 | 对应主题 |
+|---|---|---|---|
+| 初级 | 10 | 建立认知，跑通最小可运行 Agent | LLM 基础 / Prompt / Workflow vs Agent / Agent 组成 / Agent Loop / Function Calling / Tool Registry / MCP / 多轮对话 |
+| 中级 | 18 | 掌握核心技术 + 工程化 | 执行范式 / Context Engineering / RAG×3 / Memory / 混合编排 / LangGraph / Checkpoint·HITL / Evaluation / 可靠性 / 安全 / 模型网关 / 可观测性 / Runtime·平台 / 项目实战 |
+| 高级 | 14 | 架构、平台、综合项目、Multi-Agent | Multi-Agent / 综合竞品研究 Agent×5 / 企业级平台深入 / 评测体系 / 生产化 / 延展专题 |
 
-资料：
-- Anthropic · Building Effective Agents：https://www.anthropic.com/engineering/building-effective-agents
-- 12-Factor Agents：https://github.com/humanlayer/12-factor-agents
-
-产出：
-- 一张「Workflow vs Agent」对照卡（左侧代码决定、右侧模型决定）。
-- 一份 5 问判定清单：① 步骤固定吗 ② 需模型自决下一步吗 ③ 需多工具自治吗 ④ 需依中间结果决策吗 ⑤ 失败了能写死重试吗。
-
-验收：
-- 拿到任意一段 AI 代码，能一句话说清它是 Workflow 还是 Agent，并指出判定依据。
-- 能解释「用 LLM 的 Workflow」为什么仍可测、可复现。
-
-自测题：
-1. 判定 Workflow 与 Agent 的那一条标准是什么？
-2. 一个调用了 GPT 做文本分类的服务，是 Workflow 还是 Agent？为什么？
-3. 为什么「用了 LLM」不等于「是 Agent」？
-4. 你手头有没有一个「以为是 Agent 其实是 Workflow」的项目？
-
-### 第 2 节 ｜ 什么时候该用 Workflow
-**时间：60～90 分钟**
-
-学习：
-- Workflow 不是 Agent 的「低配版」，而是很多场景的更优解：更便宜、更可控、更好 debug、可单测覆盖。
-- 适合 Workflow 的信号：步骤明确、规则清晰、要可复现、要低成本、出错要可定位。
-- Agent 的代价：更贵（多轮调用）、更难测（非确定性）、更难 debug（链路长）、需要 eval 才敢上线。
-- 工程现实：绝大多数「AI 功能」用 Workflow 就够了，硬上 Agent 是负担。
-
-案例：
-- 需求结构化（`structure_requirement`）、RAG 问答（`rag_engine`）：纯 Workflow 就稳，上 Agent 反而引入非确定性和成本。
-- 它的「确认卡片才提交编码」是代码触发的硬门，不需要模型判断。
-
-资料：
-- Anthropic · Effective Agents（何时用 / 何时不用）：https://www.anthropic.com/engineering/building-effective-agents
-
-产出：
-- 一页「选型决策树」：从需求特征出发，输出 Workflow / Agent / 混合。
-
-验收：
-- 能给一个具体需求，画出决策树路径并说明为什么选 Workflow。
-- 能讲出 Agent 相对 Workflow 至少 3 个真实代价。
-
-自测题：
-1. 什么场景下 Workflow 比 Agent 更优？
-2. 为什么 Agent 需要评测体系才敢上线，而 Workflow 可以靠单测？
-3. 如果把一个稳定 Workflow 硬改成 Agent，通常会引入哪些问题？
-4. 「Agent 化」在你们团队是不是被当成了政治正确？举一个反例。
-
-### 第 3 节 ｜ 什么时候需要升级到 Agent
-**时间：60～90 分钟**
-
-学习：
-- 该升级的 4 类信号：① 非确定性链路（步骤无法写死）② 需动态拆解任务 ③ 需依中间结果决策 ④ 需自主调度多个工具完成一个目标。
-- 升级不是「全改」，而是「把最该自治的那一段交给循环」，其余保持 Workflow。
-- 反例：硬上 Agent 翻车的典型——把能写死的状态机换成模型自决，结果不可测、成本爆炸、debug 无门。
-- 升级原则：先 Workflow 跑通，再识别瓶颈段，最后只把瓶颈段 Agent 化。
-
-案例：
-- 现状：编码甩给外部 Agent（`execute_task` fire-and-forget + `poll_agent_tasks` 轮询），bot 自身不参与端到端自治。
-- 升级信号：若要 bot 自己完成「读代码 → 改 → 测 → 建 PR → 看结果再改」这类无法写死步骤的链路，就超出 Workflow 能力，必须引入 Agent Loop。
-
-资料：
-- 12-Factor Agents（何时引入循环）：https://github.com/humanlayer/12-factor-agents
-
-产出：
-- 一份「升级信号清单」（4 类信号 + 每条的判定问题）。
-- 一张反例卡：「硬上 Agent 翻车」的 3 个真实症状。
-
-验收：
-- 能从一个真实需求里，圈出「该 Agent 化的瓶颈段」和「应保留的 Workflow 段」。
-- 能解释为什么升级应是局部而非整体。
-
-自测题：
-1. 哪 4 类信号出现时该考虑升级到 Agent？
-2. 为什么升级应该是「局部 Agent 化」而不是「整体重写」？
-3. 举一个你见过的「硬上 Agent 翻车」案例，问题出在哪？
-4. 如果让你给团队定一条「上 Agent 的准入标准」，你会写哪三条？
+**主项目贯穿：** AI SaaS 竞品研究 Agent（输入若干 SaaS 产品名与研究目标，Agent 辅助完成资料收集、整理、对比、报告生成）。初级搭 Loop，中级接工具/RAG/Memory/LangGraph，高级完成完整业务闭环与评测。`ai-requirement-bot`（一个确定性 workflow）作为「Workflow vs Agent」对比案例，在初级第 3 节与中级第 17 节引用。
 
 ---
 
-## 模块 B · Agent 核心能力（第 4–9 节）
+## 初级
 
-> 这一部分就是「怎么写 Agent」。每一节都补一句「这一步 Workflow 做不到，必须 Agent」——把模块 A 的判断落到手上。
+### 第 1 节 ｜ 大模型基础认知
+**时间：** 基础·1.5h
 
-### 第 4 节 ｜ Agent Loop 从零写
-**时间：90～120 分钟**
+**今日学习目标：**
+- 理解 LLM、Token、Context Window、Prompt、Temperature 是什么。
+- 能独立用官方 SDK 完成一次模型调用。
 
-学习：
-- 理解 LLM、Tool、Agent、Environment 的关系。
-- 理解一次 Agent 执行的完整生命周期。
-- 模型返回 tool_calls 后，应用层如何执行工具并回传结果。
-- Agent 终止条件：无工具调用、达到最大轮次、上下文预算熔断。
+**为什么要学习：**
+不懂模型怎么"说话"和"计费"，后面所有 Agent 设计都是空中楼阁。Token 与 Context Window 直接决定成本和能处理多长的任务。
 
-案例：
-- 对比：bot 没有这个循环，所以「多步自治」它做不到——这正是它该保持 Workflow 的原因，也是第 17 节要补的东西。
+**知识点讲解：**
+- 入门层：LLM 是"预测下一个 token 的概率模型"；Token 是最小计费/处理单元（中文约 1–2 字一个 token）；Context Window 是单次对话模型能"看到"的 token 上限；Prompt 是你给模型的指令；Temperature 控制随机性（0 稳、1 发散）。
+- 原理层：模型基于前面所有 token 预测下一个；超出 Context Window 的内容会被截断或需压缩。
+- 实践层：用 SDK 发一条消息，观察返回结构（content / usage / finish_reason）。
 
-资料：
+**前置知识：** 会装 Python 包、会读 API 文档。
+
+**学习资料：**
+- OpenAI 快速开始：https://platform.openai.com/docs/quickstart
+- OpenAI 文本生成指南：https://platform.openai.com/docs/guides/text-generation
+- Anthropic 文档：https://docs.anthropic.com/en/docs/
+
+**动手实践：**
+- 步骤1：`pip install openai`（或 `anthropic`）。
+- 步骤2：写 `day01-llm-basics/call_llm.py`，调用一次 `chat.completions.create`，messages 含一条 user 提问"用一句话解释什么是 token"。
+- 步骤3：打印 `response.choices[0].message.content` 与 `response.usage`。
+- 预期输出：有正文文本，usage 含 prompt_tokens / completion_tokens / total_tokens。
+
+**今日代码产出：**
+- `day01-llm-basics/call_llm.py`：封装一次最小调用，打印 usage。
+
+**今日知识产出：**
+- 一张「Token / Context Window / Temperature」概念卡。
+
+**公众号素材：**
+- 钩子：「为什么你写的 Prompt 有时灵有时不灵？先搞懂 token 和温度。」
+
+**验收标准：**
+- 能独立跑通调用并打印 token 用量；能口头说清 token 与 Context Window 的关系。
+
+**自测问题：**
+1. 一段 500 汉字约多少 token？Context Window 不够会怎样？
+2. Temperature=0 和 =1 输出差异是什么？
+3. finish_reason 常见取值有哪些，各代表什么？
+
+**时间预算：** 基础 1.5h。
+
+### 第 2 节 ｜ Prompt Engineering
+**时间：** 基础·1.5h
+
+**今日学习目标：**
+- 区分 System / User / Assistant 角色。
+- 掌握结构化输出、少样本、约束格式三种基本技巧。
+
+**为什么要学习：**
+Agent 本质是用 Prompt 驱动模型决策。写好 Prompt 是后面所有工具调用、规划、反思的前提。
+
+**知识点讲解：**
+- 入门层：System 设定角色与规则，User 给任务，Assistant 是模型历史回复；结构化输出让程序好解析。
+- 原理层：上下文顺序、示例数量、格式约束都会影响稳定性；避免歧义能显著降低出错。
+- 实践层：让模型只返回 JSON，并定义字段。
+
+**前置知识：** 第 1 节。
+
+**学习资料：**
+- Anthropic Prompt 工程总览：https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview
+
+**动手实践：**
+- 步骤1：在 `day02-prompt/` 写 `struct_output.py`，System 要求"只返回 JSON，字段为 {name, diff}"。
+- 步骤2：输入"比较 Notion 和 飞书 的差异"，解析返回的 JSON。
+- 预期输出：可 `json.loads` 的合法 JSON，不含解释性废话。
+
+**今日代码产出：**
+- `day02-prompt/struct_output.py`：强制结构化输出的最小示例。
+
+**今日知识产出：**
+- 一张「System/User/Assistant + 结构化输出」对照卡。
+
+**公众号素材：**
+- 钩子：「让大模型乖乖返回 JSON，而不是一堆废话，只要这一步。」
+
+**验收标准：**
+- 模型稳定返回可解析 JSON；能说出 System/User 区别。
+
+**自测问题：**
+1. 为什么让模型"只返回 JSON"仍可能夹带说明文字？如何兜底？
+2. 少样本（few-shot）适合什么场景？
+3. 结构化输出与 Function Calling 有何不同？
+
+**时间预算：** 基础 1.5h。
+
+### 第 3 节 ｜ Workflow 与 Agent 的区别
+**时间：** 基础·1.5h
+
+**今日学习目标：**
+- 说清 Workflow 与 Agent 的核心区别。
+- 能判断一个任务该用 Workflow 还是 Agent。
+
+**为什么要学习：**
+这是整个系列的认知地基。很多人把"调一次大模型"或"写死流程"都叫 Agent，导致设计混乱。先分清边界，才知道什么时候该升级。
+
+**知识点讲解：**
+- 入门层：Workflow = 你（代码）写死步骤，LLM 只是流程里一个固定节点；Agent = 模型自己决定下一步调哪个工具、做几步。
+- 原理层：Workflow 确定性高、可控、好测试；Agent 灵活但难预测、需可靠性和成本护栏。
+- 实践层：看 `ai-requirement-bot` —— 它用 `if/elif` 路由意图、LLM 只在固定步骤调用一次、`MAX_SPEC_ROUND=3` 硬上限，是典型 Workflow。
+
+**前置知识：** 第 1–2 节。
+
+**学习资料：**
+- Anthropic《Effective Agents》（Workflow vs Agent 经典论述）：https://www.anthropic.com/research/building-effective-agents
+
+**动手实践：**
+- 步骤1：读 `ai-requirement-bot/process_message.py`，画出它的分支流程图。
+- 步骤2：列出三个"它处理不了、需要 Agent 自主决策"的场景。
+- 预期输出：一张流程图 + 三条场景说明。
+
+**今日代码产出：**
+- `day03-workflow-vs-agent/notes.md`：Workflow vs Agent 对比笔记 + bot 流程图。
+
+**今日知识产出：**
+- 一张「Workflow vs Agent 决策表」（适合/不适合场景）。
+
+**公众号素材：**
+- 钩子：「你以为的 Agent，可能只是个 if-else。」（认知纠偏型）
+
+**验收标准：**
+- 能用自己的话区分两者；能针对给定任务判断该用哪种。
+
+**自测问题：**
+1. 什么情况下 Workflow 优于 Agent？
+2. Agent 的"不可预测"会带来哪些工程风险？
+3. 两者能否组合？举一个组合例子。
+
+**时间预算：** 基础 1.5h。
+
+### 第 4 节 ｜ Agent 的基本组成
+**时间：** 核心·2h
+
+**今日学习目标：**
+- 说清 Agent 的 6 个基本组成：LLM / Tools / Memory / Planning / Environment / Runtime。
+- 画出一次任务的端到端流程。
+
+**为什么要学习：**
+后面每节课都是拆开讲其中一个组件。先有全局图，再深入才不会迷路。
+
+**知识点讲解：**
+- 入门层：LLM 是大脑，Tools 是手，Memory 是记忆，Planning 是计划，Environment 是外部世界，Runtime 是跑起来的容器。
+- 原理层：Runtime 负责循环调度；Planning 决定先做什么；Tools 改变 Environment 并返回观察。
+- 实践层：在纸上画出"用户提问 → Planning → 调 Tool → 观察 → 再决策 → 回答"的闭环。
+
+**前置知识：** 第 1–3 节。
+
+**学习资料：**
+- Anthropic《Effective Agents》：https://www.anthropic.com/research/building-effective-agents
+
+**动手实践：**
+- 步骤1：在 `day04-agent-components/` 写 `components.py`，用注释+空函数定义 6 个组件接口。
+- 步骤2：画一张流程图（mermaid 或手绘拍照）。
+- 预期输出：6 个组件占位代码 + 一张流程图。
+
+**今日代码产出：**
+- `day04-agent-components/components.py`：组件接口骨架。
+
+**今日知识产出：**
+- 一张「Agent 六组件」架构图。
+
+**公众号素材：**
+- 钩子：「一个能干活 AI Agent，肚子里到底装了哪 6 样东西？」
+
+**验收标准：**
+- 能画出端到端流程图并解释每个组件职责。
+
+**自测问题：**
+1. Planning 和 Tools 谁先发生？
+2. Runtime 和 Environment 的区别？
+3. 没有 Memory 的 Agent 算 Agent 吗？
+
+**时间预算：** 核心 2h。
+
+### 第 5 节 ｜ Agent Loop（手写主循环）
+**时间：** 核心·2h
+
+**今日学习目标：**
+- 不依赖任何框架，手写一个 Agent 主循环。
+- 理解"思考→行动→观察→再决策→终止"的全过程。
+
+**为什么要学习：**
+这是 Agent 的心脏。用了 LangChain/LangGraph 封装后很多人不懂底层。手写一遍，后面所有框架都是"语法糖"。
+
+**知识点讲解：**
+- 入门层：循环里模型决定"直接回答"还是"调工具"；工具结果回传给模型；满足终止条件就停。
+- 原理层：模型输出 tool_calls → 执行 → 把结果拼回 messages → 再请求；用 `finish_reason` 或自定义"终止词"判断结束。
+- 实践层：`while` 循环 + 最大轮次保护，避免无限循环。
+
+**前置知识：** 第 1–4 节。
+
+**学习资料：**
+- OpenAI Function Calling 指南：https://platform.openai.com/docs/guides/function-calling
+
+**动手实践：**
+- 步骤1：在 `day05-agent-loop/` 写 `day5_agent_loop.py`，实现 `RealLLM` 包装（统一 `.next(messages)` 接口）。
+- 步骤2：注册一个 `get_weather(city)` 工具桩，循环里解析 tool_calls 并回传。
+- 步骤3：设 `MAX_TURNS=5`，跑"北京天气怎么样，适合跑步吗"。
+- 预期输出：控制台打印每轮"思考/调用/观察"，最终给出结论。
+
+**今日代码产出：**
+- `day05-agent-loop/day5_agent_loop.py`：可运行的手写 Agent Loop（Mock/真实 LLM 可切换）。
+
+**今日知识产出：**
+- 一张「Agent Loop 时序图」（参考 day1 旧时序图）。
+
+**公众号素材：**
+- 钩子：「盯着一个 while 循环发呆的那晚，我终于懂了 Agent。」（个人故事型，呼应第 0 篇）
+
+**验收标准：**
+- 不依赖框架跑通循环；能解释终止条件；超 MAX_TURNS 能安全退出。
+
+**自测问题：**
+1. 工具结果如何"回传"给模型？
+2. 为什么必须设最大轮次？
+3. 模型怎么决定"直接回答"还是"调工具"？
+
+**时间预算：** 核心 2h。
+
+### 第 6 节 ｜ Function Calling / Tool Calling
+**时间：** 核心·2h
+
+**今日学习目标：**
+- 理解 Function Calling 机制：模型输出工具名+参数，你来执行。
+- 用 JSON Schema 定义工具参数。
+
+**为什么要学习：**
+这是 Agent "动手"的方式。上节用了工具桩，这节讲清楚参数怎么定义、模型怎么填。
+
+**知识点讲解：**
+- 入门层：你给模型一份"工具说明书"（名称/描述/参数 schema），模型返回要调哪个、参数是什么。
+- 原理层：JSON Schema 描述类型与必填；模型做"填表"，不真执行。
+- 实践层：把第 5 节的 `get_weather` 改成标准 tools 声明。
+
+**前置知识：** 第 5 节。
+
+**学习资料：**
 - OpenAI Function Calling：https://platform.openai.com/docs/guides/function-calling
-- Anthropic Building Effective Agents：https://www.anthropic.com/engineering/building-effective-agents
 
-代码：
-- 创建 `agent-platform-lite/`。
-- 编写 `agent/runtime/loop.py`。
-- 定义 calculator 和 competitor_search_mock 两个工具。
-- 实现模型调用 → 解析 tool_call → 执行工具 → 回灌结果 → 再次请求模型。
-- 增加最大轮次、总 Token 预算和重复工具调用检测。
+**动手实践：**
+- 步骤1：在 `day06-function-calling/` 定义 `tools=[{type, function:{name, description, parameters}}]`。
+- 步骤2：跑"对比北京和上海今天温度"，观察模型分两次调用。
+- 预期输出：两次 tool_calls，参数分别为两城市。
 
-产出：
-- 一个可运行的 Agent Loop。
-- 一张 Agent 执行时序图（九步）。
+**今日代码产出：**
+- `day06-function-calling/day6_function_calling.py`：标准 Function Calling 示例。
 
-验收：
-- 能完成至少一次工具调用和两轮连续工具调用。
-- 模型返回错误参数时，不发生程序崩溃。
-- 达到最大轮次时能返回明确的终止状态。
+**今日知识产出：**
+- 一张「Function Calling 调用时序」图。
 
-自测题：
-1. Agent 和普通 LLM Chat 有什么区别？
-2. Agent Loop 的核心流程是什么？
-3. 如何防止 Agent 无限循环？
-4. 工具执行失败后，应该由模型重试还是应用层重试？
+**公众号素材：**
+- 钩子：「大模型不会用工具，是你没给它'说明书'。」
 
-### 第 5 节 ｜ Function Calling 与工具设计
-**时间：90～120 分钟**
+**验收标准：**
+- 能用 JSON Schema 定义工具；模型正确返回工具名与参数。
 
-学习：
-- tool_choice 的 auto、required、指定工具模式。
-- JSON Schema 与参数校验。
-- 并行工具调用与串行依赖。
-- 结构化输出和工具调用的区别。
-- 工具粒度如何设计。
+**自测问题：**
+1. 模型返回 tool_calls 后，谁来真正执行？
+2. parameters 里 required 字段的作用？
+3. Function Calling 和"让模型输出 JSON 让你执行"有何异同？
 
-案例：
-- 对比：bot 的工具是代码分支写死的（发卡片 / 查 RAG），不是模型按结果自选——这正是 Workflow 与 Agent 在「工具调用」上的分水岭。
+**时间预算：** 核心 2h。
 
-资料：
-- OpenAI Function Calling：https://platform.openai.com/docs/guides/function-calling
-- Pydantic：https://docs.pydantic.dev/
+### 第 7 节 ｜ Tool Registry 工具注册与管理
+**时间：** 核心·2h
 
-代码：
-- 编写 `agent/tools/registry.py`。
-- 建立工具注册表：工具名称、描述、参数 Schema、执行函数、权限要求。
-- 为工具参数增加 Pydantic 校验。
-- 实现两个互不依赖的工具并行调用。
-- 实现工具执行结果的统一格式：success、data、error、retryable。
+**今日学习目标：**
+- 设计工具注册中心：名称、描述、参数、执行、异常处理、权限。
+- 支持并行调用与错误隔离。
 
-产出：
-- 工具注册中心 V0。
-- 《工具设计规范》一页。
+**为什么要学习：**
+真实 Agent 有几十个工具。散着写 if-else 会崩；需要一个注册中心统一管理。
 
-验收：
-- 参数缺失、类型错误、非法枚举值都能被拦截。
-- 并行工具结果能正确对应原始 tool_call_id。
-- 工具错误不会直接暴露内部堆栈给模型或用户。
+**知识点讲解：**
+- 入门层：工具=一个带元数据的函数；注册中心用字典按名查。
+- 原理层：用 `tool_call_id` 配对"请求-结果"；并行执行用并发；单工具失败不影响整体（错误隔离）。
+- 实践层：在上节基础上抽 `ToolRegistry`，加参数校验与异常捕获。
 
-自测题：
-1. 如何设计一个模型不容易误用的工具？
-2. Function Calling 和普通 HTTP API 有什么区别？
-3. 并行工具调用有哪些风险？
-4. 工具粒度应该按 API 还是业务动作设计？
+**前置知识：** 第 6 节。
 
-### 第 6 节 ｜ MCP 协议与工具接入架构
-**时间：90～120 分钟**
+**学习资料：**
+- LangChain Tool 概念（参考，不必用框架）：https://python.langchain.com/docs/concepts/tools/
 
-学习：
-- MCP Host、Client、Server 三种角色。
-- Tools、Resources、Prompts 的作用。
-- stdio 和 Streamable HTTP 的使用场景。
-- MCP 和传统插件体系的区别。
-- MCP 的权限、安全和传输边界。
+**动手实践：**
+- 步骤1：在 `day07-tool-registry/agent/tools/registry.py` 实现 `ToolRegistry`：注册、参数校验、并行 `execute_many`、错误隔离。
+- 步骤2：注册 3 个工具，故意让一个抛错，验证其余正常返回。
+- 预期输出：错误工具返回错误信息字符串，其余返回真实结果。
 
-案例：
-- 延伸：bot 的编码 Agent 适配器（Trace / Qoder）就是「外部工具接入」的雏形——MCP 把它标准化了。
+**今日代码产出：**
+- `day07-tool-registry/agent/tools/registry.py`：工具注册中心 V0。
 
-资料：
-- MCP 官方文档：https://modelcontextprotocol.io/
-- MCP Specification：https://modelcontextprotocol.io/specification/
+**今日知识产出：**
+- 一张「Tool Registry 结构」图（含权限字段预留）。
 
-代码：
-- 创建 `mcp/server.py`。
-- 暴露 `search_competitors`、`get_competitor_detail` 两个 Tool。
-- 暴露一个竞品基础信息 Resource。
-- 通过官方 SDK 启动 MCP Server。
-- 画出 Host → Client → Server → Tool 的时序图。
+**公众号素材：**
+- 钩子：「Agent 有 30 个工具时，别再用 if-else 了。」
 
-产出：
-- 一份可运行的 MCP Server。
-- MCP 调用时序图。
+**验收标准：**
+- 能注册/并行调用工具；单工具异常被隔离；参数非法有清晰报错。
 
-验收：
-- 能通过 MCP Client 发现工具。
-- 能成功调用两个工具。
-- 能解释工具发现、参数传递和结果返回的过程。
+**自测问题：**
+1. 为什么要用 tool_call_id 配对？
+2. 并行调用时如何保证结果不乱序？
+3. 工具权限字段预留解决什么问题？
 
-自测题：
-1. MCP 解决了什么问题？
-2. MCP 和 Function Calling 是什么关系？
-3. MCP 和 A2A 有什么区别？
-4. MCP 是否适合所有内部服务？为什么？
+**时间预算：** 核心 2h。
 
-### 第 7 节 ｜ MCP 工程化与安全
-**时间：90～120 分钟**
+### 第 8 节 ｜ MCP 协议
+**时间：** 核心·2h
 
-学习：
-- 工具鉴权、最小权限和凭证管理。
-- 超时、错误码、大结果集处理。
-- MCP Server 的部署和版本管理。
-- 工具注册、健康检查和能力发现。
+**今日学习目标：**
+- 说清 MCP 是什么、解决什么、与 Function Calling 的区别。
+- 理解 Host / Client / Server / Tools / Resources / Prompts。
 
-案例：
-- 延伸：bot 的飞书验签 + 人工确认门，正是「工具调用要受控」的真实样本——MCP 把这套机制做成了协议层。
+**为什么要学习：**
+MCP 是 Agent 连接外部工具与数据源的"标准插头"。但别把它神化——它只是标准化连接方式，不是 Agent 本身。
 
-资料：
-- MCP 官方文档：https://modelcontextprotocol.io/
-- OWASP Top 10 for LLM Applications：https://owasp.org/www-project-top-10-for-large-language-model-applications/
+**知识点讲解：**
+- 入门层：MCP = Model Context Protocol，让任意工具/数据源用统一协议被 Agent 调用，避免每家重写适配。
+- 原理层：Host 跑 Agent，Client 连 Server，Server 暴露 Tools/Resources/Prompts；通信走标准协议。
+- 实践层：对比——Function Calling 是"模型调工具的格式"，MCP 是"工具怎么被发现的传输层"。
 
-代码：
-- 给 MCP 工具加入 Token 鉴权。
-- Token 从环境变量读取，不进入 Prompt。
-- 加入超时、结果大小限制和错误映射。
-- 为工具增加权限声明和调用审计。
-- 编写 3 个非法调用测试。
+**前置知识：** 第 6–7 节。
 
-产出：
-- MCP Server V1。
-- 工具权限矩阵。
+**学习资料：**
+- MCP 官方文档（架构）：https://modelcontextprotocol.io/docs/concepts/architecture
+- MCP 快速开始：https://modelcontextprotocol.io/quickstart
 
-验收：
-- 未授权请求无法执行工具。
-- 超时能返回可识别错误。
-- 敏感凭证不会出现在日志和模型上下文中。
+**动手实践：**
+- 步骤1：读 MCP 架构文档，画出 Host/Client/Server 关系图。
+- 步骤2：列出 MCP 的 Tools/Resources/Prompts 分别解决什么。
+- 预期输出：一张架构图 + 三段说明。
 
-自测题：
-1. MCP Server 如何做身份认证和授权？
-2. 工具执行结果过大怎么办？
-3. 如何防止 Agent 越权调用工具？
-4. MCP 工具如何实现版本兼容？
+**今日代码产出：**
+- `day08-mcp/mcp_notes.md`：MCP 概念笔记 + 架构图。
 
-### 第 8 节 ｜ Agent 范式：ReAct、Plan-and-Execute、Reflexion
-**时间：90～120 分钟**
+**今日知识产出：**
+- 一张「MCP vs Function Calling」对比表。
 
-学习：
-- ReAct：思考、行动、观察。
-- Plan-and-Execute：先规划，再执行。
-- Reflexion：失败后反思和重试。
-- Workflow 与 Agent 的区别（呼应第 1 节）。
-- 多 Agent 的适用条件。
+**公众号素材：**
+- 钩子：「MCP 火了，但它不是 Agent，只是个插头。」（认知纠偏）
 
-案例：
-- 对比：bot 的 3 轮硬限追问 = 手写 Plan 的退化版，缺 Reflexion 的「失败后反思」——所以它卡在第 3 轮就停，不会自己换思路。
+**验收标准：**
+- 能说清 MCP 与 Function Calling 的区别；能画出三者关系。
 
-资料：
-- Anthropic Building Effective Agents：https://www.anthropic.com/engineering/building-effective-agents
-- 12-Factor Agents：https://github.com/humanlayer/12-factor-agents
+**自测问题：**
+1. MCP 解决的核心痛点是什么？
+2. Resources 和 Tools 的区别？
+3. 为什么 MCP 不等于 Agent？
 
-代码：
-- 为同一个竞品分析任务实现 ReAct 和 Plan-and-Execute 两种执行方式。
-- 记录模型调用次数、工具调用次数、Token、成功率。
-- 失败时增加一次受限反思重试。
-- 对比三种模式的成本和效果。
+**时间预算：** 核心 2h。
 
-产出：
-- Agent 范式对比表（实测数据）。
+### 第 9 节 ｜ MCP 实战
+**时间：** 核心·2.5h
 
-验收：
-- 能说清三种范式各自适用的任务。
-- 能用真实实验数据解释为什么选其中一种。
-- 不把多 Agent 当成默认架构。
+**今日学习目标：**
+- 自己实现一个简单 MCP Server，暴露一个工具。
+- 用 MCP Client 连接，让 Agent 通过 MCP 调工具。
 
-自测题：
-1. ReAct 和 Plan-and-Execute 有什么区别？
-2. 什么情况下需要多 Agent？
-3. 固定 Workflow 和 Agent 如何组合？
-4. 为什么有时一个 Agent 加多个好工具，比多个 Agent 更好？
+**为什么要学习：**
+上节是概念，这节动手，建立"协议真能跑"的信心。
 
-### 第 9 节 ｜ 上下文工程与 LLM 基础
-**时间：90～120 分钟**
+**知识点讲解：**
+- 入门层：Server 用 SDK 注册一个 tool；Client 连上后把工具列表交给模型。
+- 原理层：Client 把 MCP 工具翻译成模型可用的 tools 声明；调用经协议转发到 Server 执行。
+- 实践层：用官方 SDK 写最小 Server + Client。
 
-学习：
-- System Prompt、历史消息、工具返回、用户输入的上下文结构。
-- Token、Context Window、Embedding、Temperature。
-- Transformer 和 Attention 的基本作用。
-- Prefill、Decode、KV Cache 的基本概念。
-- 上下文压缩、摘要和外部检索。
+**前置知识：** 第 8 节。
 
-案例：
-- 看 bot 的 `_history_for`：它已经在手工管理上下文窗口（裁系统追加、限 6 轮）——这正是上下文工程的雏形，只是写死在代码里。
+**学习资料：**
+- MCP Python SDK：https://github.com/modelcontextprotocol/python-sdk
+- MCP 快速开始：https://modelcontextprotocol.io/quickstart
 
-资料：
-- Anthropic Context Engineering：https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents
-- Hugging Face NLP Course：https://huggingface.co/learn/nlp-course/
+**动手实践：**
+- 步骤1：在 `day09-mcp-lab/` 用 `mcp` SDK 写 `server.py`，暴露 `get_weather(city)`。
+- 步骤2：写 `client.py` 连接，把工具交给手写 Agent Loop（第 5 节）。
+- 步骤3：跑"北京天气"，观察完整调用链路。
+- 预期输出：Agent 经 MCP 调工具并打印结果。
 
-代码：
-- 编写 `agent/context/manager.py`。
-- 实现 Prompt 分层模板。
-- 统计输入 Token、输出 Token 和工具结果 Token。
-- 实现历史消息滚动摘要。
-- 对比原始工具结果与结构化摘要对任务效果的影响。
+**今日代码产出：**
+- `day09-mcp-lab/server.py` + `client.py`：最小可运行 MCP 链路。
 
-产出：
-- 上下文管理模块。
-- Token 预算表。
-- 第一周集成产物：项目 V0.1 + 3～5 分钟演示（把 Loop / 注册中心 / MCP 跑通端到端）。
+**今日知识产出：**
+- 一张「MCP 完整调用链路」时序图。
 
-验收：
-- 能解释上下文窗口为什么会影响 Agent 效果。
-- 超长工具结果不会无限进入上下文。
-- 压缩后仍能保留用户关键约束。
-- 能脱离框架解释一次完整 Agent 调用、讲清工具调用与终止条件。
+**公众号素材：**
+- 钩子：「30 行代码，让你自己的工具被任意 Agent 调用。」（实战型）
 
-自测题：
-1. Context Window 和 Token 是什么关系？
-2. KV Cache 解决什么问题？
-3. 为什么上下文越长不一定越好？
-4. 如何避免上下文压缩导致关键约束丢失？
+**验收标准：**
+- 自写 MCP Server 被正确调用；能描述 Client→Server 全过程。
+
+**自测问题：**
+1. MCP Server 启动后，Client 怎么知道有哪些工具？
+2. 用 MCP 和直接写函数，对 Agent 代码有什么区别？
+3. 一个 Server 暴露多个工具怎么做？
+
+**时间预算：** 核心 2.5h。
+
+### 第 10 节 ｜ 多轮对话 Agent 实战
+**时间：** 核心·2.5h
+
+**今日学习目标：**
+- 实现一个支持多轮、多工具、有历史管理、记录 Token 的 Agent。
+- 对比简单 Chatbot 与 Agent 的差异。
+
+**为什么要学习：**
+初级收尾：把前面学的 Loop + 工具 + 历史串成一个能用的小 Agent，跑通主项目雏形。
+
+**知识点讲解：**
+- 入门层：多轮=把历史 messages 一直传回；多工具=注册多个；历史管理=控制长度。
+- 原理层：Token 预算决定能留多少历史；最大轮次防失控。
+- 实践层：在主项目目录落地 `agent.py` 雏形。
+
+**前置知识：** 第 5–7、9 节。
+
+**学习资料：**
+- 复习第 5、7 节代码。
+
+**动手实践：**
+- 步骤1：在 `day10-multi-turn/` 整合 Loop + Registry + 历史裁剪，支持 2 个工具。
+- 步骤2：连续问两个问题，验证历史生效；打印累计 token。
+- 预期输出：两轮对话连贯，token 累计正确。
+
+**今日代码产出：**
+- `day10-multi-turn/agent.py`：多轮多工具 Agent 雏形（主项目基座）。
+
+**今日知识产出：**
+- 一张「Chatbot vs Agent」差异表。
+
+**公众号素材：**
+- 钩子：「Chatbot 和 Agent 差的不只是一个循环。」（结果导向）
+
+**验收标准：**
+- 多轮对话连贯；Token 可统计；能说清与 Chatbot 差异。
+
+**自测问题：**
+1. 历史越长，成本和效果怎么变？
+2. 为什么要裁剪历史？
+3. 多工具下模型如何选对的那个？
+
+**时间预算：** 核心 2.5h。
 
 ---
 
-## 模块 C · 生产化（第 10–16 节）
+## 中级
 
-> 从能运行的 Agent，升级到有状态、可恢复、可评测、可控成本的 Agent 应用。
+### 第 11 节 ｜ 执行范式（ReAct / Plan-and-Execute / Reflexion）
+**时间：** 核心·2h
 
-### 第 10 节 ｜ LangGraph 核心机制
-**时间：90～120 分钟**
+**今日学习目标：**
+- 理解三种经典 Agent 范式及适用场景。
 
-学习：
-- State、Node、Edge。
-- 条件路由。
-- Checkpoint。
-- LangGraph 与手写 Agent Loop 的关系。
-- 固定 Workflow 与动态 Agent 的组合。
+**为什么要学习：**
+手写 Loop 是"裸"的。三种范式是前人总结的"套路"，知道它们才能选对结构。
 
-案例：
-- 点破：很多人以为「上了 LangGraph 就是 Agent」，其实它只是把 Workflow 用框架表达——Loop 才是 Agent 的灵魂。
+**知识点讲解：**
+- 入门层：ReAct=边想边做；Plan-and-Execute=先列计划再执行；Reflexion=做完反思改进。
+- 原理层：ReAct 灵活但易散；Plan 适合长任务但计划可能过期；Reflexion 加自我批评提升质量。
+- 实践层：在 `day11-paradigms/` 各写最小骨架对比。
 
-资料：
-- LangGraph 官方文档：https://docs.langchain.com/oss/python/langgraph/overview
+**前置知识：** 第 5 节。
 
-代码：
-- 创建 `agent/graph/workflow.py`。
-- 把竞品分析流程拆为输入、检索、分析、结果生成四个 Node。
-- 定义共享 State。
-- 增加条件路由：信息不足时返回补充检索节点。
+**学习资料：**
+- ReAct 论文：https://arxiv.org/abs/2210.03629
+- Reflexion 论文：https://arxiv.org/abs/2303.11366
+- LangGraph Plan-and-Execute：https://langchain-ai.github.io/langgraph/tutorials/plan-and-execute/
 
-产出：
-- 一个 LangGraph 工作流。
+**动手实践：**
+- 步骤1：写 `react.py` / `plan_execute.py` 骨架，注释关键差异。
+- 预期输出：三个可运行骨架 + 一段对比笔记。
 
-验收：
-- 能画出 Graph。
-- 能解释 State 如何在节点之间传递。
-- 能解释 LangGraph 相比手写循环解决了什么问题。
+**今日代码产出：**
+- `day11-paradigms/`：三种范式最小骨架。
 
-自测题：
-1. LangGraph 的 State、Node、Edge 分别是什么？
-2. 为什么 Agent 需要状态管理？
-3. LangGraph 和普通 Workflow 引擎有什么区别？
-4. 什么情况下不需要 LangGraph？
+**今日知识产出：**
+- 一张「三范式对比」表（灵活性/可控性/适用）。
 
-### 第 11 节 ｜ Checkpoint、恢复与 Human-in-the-loop
-**时间：90～120 分钟**
+**公众号素材：**
+- 钩子：「Agent 不会思考？三种'思考套路'给它装上。」
 
-学习：
-- Checkpoint 和任务持久化。
-- 中断与恢复。
-- 人工审批节点。
-- 长任务状态管理。
-- 重复执行和恢复时的幂等问题。
+**验收标准：**
+- 能说清三范式差异与选型；骨架能跑。
 
-案例：
-- bot 的「确认卡片才提交编码」就是 HITL，但它是代码触发不是 Agent 判断——本节把它升级成 Agent 可暂停、可恢复。
+**自测问题：**
+1. 长任务为什么更适合 Plan-and-Execute？
+2. Reflexion 的"反思"存在哪里？
+3. 三范式能否组合？
 
-资料：
-- LangGraph Persistence：https://docs.langchain.com/oss/python/langgraph/persistence
-- LangGraph Human-in-the-loop：https://docs.langchain.com/oss/python/langgraph/interrupts
+**时间预算：** 核心 2h。
 
-代码：
-- 为竞品报告流程增加 Checkpoint。
-- 在发布报告前增加人工确认节点。
-- 模拟程序中断后从上次状态恢复。
-- 确保恢复执行不会重复写入相同报告。
+### 第 12 节 ｜ Context Engineering
+**时间：** 核心·2h
 
-产出：
-- 可中断、可恢复的工作流。
+**今日学习目标：**
+- 理解上下文工程：如何组织 Prompt/历史/工具结果。
+- 掌握上下文压缩与历史管理。
 
-验收：
-- 能暂停任务并保存状态。
-- 人工确认后能从暂停位置继续。
-- 重启后不会无条件从头执行。
+**为什么要学习：**
+Agent 的"聪明程度"很大程度取决于你喂给模型的上下文质量，而非模型本身。
 
-自测题：
-1. Checkpoint 解决什么问题？
-2. Human-in-the-loop 如何实现？
-3. 长任务恢复时如何避免重复副作用？
-4. 人工审批和模型置信度判断有什么区别？
+**知识点讲解：**
+- 入门层：Context = 系统提示+历史+工具结果+当前任务；塞太多废话会干扰。
+- 原理层：Context Window 有限；压缩=摘要旧历史/只留关键；裁剪=丢最旧。
+- 实践层：给第 10 节的 Agent 加"历史超阈值自动摘要"。
 
-### 第 12 节 ｜ RAG 全链路
-**时间：90～120 分钟**
+**前置知识：** 第 10 节。
 
-学习：
-- 文档解析和 Chunking。
-- Embedding。
-- 向量检索、关键词检索和 Hybrid Search。
-- Rerank。
-- Query Rewrite。
-- RAG 适用边界。
+**学习资料：**
+- Anthropic《Context Engineering》：https://www.anthropic.com/engineering/effective-context-engineering
 
-案例：
-- bot 的 `rag_engine` + `okf_parser` + `git_sync` 是现成的 RAG 全链路样本——直接当教材拆。
+**动手实践：**
+- 步骤1：在 `day12-context/` 实现 `compress_history(messages)`，超过 N token 则摘要。
+- 预期输出：长对话下 token 不再线性增长。
 
-资料：
-- Hugging Face：https://huggingface.co/learn/nlp-course/
-- OpenAI Embeddings：https://platform.openai.com/docs/guides/embeddings
+**今日代码产出：**
+- `day12-context/compress.py`：上下文压缩模块。
 
-代码：
-- 创建 `agent/rag/`。
-- 导入 10～20 份竞品说明文档或自建样本文档。
-- 实现文档切分、Embedding 和向量检索。
-- 增加关键词检索或 Hybrid Search。
-- 对比 Top-3 检索结果。
+**今日知识产出：**
+- 一张「上下文组成与压缩策略」图。
 
-产出：
-- RAG V1。
-- 10 条检索问题和结果记录。
+**公众号素材：**
+- 钩子：「Agent 笨，可能因为你把上下文喂错了。」
 
-验收：
-- 能根据问题找到对应文档片段。
-- 能解释 Chunking、Embedding、Rerank 的作用。
-- 能说清哪些问题应该走 SQL/API，而不是 RAG。
+**验收标准：**
+- 能解释压缩/裁剪；长对话 token 受控。
 
-自测题：
-1. RAG 的完整链路是什么？
-2. Chunking 如何选择？
-3. 向量检索和关键词检索如何组合？
-4. 什么场景不应该使用 RAG？
+**自测问题：**
+1. 压缩和裁剪的区别？
+2. 什么信息绝不能丢？
+3. 工具结果太长怎么处理？
 
-### 第 13 节 ｜ RAG 进阶与质量评估
-**时间：90～120 分钟**
+**时间预算：** 核心 2h。
 
-学习：
-- Advanced RAG。
-- Query Rewrite。
-- Rerank。
-- Recall@K、MRR、NDCG 的概念。
-- 检索质量与最终答案质量的区别。
+### 第 13 节 ｜ RAG 基础
+**时间：** 核心·2h
 
-案例：
-- 用 bot 的增量索引（`sync_files` by hash）讲工程化取舍：全量重跑 vs 增量同步。
+**今日学习目标：**
+- 理解 RAG 是什么、解决什么、与微调的区别。
+- 理解文档解析、Chunking、Embedding。
 
-资料：
-- OpenAI Evals：https://platform.openai.com/docs/guides/evals
+**为什么要学习：**
+Agent 需要"外部知识"时，RAG 是最常用手段。但先搞清楚它适合什么，别无脑上。
 
-代码：
-- 为 10～20 条问题准备标准答案和相关文档。
-- 对比纯向量、Hybrid Search、Hybrid + Rerank。
-- 计算 Top-3 命中率。
-- 对错误召回做归因。
+**知识点讲解：**
+- 入门层：RAG = 先检索相关文档片段，再让模型基于它回答；解决"模型不知道你私有数据"的问题。
+- 原理层：文档切块（Chunk）→ 向量化（Embedding）→ 存向量库；提问时检索最相似的块。
+- 实践层：用 sentence-transformers 做 Embedding 体验。
 
-产出：
-- RAG 评测报告。
+**前置知识：** 第 1 节（Embedding 概念）。
 
-验收：
-- 能解释不同检索方案的效果差异。
-- 能指出问题出在召回、排序还是生成。
-- 不把最终回答正确率简单等同于检索准确率。
+**学习资料：**
+- LangChain RAG 教程：https://python.langchain.com/docs/tutorials/rag/
+- sentence-transformers：https://www.sbert.net/
 
-自测题：
-1. RAG 召回率低怎么排查？
-2. Rerank 有什么代价？
-3. Recall@K 和 MRR 分别衡量什么？
-4. 如何评估 RAG 的效果？
+**动手实践：**
+- 步骤1：在 `day13-rag-basics/` 装 `sentence-transformers`，对 3 段文本做 `encode`。
+- 步骤2：计算查询与段落的相似度，取最高。
+- 预期输出：查询命中最相关段落。
 
-### 第 14 节 ｜ Memory 记忆体系
-**时间：90～120 分钟**
+**今日代码产出：**
+- `day13-rag-basics/embed.py`：最小 Embedding + 相似度示例。
 
-学习：
-- 短期上下文窗口。
-- 滚动摘要。
-- 结构化用户档案。
-- 长期向量记忆。
-- 记忆写入、更新、读取、过期和删除策略。
+**今日知识产出：**
+- 一张「RAG 流程图」（解析→切块→向量化→检索→生成）。
 
-案例：
-- bot 的 `session_store` 是「短期上下文」的最小实现，缺长期档案——本节补齐。
+**公众号素材：**
+- 钩子：「让大模型读懂你的公司内部文档，靠的不是微调。」
 
-资料：
-- LangGraph Memory：https://docs.langchain.com/oss/python/langgraph/add-memory
+**验收标准：**
+- 能说清 RAG 与微调区别；Embedding 相似度可跑。
 
-代码：
-- 创建 `agent/memory/manager.py`。
-- 实现会话短期记忆。
-- 实现竞品历史结论的结构化存储。
-- 实现跨会话读取。
-- 增加 TTL 和删除逻辑。
+**自测问题：**
+1. 什么场景 RAG 优于微调？
+2. Chunk 太大或太小各有什么问题？
+3. Embedding 模型作用是什么？
 
-产出：
-- Memory V1。
-- 记忆读写决策图。
+**时间预算：** 核心 2h。
 
-验收：
-- 第二次会话能召回之前确认过的竞品信息。
-- 临时状态不会被无条件写入长期记忆。
-- 能删除指定记忆。
+### 第 14 节 ｜ RAG 检索机制
+**时间：** 核心·2h
 
-自测题：
-1. Agent Memory 与普通 Chat History 有什么区别？
-2. 哪些信息应该进入长期记忆？
-3. 如何处理过期记忆？
-4. 记忆系统如何满足用户删除要求？
+**今日学习目标：**
+- 理解向量检索、关键词检索、混合检索、Rerank、Query Rewrite。
+- 知道 RAG 的适用边界。
 
-### 第 15 节 ｜ Agent 评测体系
-**时间：90～120 分钟**
+**为什么要学习：**
+基础 RAG 经常"检索不准"。检索质量直接决定答案质量。
 
-学习：
-- 离线评测集。
-- 正常、边界、恶意、应拒答四类样本。
-- 结果层、过程层、系统层指标。
-- LLM-as-judge。
-- 人工抽检和评测校准。
+**知识点讲解：**
+- 入门层：向量查语义相似；关键词查字面命中；混合=两者结合；Rerank 再排序；Query Rewrite 改写提问。
+- 原理层：向量检索召回广但可能不精准；Rerank 用小模型重排提升 top 相关。
+- 实践层：用 Chroma 做向量检索，对比加/不加 Rerank。
 
-案例：
-- 呼应第 1 节：bot 作为 Workflow 靠单测可测；Agent 必须建 eval 才敢上线——这是两者工程成本和可靠性的分水岭。
+**前置知识：** 第 13 节。
 
-资料：
-- OpenAI Evals：https://platform.openai.com/docs/guides/evals
+**学习资料：**
+- Chroma 文档：https://docs.trychroma.com/
+- LangChain Reranker 用法：https://python.langchain.com/docs/integrations/retrievers/
 
-代码：
-- 创建 `evals/dataset.jsonl`。
-- 准备至少 30 条测试样本。
-- 记录任务成功率、工具选择准确率、平均轮次、P95 延迟。
-- 增加 LLM-as-judge 评分。
-- 人工抽检至少 10 条。
+**动手实践：**
+- 步骤1：在 `day14-rag-retrieval/` 用 Chroma 建库，分别跑纯向量与"向量+Rerank"。
+- 预期输出：Rerank 后 top1 更相关（人工判断）。
 
-产出：
-- `evals/run_eval.py`。
-- Agent 评测报告。
+**今日代码产出：**
+- `day14-rag-retrieval/retrieve.py`：检索+重排对比。
 
-验收：
-- 可以重复运行评测。
-- 每次修改 Prompt 或模型后能对比效果。
-- 能解释 Judge 的偏差及人工校准方法。
+**今日知识产出：**
+- 一张「检索策略对比」表。
 
-自测题：
-1. 如何评估 Agent？
-2. LLM-as-judge 有什么缺陷？
-3. 如何建立一个有代表性的 Eval Set？
-4. Agent 成功率高，为什么仍然可能不能上线？
+**公众号素材：**
+- 钩子：「RAG 答非所问？八成是检索这一步错了。」
 
-### 第 16 节 ｜ 可靠性、故障注入与成本优化
-**时间：4 小时**
+**验收标准：**
+- 能说清四种检索机制；Rerank 效果可见。
 
-学习：
-- 超时、重试、指数退避、幂等、熔断。
-- 工具重复调用检测。
-- 主模型失败后的降级。
-- 模型路由、Prompt Caching、并行调用。
-- 首字延迟、P95 延迟、单任务成本。
+**自测问题：**
+1. 什么时候该用混合检索？
+2. Rerank 为什么通常用小模型？
+3. RAG 不适用的场景？
 
-案例：
-- bot 的「立即 ACK + 异步队列 + 主动推送」就是可靠性范本（防飞书超时重试）——Agent 链路更长，这套更关键。
+**时间预算：** 核心 2h。
 
-资料：
-- 12-Factor Agents：https://github.com/humanlayer/12-factor-agents
-- OpenTelemetry：https://opentelemetry.io/docs/
+### 第 15 节 ｜ RAG 实战
+**时间：** 核心·2.5h
 
-代码：
-- 为工具执行加入超时、重试、幂等键。
-- 注入工具超时、500、模型调用失败等故障。
-- 记录 Token、模型调用次数、工具耗时。
-- 对比固定模型和简单模型路由的成本。
-- 为执行链路生成结构化 Trace。
+**今日学习目标：**
+- 导入样本文档，切块、向量化、检索，把结果喂给 Agent。
+- 对比不同检索策略效果。
 
-产出：
-- 故障注入报告。
-- 成本与延迟分析表。
-- 项目 V0.5。
+**为什么要学习：**
+把 RAG 接到主项目：竞品研究 Agent 可检索产品文档/评测文章。
 
-验收：
-- 至少覆盖 5 种故障。
-- 能恢复可重试故障。
-- 写操作不会因重试重复产生业务副作用。
-- 能解释成本主要来自哪里、延迟主要发生在哪里。
+**知识点讲解：**
+- 入门层：把 RAG 当作一个"知识工具"挂到 Agent 上。
+- 原理层：检索结果作为上下文注入 Prompt；来源可追溯。
+- 实践层：在主项目加 `rag_tool`。
 
-实战复盘：
-1. Agent 工具调用如何做幂等？
-2. 模型服务超时如何处理？
-3. 模型路由如何设计？
-4. 如何降低单任务成本？
-5. 如何评估一次 Agent 优化是否真的有效？
+**前置知识：** 第 13–14 节。
+
+**学习资料：**
+- 同第 13–14 节。
+
+**动手实践：**
+- 步骤1：在 `day15-rag-lab/` 导入 5 篇示例产品文档，建库。
+- 步骤2：暴露 `search_docs(query)` 工具给 Agent。
+- 预期输出：问"飞书有哪些独有能力"，Agent 调用检索并基于片段回答。
+
+**今日代码产出：**
+- `day15-rag-lab/rag_tool.py`：可挂 Agent 的检索工具。
+
+**今日知识产出：**
+- 一份「不同检索策略效果」实验记录。
+
+**公众号素材：**
+- 钩子：「给 Agent 接上'记忆库'，它才开始像专家。」
+
+**验收标准：**
+- RAG 工具被 Agent 调用；答案有来源；实验记录完整。
+
+**自测问题：**
+1. 检索结果如何注入 Prompt？
+2. 如何避免检索到的内容过时？
+3. 多文档冲突时怎么办？
+
+**时间预算：** 核心 2.5h。
+
+### 第 16 节 ｜ Agent Memory
+**时间：** 核心·2h
+
+**今日学习目标：**
+- 区分 Memory 与 Chat History。
+- 理解短期/长期/结构化/向量记忆及生命周期。
+
+**为什么要学习：**
+多轮历史 ≠ 记忆。真正"记住用户偏好"需要独立记忆层。
+
+**知识点讲解：**
+- 入门层：Chat History=本次对话；Memory=跨会话持久化的偏好/事实。
+- 原理层：短期=当前任务缓冲；长期=落库；结构化=键值；向量=可语义检索。
+- 实践层：实现 `write/read/update/delete/expire`。
+
+**前置知识：** 第 10、12 节。
+
+**学习资料：**
+- LangChain Memory 概念：https://python.langchain.com/docs/concepts/memory/
+
+**动手实践：**
+- 步骤1：在 `day16-memory/` 实现 `MemoryStore`，支持四种类型与过期删除。
+- 预期输出：写入偏好后，新会话能读出。
+
+**今日代码产出：**
+- `day16-memory/store.py`：记忆层。
+
+**今日知识产出：**
+- 一张「Memory 类型与生命周期」图。
+
+**公众号素材：**
+- 钩子：「为什么你的 Agent 每次都像失忆？缺了这层记忆。」
+
+**验收标准：**
+- 能区分 History/Memory；记忆可写读删过期。
+
+**自测问题：**
+1. Memory 与 History 本质区别？
+2. 什么该进长期记忆？
+3. 过期策略怎么定？
+
+**时间预算：** 核心 2h。
+
+### 第 17 节 ｜ Workflow 与 Agent 混合编排
+**时间：** 核心·2.5h
+
+**今日学习目标：**
+- 理解固定流程与动态决策如何组合。
+- 知道哪些步骤该代码控制、哪些交给 Agent；引入人工确认节点。
+
+**为什么要学习：**
+真实系统大多不是纯 Agent，也不是纯 Workflow，而是混合。这是工程落地的关键判断力。
+
+**知识点讲解：**
+- 入门层：稳定、可测的步骤用代码写死；不确定、需灵活的步骤交给 Agent。
+- 原理层：人工确认（HITL）放在"不可逆/高风险"动作前；bot 案例里 `if/elif` 路由就是代码控制。
+- 实践层：在主项目用代码控制"输入校验→检索→生成报告"骨架，把"生成对比分析"交给 Agent。
+
+**前置知识：** 第 3、10 节。
+
+**学习资料：**
+- Anthropic《Effective Agents》（混合编排）：https://www.anthropic.com/research/building-effective-agents
+- 复看 `ai-requirement-bot` 的 `if/elif` 路由。
+
+**动手实践：**
+- 步骤1：在 `day17-hybrid/` 画主项目混合流程图：代码管校验/检索/落库，Agent 管分析。
+- 步骤2：在"调用付费搜索 API"前加人工确认桩。
+- 预期输出：流程图 + 带 HITL 桩的代码骨架。
+
+**今日代码产出：**
+- `day17-hybrid/flow.py`：混合编排骨架（含 HITL 桩）。
+
+**今日知识产出：**
+- 一张「哪些步骤用代码/哪些用 Agent」决策表。
+
+**公众号素材：**
+- 钩子：「别迷信纯 Agent，成熟系统都是'半自动'的。」（经验型）
+
+**验收标准：**
+- 能设计混合流程；说清 HITL 放置原则。
+
+**自测问题：**
+1. 什么步骤绝不交给 Agent？
+2. HITL 放在哪最合理？
+3. 混合编排如何测试？
+
+**时间预算：** 核心 2.5h。
+
+### 第 18 节 ｜ LangGraph
+**时间：** 进阶·2.5h
+
+**今日学习目标：**
+- 理解 LangGraph 的 State / Node / Edge / 条件路由 / Checkpoint。
+- 把手写 Loop 改造成 Graph。
+
+**为什么要学习：**
+手写 Loop 适合理解；但生产里用图来表达状态流转更清晰、可持久化。先懂 Loop 再看 Graph 才不懵。
+
+**知识点讲解：**
+- 入门层：Node=一步；Edge=流转；State=共享数据；条件路由=按状态选下一步。
+- 原理层：Checkpoint 把 State 存下来，可中断恢复；Graph 比 while 更可视、可调试。
+- 实践层：把第 10 节 Agent 改成 LangGraph。
+
+**前置知识：** 第 10 节。
+
+**学习资料：**
+- LangGraph 介绍：https://langchain-ai.github.io/langgraph/
+- LangGraph 入门教程：https://langchain-ai.github.io/langgraph/tutorials/introduction/
+
+**动手实践：**
+- 步骤1：在 `day18-langgraph/` 用 `StateGraph` 定义 node（call_model / call_tool）与条件边。
+- 预期输出：与原手写 Loop 行为一致，但结构为图。
+
+**今日代码产出：**
+- `day18-langgraph/graph.py`：LangGraph 版 Agent。
+
+**今日知识产出：**
+- 一张「手写 Loop vs LangGraph」对照图。
+
+**公众号素材：**
+- 钩子：「手写 Agent Loop 之后，为什么我还是换了 LangGraph？」
+
+**验收标准：**
+- 能用 LangGraph 表达 Agent；理解 Checkpoint 作用。
+
+**自测问题：**
+1. State 在 Graph 里怎么流动？
+2. 条件路由 vs 固定 Edge？
+3. Checkpoint 解决了什么？
+
+**时间预算：** 进阶 2.5h。
+
+### 第 19 节 ｜ Checkpoint、Human-in-the-loop 与 Evaluation
+**时间：** 核心·2h
+
+**今日学习目标：**
+- 理解任务状态持久化、中断恢复、人工审批。
+- 建立 Agent 评测意识：测试集/成功率/工具准确率。
+
+**为什么要学习：**
+能跑 ≠ 可靠。这节把"可恢复"和"可衡量"两件事立起来，为高级做铺垫。
+
+**知识点讲解：**
+- 入门层：Checkpoint=中途存档，断网可续；HITL=关键处等人确认；Eval=用数据测好坏。
+- 原理层：Eval 集要覆盖典型/边界用例；成功率+工具选择准确率双指标。
+- 实践层：用 LangGraph Checkpoint 实现中断恢复；写一个最小测试集。
+
+**前置知识：** 第 18 节。
+
+**学习资料：**
+- LangGraph 持久化：https://langchain-ai.github.io/langgraph/how-tos/persistence/
+- LangChain Evaluators：https://python.langchain.com/docs/concepts/evaluation/
+
+**动手实践：**
+- 步骤1：在 `day19-checkpoint-eval/` 给 Graph 加 MemorySaver，模拟中断后续跑。
+- 步骤2：写 `eval_set.jsonl`（10 条），统计成功率。
+- 预期输出：中断恢复成功；成功率可统计。
+
+**今日代码产出：**
+- `day19-checkpoint-eval/`：Checkpoint + 最小评测集。
+
+**今日知识产出：**
+- 一份「评测指标清单」。
+
+**公众号素材：**
+- 钩子：「Agent 跑通就完了？先问问它'做对了几题'。」
+
+**验收标准：**
+- Checkpoint 可恢复；能定义并跑最小评测。
+
+**自测问题：**
+1. 为什么 Eval 集要含边界用例？
+2. HITL 与 Checkpoint 如何配合？
+3. 成功率低先查哪？
+
+**时间预算：** 核心 2h。
+
+### 第 20 节 ｜ Agent 可靠性
+**时间：** 核心·2h
+
+**今日学习目标：**
+- 掌握超时、重试、幂等、异常、最大轮次、Token 预算、长任务管理。
+
+**为什么要学习：**
+Demo 跑通后，真实环境全是异常。可靠性是 Agent 能不能用的分水岭。
+
+**知识点讲解：**
+- 入门层：超时防卡死；重试防偶发失败；幂等防重复副作用。
+- 原理层：Token 预算避免成本爆炸；长任务拆段+状态保存。
+- 实践层：给工具调用加超时/重试装饰器。
+
+**前置知识：** 第 7、19 节。
+
+**学习资料：**
+- Anthropic《Building Effective Agents》（可靠性）：https://www.anthropic.com/research/building-effective-agents
+
+**动手实践：**
+- 步骤1：在 `day20-reliability/` 写 `with_timeout` / `with_retry` 装饰器。
+- 预期输出：超时/失败被捕获并可重试，幂等工具不重复写。
+
+**今日代码产出：**
+- `day20-reliability/guards.py`：可靠性护栏。
+
+**今日知识产出：**
+- 一张「可靠性检查清单」。
+
+**公众号素材：**
+- 钩子：「Demo 五分钟，上生产五小时——Agent 可靠性清单。」
+
+**验收标准：**
+- 工具调用有超时/重试/幂等保护。
+
+**自测问题：**
+1. 什么工具必须幂等？
+2. Token 预算超了怎么降级？
+3. 长任务如何不被中断打断？
+
+**时间预算：** 核心 2h。
+
+### 第 21 节 ｜ Agent 安全
+**时间：** 核心·2h
+
+**今日学习目标：**
+- 理解 Prompt Injection、工具权限、敏感信息保护、用户授权、调用审计。
+
+**为什么要学习：**
+Agent 能调工具=能造成真实后果。安全是上线前提。
+
+**知识点讲解：**
+- 入门层：Prompt Injection=被外部内容"骗"去执行恶意指令；权限=工具最小授权。
+- 原理层：不可信内容（检索结果/网页）不应直接获得指令权；审计记录每次调用。
+- 实践层：在第 17 节 HITL 基础上加"工具权限表+调用日志"。
+
+**前置知识：** 第 17、20 节。
+
+**学习资料：**
+- OWASP LLM Top 10：https://owasp.org/www-project-top-10-for-large-language-model-applications/
+- Anthropic Agent 安全实践：https://www.anthropic.com/research
+
+**动手实践：**
+- 步骤1：在 `day21-security/` 加 `permission_map` + `audit_log`。
+- 预期输出：高危工具需授权，所有调用留痕。
+
+**今日代码产出：**
+- `day21-security/security.py`：权限+审计模块。
+
+**今日知识产出：**
+- 一张「安全风险与对策」表。
+
+**公众号素材：**
+- 钩子：「Agent 被网页'骗'去删库？Prompt 注入不是段子。」
+
+**验收标准：**
+- 能解释注入风险；工具权限与审计落地。
+
+**自测问题：**
+1. 为什么检索内容可能是注入源？
+2. 最小权限原则怎么落到工具？
+3. 审计日志必须记什么？
+
+**时间预算：** 核心 2h。
+
+### 第 22 节 ｜ 模型网关与模型管理
+**时间：** 进阶·2h
+
+**今日学习目标：**
+- 理解 Model Gateway：多模型接入、适配层、路由、限流、降级、成本管理。
+
+**为什么要学习：**
+绑死单一模型供应商=单点风险+成本不可控。网关是工程化标配。
+
+**知识点讲解：**
+- 入门层：网关统一封装多家模型，业务侧只调一个接口。
+- 原理层：适配层抹平 API 差异；路由按任务/价格选模型；限流防超支；降级保可用。
+- 实践层：把第 5 节的 `RealLLM` 扩成支持多 provider 的 `ModelGateway`。
+
+**前置知识：** 第 5 节。
+
+**学习资料：**
+- 各模型厂商 API 文档（OpenAI/Anthropic/国内厂商）对比 endpoints。
+
+**动手实践：**
+- 步骤1：在 `day22-gateway/` 写 `ModelGateway`，按配置路由到不同 provider。
+- 预期输出：切换 provider 无需改业务代码。
+
+**今日代码产出：**
+- `day22-gateway/gateway.py`：模型网关雏形。
+
+**今日知识产出：**
+- 一张「网关核心模块」图。
+
+**公众号素材：**
+- 钩子：「别把 Agent 绑死一家模型，网关帮你随时换。」
+
+**验收标准：**
+- 能解释网关价值；多 provider 可切换。
+
+**自测问题：**
+1. 适配层解决什么？
+2. 路由按什么维度？
+3. 限流和降级区别？
+
+**时间预算：** 进阶 2h。
+
+### 第 23 节 ｜ Agent 可观测性
+**时间：** 核心·2h
+
+**今日学习目标：**
+- 理解 Trace、模型/工具调用记录、Token、延迟、成功率、成本分析。
+
+**为什么要学习：**
+"黑盒 Agent"无法优化。可观测性是调优与排障的基础。
+
+**知识点讲解：**
+- 入门层：Trace=一次任务全流程记录；能看到每步耗时/花费。
+- 原理层：把 Loop 每轮输入/输出/工具调用打点；聚合看成本与失败。
+- 实践层：给主项目加简单 trace 装饰器，输出 JSONL。
+
+**前置知识：** 第 20 节。
+
+**学习资料：**
+- LangSmith 概念（可参考，不必用）：https://docs.smith.langchain.com/
+- OpenTelemetry：https://opentelemetry.io/
+
+**动手实践：**
+- 步骤1：在 `day23-observability/` 写 `trace_step`，记录每步 token/延迟。
+- 预期输出：一次任务生成可读 trace 日志。
+
+**今日代码产出：**
+- `day23-observability/trace.py`：trace 模块。
+
+**今日知识产出：**
+- 一张「可观测性指标面板」草图。
+
+**公众号素材：**
+- 钩子：「Agent 慢又贵？先把它'透视'了再说。」
+
+**验收标准：**
+- 一次任务可追踪；成本/延迟可统计。
+
+**自测问题：**
+1. Trace 和日志区别？
+2. 哪些指标必须监控？
+3. 成本异常先查哪？
+
+**时间预算：** 核心 2h。
+
+### 第 24 节 ｜ Agent Runtime 与平台架构
+**时间：** 进阶·2h
+
+**今日学习目标：**
+- 理解 Runtime / Task Runtime / Tool Registry / Session / 状态 / 多用户隔离。
+
+**为什么要学习：**
+从"一个 Agent 脚本"到"一个平台"，差的就是这套运行时与隔离设计。
+
+**知识点讲解：**
+- 入门层：Runtime=跑 Agent 的容器；Session=一次用户会话；隔离=用户数据互不串。
+- 原理层：平台把 Registry/Runtime/Session/状态管理做成独立服务。
+- 实践层：画一张简化平台架构图。
+
+**前置知识：** 第 7、16、19 节。
+
+**学习资料：**
+- Anthropic 平台化思路：https://www.anthropic.com/research/building-effective-agents
+
+**动手实践：**
+- 步骤1：在 `day24-platform/` 画简化平台架构（含模块职责）。
+- 预期输出：一张架构图 + 模块职责表。
+
+**今日代码产出：**
+- `day24-platform/architecture.md`：平台架构笔记。
+
+**今日知识产出：**
+- 一张「Agent 平台架构」图。
+
+**公众号素材：**
+- 钩子：「一个 Agent 脚本，和'一个平台'，差在哪？」
+
+**验收标准：**
+- 能画出平台架构并说清模块职责。
+
+**自测问题：**
+1. 多用户隔离怎么做？
+2. Session 与 Task 区别？
+3. Registry 为什么是平台级服务？
+
+**时间预算：** 进阶 2h。
+
+### 第 25 节 ｜ 中级项目实战（竞品 Agent 骨架）
+**时间：** 核心·3h
+
+**今日学习目标：**
+- 把中级所学整合：给主项目接上 Tool Calling + MCP + RAG + Memory 骨架。
+
+**为什么要学习：**
+中级收尾：不是学更多，而是把学过的串起来，形成主项目可运行骨架。
+
+**知识点讲解：**
+- 入门层：复用前面模块拼出主项目基座。
+- 原理层：Registry 管工具、RAG 管知识、Memory 管偏好、Loop/Graph 管流转。
+- 实践层：在 `learn-agent` 主项目目录落地整合版 `agent.py`。
+
+**前置知识：** 第 10–24 节。
+
+**学习资料：**
+- 复习第 10、15、16、18 节代码。
+
+**动手实践：**
+- 步骤1：整合 Registry + RAG 工具 + Memory + LangGraph，跑"分析 Notion/飞书/ClickUp 差异"。
+- 预期输出：Agent 能检索+记忆+生成对比草稿。
+
+**今日代码产出：**
+- 主项目 `agent.py` 中级整合版。
+
+**今日知识产出：**
+- 一份「中级整合验收」记录。
+
+**公众号素材：**
+- 钩子：「把 15 天学的东西，拼成一个能用的 Agent。」
+
+**验收标准：**
+- 主项目骨架可跑通对比分析流程。
+
+**自测问题：**
+1. 各模块如何协作？
+2. 哪块最易出错？
+3. 下一步高级要补什么？
+
+**时间预算：** 核心 3h（周末）。
+
+### 第 26 节 ｜ 工具调用评测
+**时间：** 核心·2h
+
+**今日学习目标：**
+- 度量工具选择准确率与参数正确性。
+
+**为什么要学习：**
+中级深入：工具调错比回答错更致命，需要专门评测。
+
+**知识点讲解：**
+- 入门层：工具评测=模型是否选对工具、参数是否合法。
+- 原理层：用标注集对比"期望工具/参数"与"实际"。
+- 实践层：在 `day26-tool-eval/` 扩展第 19 节评测集。
+
+**前置知识：** 第 19 节。
+
+**学习资料：**
+- LangChain 工具评测：https://python.langchain.com/docs/concepts/evaluation/
+
+**动手实践：**
+- 步骤1：写工具评测，统计选择准确率与参数合格率。
+- 预期输出：两份准确率报告。
+
+**今日代码产出：**
+- `day26-tool-eval/tool_eval.py`。
+
+**今日知识产出：**
+- 一份「工具评测报告」模板。
+
+**公众号素材：**
+- 钩子：「Agent 选错工具，比说错话更坑。」
+
+**验收标准：**
+- 能度量工具调用质量。
+
+**自测问题：**
+1. 参数合法但工具选错，算对吗？
+2. 如何构造工具评测集？
+
+**时间预算：** 核心 2h。
+
+### 第 27 节 ｜ 上下文压缩实战
+**时间：** 核心·2h
+
+**今日学习目标：**
+- 在长任务中落地上下文压缩，控制成本与质量。
+
+**为什么要学习：**
+中级深入：把第 12 节压缩策略接到主项目长会话。
+
+**知识点讲解：**
+- 入门层：长研究任务历史会爆窗口。
+- 原理层：分段摘要+关键保留。
+- 实践层：主项目长会话启用压缩。
+
+**前置知识：** 第 12 节。
+
+**学习资料：**
+- 同第 12 节。
+
+**动手实践：**
+- 步骤1：在主项目接 `compress_history`，跑多轮研究任务。
+- 预期输出：长任务 token 受控且质量不降。
+
+**今日代码产出：**
+- 主项目上下文压缩接入。
+
+**今日知识产出：**
+- 一份「压缩前后对比」记录。
+
+**公众号素材：**
+- 钩子：「让 Agent 做长任务，上下文不爆的秘诀。」
+
+**验收标准：**
+- 长任务 token 受控。
+
+**自测问题：**
+1. 摘要会丢关键信息吗？如何缓解？
+2. 压缩阈值怎么定？
+
+**时间预算：** 核心 2h。
+
+### 第 28 节 ｜ 中级复盘与验收
+**时间：** 核心·2h
+
+**今日学习目标：**
+- 对中级 18 节做整体复盘，跑通中级验收表。
+
+**为什么要学习：**
+阶段收口：确认中级能力闭环，再进高级。
+
+**知识点讲解：**
+- 入门层：对照中级验收清单逐项打勾。
+- 原理层：找出薄弱节，决定高级重点。
+- 实践层：填写中级验收表。
+
+**前置知识：** 第 11–27 节。
+
+**学习资料：**
+- 回顾本手册中级各节验收标准。
+
+**动手实践：**
+- 步骤1：逐项核对中级验收，标记未完成项。
+- 预期输出：一份中级验收表（完成/遗留）。
+
+**今日代码产出：**
+- `中级验收表.md`。
+
+**今日知识产出：**
+- 一张「中级能力地图」。
+
+**公众号素材：**
+- 钩子：「学完中级，我离'能造 Agent'还差什么？」（阶段复盘）
+
+**验收标准：**
+- 中级验收表填写完整。
+
+**自测问题：**
+1. 中级最薄弱的是哪块？
+2. 高级要优先补什么？
+
+**时间预算：** 核心 2h。
 
 ---
 
-## 模块 D · 改造实战（第 17–18 节，用户特需）
+## 高级
 
-> 拿真实跑着的 `ai-requirement-bot` 当标本，演示「从 Workflow 升级成 Agent 到底改哪」，以及「两者如何在一个系统里共存」。
+### 第 29 节 ｜ Multi-Agent
+**时间：** 进阶·2h
 
-### 第 17 节 ｜ 实战：把 bot 改造成 Agent
-**时间：120～180 分钟**
+**今日学习目标：**
+- 理解 Multi-Agent：为什么需要、Supervisor 模式、协作、通信、局限。
+- 明确"不要为了复杂度而用 Multi-Agent"。
 
-学习：
-- 改造点逐条：状态机 → 循环；固定分支 → 工具自决；3 轮硬限 → 反思重试；甩外部 → 端到端。
-- 保留 Workflow 的部分：意图分发、人工确认门——这些不该 Agent 化。
-- 改造的边界：只在「非确定性瓶颈段」插 Agent Loop，其余不动。
+**为什么要学习：**
+高级开篇：多 Agent 是强能力也是大成本，先懂边界再决定是否用。
 
-案例：
-- 以 `_handle_requirement` / `_submit_agent` 为改造起点，演示在哪插 Agent Loop（`agent/runtime/loop.py`）。
-- 对照：改造前（状态机 + 外部甩单）vs 改造后（bot 自身端到端自治读→改→测→PR→再改）。
+**知识点讲解：**
+- 入门层：多个专职 Agent 协作，由一个 Supervisor 调度。
+- 原理层：通信=消息传递；成本=多次模型调用；局限=调试难、易失控。
+- 实践层：设计一个 Supervisor+2 工人的最小多 Agent（仅示意）。
 
-资料：
-- 12-Factor Agents：https://github.com/humanlayer/12-factor-agents
-- Anthropic Building Effective Agents：https://www.anthropic.com/engineering/building-effective-agents
+**前置知识：** 第 18 节。
 
-代码：
-- 在 `learn-agent/day17-bot-to-agent/` 新建改造分支。
-- 复用 `ai-requirement-bot` 作对照。
-- 把「需求→编码→验证→再改」链路接入 Agent Loop。
-- 保留意图分发与人工确认门为 Workflow 节点。
+**学习资料：**
+- Anthropic《Effective Agents》（Multi-Agent）：https://www.anthropic.com/research/building-effective-agents
+- LangGraph 多 Agent：https://langchain-ai.github.io/langgraph/tutorials/multi_agent/
 
-产出：
-- 改造前后对照文档。
-- 新增 `agent/runtime/loop.py` 接入点示意。
+**动手实践：**
+- 步骤1：在 `day29-multi-agent/` 写 Supervisor 路由两个 worker 的骨架。
+- 预期输出：能分工完成一个复合任务。
 
-验收：
-- 能讲清每一处「为什么这里要改、那里保留」。
-- 改造后链路可端到端跑通一个非确定性子任务。
-- 不把原本稳定的 Workflow 段弄坏。
+**今日代码产出：**
+- `day29-multi-agent/supervisor.py`：最小多 Agent。
 
-自测题：
-1. 把 bot 改造成 Agent，哪几段该改、哪几段该保留？
-2. 为什么「3 轮硬限追问」不等于「反思重试」？
-3. 改造后如何保证原本可测的 Workflow 段不被破坏？
-4. 你怎么验证「升级后真的更好」而不是更贵更难测？
+**今日知识产出：**
+- 一张「单 Agent vs 多 Agent 决策」表。
 
-### 第 18 节 ｜ Workflow 与 Agent 在一个系统里共存
-**时间：90～120 分钟**
+**公众号素材：**
+- 钩子：「多 Agent 很酷，但 80% 的场景你用不上。」（反常识）
 
-学习：
-- 分层：网关 / 路由层用 Workflow（快、可控、便宜）；复杂子任务交 Agent（慢、贵、但能自治）。
-- 不是二选一，是分层——这是企业级系统的常态。
-- 边界怎么划：哪些请求走 Workflow、哪些升级给 Agent、怎样平滑切换。
+**验收标准：**
+- 能说清适用条件与额外成本；骨架可跑。
 
-案例：
-- bot 现状就是分层范本：意图分发 = Workflow，编码 = 外部 Agent。本节把它抽象成可复用的边界决策。
+**自测问题：**
+1. 什么场景才值得多 Agent？
+2. Supervisor 失败怎么办？
+3. 多 Agent 如何debug？
 
-资料：
-- Anthropic Building Effective Agents：https://www.anthropic.com/engineering/building-effective-agents
+**时间预算：** 进阶 2h。
 
-产出：
-- 一张「分层架构图」（Workflow 层 + Agent 层 + 边界）。
-- 一份边界决策清单（何时升级给 Agent）。
+### 第 30 节 ｜ 综合项目架构设计
+**时间：** 进阶·4h（周末）
 
-验收：
-- 能画出一个真实系统的 Workflow / Agent 分层。
-- 能写出「哪些请求走哪层」的判定规则。
-- 不把「全部 Agent 化」当成目标。
+**今日学习目标：**
+- 完成主项目（AI SaaS 竞品研究 Agent）架构设计。
 
-自测题：
-1. 为什么企业级系统里 Workflow 与 Agent 通常共存而非二选一？
-2. 路由层该用 Workflow 还是 Agent？为什么？
-3. 如何界定「哪些子任务该升级给 Agent」？
-4. 分层后如何保证两层之间的失败不互相污染？
+**为什么要学习：**
+高级主体：把全部知识落到真实项目，先设计再写。
+
+**知识点讲解：**
+- 入门层：需求→架构→流程→工具→数据→选型。
+- 原理层：分层（接入/检索/分析/报告）；Mock 数据先跑通闭环。
+- 实践层：产出架构文档与目录结构。
+
+**前置知识：** 中级全部。
+
+**学习资料：**
+- 复习第 17、25 节整合设计。
+
+**动手实践：**
+- 步骤1：写 `项目架构.md`：需求、系统架构、Agent 流程、工具设计、数据结构、技术选型。
+- 预期输出：一份可执行的架构文档。
+
+**今日代码产出：**
+- 主项目 `项目架构.md`。
+
+**今日知识产出：**
+- 一张「竞品研究 Agent 架构图」。
+
+**公众号素材：**
+- 钩子：「我要用 30 天造一个'竞品分析 Agent'，这是它的设计图。」（项目开篇）
+
+**验收标准：**
+- 架构文档完整，可作为开发依据。
+
+**自测问题：**
+1. 主流程哪几步用代码、哪几步用 Agent？
+2. 先用 Mock 数据的好处？
+
+**时间预算：** 进阶 4h（周末）。
+
+### 第 31 节 ｜ 综合项目开发
+**时间：** 进阶·4h（周末）
+
+**今日学习目标：**
+- 实现主项目核心：Agent Loop + Tool Calling + MCP + Workflow 编排 + 业务流。
+
+**为什么要学习：**
+把设计变成代码，跑通主链路。
+
+**知识点讲解：**
+- 入门层：接第 25 节整合版，补业务闭环。
+- 原理层：输入产品名→检索→分析→报告。
+- 实践层：实现端到端 run。
+
+**前置知识：** 第 25、30 节。
+
+**学习资料：**
+- 同第 30 节。
+
+**动手实践：**
+- 步骤1：在 `learn-agent/` 实现 `run.py`，串起检索/分析/报告。
+- 预期输出：输入 3 个产品名，产出对比草稿。
+
+**今日代码产出：**
+- 主项目 `run.py` 核心链路。
+
+**今日知识产出：**
+- 一份「开发日志」。
+
+**公众号素材：**
+- 钩子：「竞品 Agent 第一天：它真的能查资料了。」
+
+**验收标准：**
+- 主链路可运行出草稿。
+
+**自测问题：**
+1. 哪步最容易卡？
+2. 如何验证输出不是幻觉？
+
+**时间预算：** 进阶 4h（周末）。
+
+### 第 32 节 ｜ 综合项目增强
+**时间：** 进阶·4h（周末）
+
+**今日学习目标：**
+- 给主项目加 RAG / Memory / Checkpoint / HITL / 异常处理。
+
+**为什么要学习：**
+从"能跑"到"能用"：补可靠性与体验。
+
+**知识点讲解：**
+- 入门层：接前面模块。
+- 原理层：HITL 放在付费检索前；Checkpoint 支持长任务续跑。
+- 实践层：增强主项目。
+
+**前置知识：** 第 15、16、19、21 节。
+
+**学习资料：**
+- 复习对应节。
+
+**动手实践：**
+- 步骤1：在主项目接入 RAG+Memory+HITL+异常。
+- 预期输出：高危动作需确认，长任务可续。
+
+**今日代码产出：**
+- 主项目增强版。
+
+**今日知识产出：**
+- 一份「增强验收」记录。
+
+**公众号素材：**
+- 钩子：「给竞品 Agent 加上'记忆'和'刹车'。」
+
+**验收标准：**
+- 增强模块生效。
+
+**自测问题：**
+1. HITL 放哪最合理？
+2. Checkpoint 对长任务价值？
+
+**时间预算：** 进阶 4h（周末）。
+
+### 第 33 节 ｜ 综合项目评测与优化
+**时间：** 进阶·4h（周末）
+
+**今日学习目标：**
+- 建评测集，度量任务成功率/工具调用率/Token/耗时，分析失败案例并优化。
+
+**为什么要学习：**
+高级核心：用数据证明项目"真的行"。
+
+**知识点讲解：**
+- 入门层：跑评测→看指标→改弱点。
+- 原理层：失败归因（检索差/工具错/分析弱）。
+- 实践层：跑评测并复测。
+
+**前置知识：** 第 19、26 节。
+
+**学习资料：**
+- 同第 19、26 节。
+
+**动手实践：**
+- 步骤1：建 20 条评测，统计指标，优化后复测。
+- 预期输出：前后对比报告。
+
+**今日代码产出：**
+- 主项目 `eval_report.md`。
+
+**今日知识产出：**
+- 一份「评测与优化报告」。
+
+**公众号素材：**
+- 钩子：「我用 20 个案例测了竞品 Agent，成功率只有…」
+
+**验收标准：**
+- 有量化指标与优化前后对比。
+
+**自测问题：**
+1. 失败主要归因哪类？
+2. 优化优先级怎么排？
+
+**时间预算：** 进阶 4h（周末）。
+
+### 第 34 节 ｜ 综合项目演示与阶段总结
+**时间：** 进阶·4h（周末）
+
+**今日学习目标：**
+- 完整演示主项目，做技术复盘与知识地图。
+
+**为什么要学习：**
+高级阶段收口：对外可展示，对内可沉淀。
+
+**知识点讲解：**
+- 入门层：演示+复盘+地图。
+- 原理层：知识地图串联全 42 节。
+- 实践层：录一次演示，写复盘。
+
+**前置知识：** 第 30–33 节。
+
+**学习资料：**
+- 回顾全手册。
+
+**动手实践：**
+- 步骤1：跑完整演示，写 `项目复盘.md` + 知识地图。
+- 预期输出：演示记录 + 复盘 + 地图。
+
+**今日代码产出：**
+- 主项目 `项目复盘.md`。
+
+**今日知识产出：**
+- 一张「42 节知识地图」。
+
+**公众号素材：**
+- 钩子：「30 天，我做出了一个能分析竞品的 Agent（全程复盘）。」（结果导向，高收藏）
+
+**验收标准：**
+- 演示可复现；复盘与地图完整。
+
+**自测问题：**
+1. 项目最大短板？
+2. 哪些节最值得回看？
+
+**时间预算：** 进阶 4h（周末）。
+
+### 第 35 节 ｜ 企业级平台深入（多租户与隔离）
+**时间：** 进阶·2.5h
+
+**今日学习目标：**
+- 理解多租户、数据隔离、配额、计费边界（概念级）。
+
+**为什么要学习：**
+技术负责人视角：平台要服务多个团队/客户，隔离是底线。
+
+**知识点讲解：**
+- 入门层：租户=一个客户/团队；隔离=数据不串。
+- 原理层：逻辑隔离（租户Id）+物理隔离（独立库）；配额防滥用。
+- 实践层：画多租户平台图。
+
+**前置知识：** 第 24 节。
+
+**学习资料：**
+- 各云厂商多租户架构实践文档。
+
+**动手实践：**
+- 步骤1：在 `day35-platform-tenant/` 画多租户隔离架构。
+- 预期输出：架构图 + 隔离策略说明。
+
+**今日代码产出：**
+- `day35-platform-tenant/tenant.md`。
+
+**今日知识产出：**
+- 一张「多租户隔离」图。
+
+**公众号素材：**
+- 钩子：「一个 Agent 平台怎么同时伺候 100 个客户不串味？」
+
+**验收标准：**
+- 能说清隔离与配额设计。
+
+**自测问题：**
+1. 逻辑 vs 物理隔离取舍？
+2. 配额如何设计？
+
+**时间预算：** 进阶 2.5h。
+
+### 第 36 节 ｜ 企业级平台深入（调度与权限中心）
+**时间：** 进阶·2.5h
+
+**今日学习目标：**
+- 理解任务调度、工具权限中心、审计中台。
+
+**为什么要学习：**
+平台级能力：工具不是谁都能调，任务要可排队可观测。
+
+**知识点讲解：**
+- 入门层：权限中心统一管工具授权；调度管并发。
+- 原理层：权限中心=策略引擎；调度=队列+限流。
+- 实践层：设计权限中心接口草图。
+
+**前置知识：** 第 21、24 节。
+
+**学习资料：**
+- 企业权限/策略引擎（如 OPA）概念：https://www.openpolicyagent.org/
+
+**动手实践：**
+- 步骤1：在 `day36-platform-auth/` 设计 `policy_engine` 接口草图。
+- 预期输出：权限/调度模块草图。
+
+**今日代码产出：**
+- `day36-platform-auth/policy.md`。
+
+**今日知识产出：**
+- 一张「权限中心结构」图。
+
+**公众号素材：**
+- 钩子：「公司里成百上千个工具，谁来决定 Agent 能用哪个？」
+
+**验收标准：**
+- 能说清权限中心与调度职责。
+
+**自测问题：**
+1. 权限中心放哪一层？
+2. 调度如何防雪崩？
+
+**时间预算：** 进阶 2.5h。
+
+### 第 37 节 ｜ 评测体系深入（基准与红队）
+**时间：** 进阶·2.5h
+
+**今日学习目标：**
+- 理解 Agent 基准测试、红队测试、回归测试。
+
+**为什么要学习：**
+高级评测：不止功能对，还要抗攻击、防退化。
+
+**知识点讲解：**
+- 入门层：基准=标准题集；红队=故意攻击找漏洞；回归=改完不退化。
+- 原理层：红队覆盖注入/越权/越界；回归接 CI。
+- 实践层：设计红队用例集。
+
+**前置知识：** 第 19、33 节。
+
+**学习资料：**
+- 各实验室 Agent 评测基准（如 AgentBench）论文综述。
+
+**动手实践：**
+- 步骤1：在 `day37-eval-deep/` 写 10 条红队用例。
+- 预期输出：红队用例集 + 结论。
+
+**今日代码产出：**
+- `day37-eval-deep/redteam.jsonl`。
+
+**今日知识产出：**
+- 一份「评测体系清单」。
+
+**公众号素材：**
+- 钩子：「别只测'做对没'，还要测'骗不骗得到'。」
+
+**验收标准：**
+- 能设计红队与回归测试。
+
+**自测问题：**
+1. 红队测什么？
+2. 回归测试怎么进 CI？
+
+**时间预算：** 进阶 2.5h。
+
+### 第 38 节 ｜ 生产化部署与监控
+**时间：** 进阶·2.5h
+
+**今日学习目标：**
+- 理解部署形态、监控告警、成本护栏。
+
+**为什么要学习：**
+从笔记本到线上：部署与监控决定能否真服务用户。
+
+**知识点讲解：**
+- 入门层：容器化部署；监控=看板+告警；成本护栏=预算封顶。
+- 原理层：无状态 Runtime 易扩；告警基于第 23 节指标。
+- 实践层：写部署与监控清单。
+
+**前置知识：** 第 23 节。
+
+**学习资料：**
+- 各云容器服务文档；Prometheus/Grafana 概念。
+
+**动手实践：**
+- 步骤1：在 `day38-deploy/` 写部署+监控+成本护栏清单。
+- 预期输出：一份上线 checklist。
+
+**今日代码产出：**
+- `day38-deploy/checklist.md`。
+
+**今日知识产出：**
+- 一张「上线 checklist」。
+
+**公众号素材：**
+- 钩子：「Agent 在笔记本跑通，只是长征第一步。」
+
+**验收标准：**
+- 能列出上线关键项。
+
+**自测问题：**
+1. 成本护栏怎么设？
+2. 哪些指标必须告警？
+
+**时间预算：** 进阶 2.5h。
+
+### 第 39 节 ｜ Agent Skills 进阶
+**时间：** 进阶·2h
+
+**今日学习目标：**
+- 理解 Agent Skills（可复用能力包）的概念与设计。
+
+**为什么要学习：**
+后续延展专题之一：Skill 让 Agent 能力模块化、可分发。
+
+**知识点讲解：**
+- 入门层：Skill=把一类能力（如"读 PDF""写 SQL"）打包复用。
+- 原理层：Skill 含描述+触发条件+执行逻辑；可被 Agent 动态选用。
+- 实践层：设计一个 `pdf_read` Skill 草图。
+
+**前置知识：** 第 7 节。
+
+**学习资料：**
+- 各平台 Agent Skills 规范（概念级）。
+
+**动手实践：**
+- 步骤1：在 `day39-skills/` 设计 `pdf_read` Skill 描述与接口。
+- 预期输出：Skill 设计文档。
+
+**今日代码产出：**
+- `day39-skills/pdf_read.md`。
+
+**今日知识产出：**
+- 一张「Skill 结构」图。
+
+**公众号素材：**
+- 钩子：「把 Agent 的能力，像 App 一样装装卸卸。」
+
+**验收标准：**
+- 能说清 Skill 结构与价值。
+
+**自测问题：**
+1. Skill 与 Tool 区别？
+2. 如何避免 Skill 冲突？
+
+**时间预算：** 进阶 2h。
+
+### 第 40 节 ｜ MCP 进阶
+**时间：** 进阶·2h
+
+**今日学习目标：**
+- 理解 MCP 多 Server 编排、鉴权、网关化。
+
+**为什么要学习：**
+后续延展：真实环境多 Server 需统一治理。
+
+**知识点讲解：**
+- 入门层：多个 MCP Server 如何被发现与路由。
+- 原理层：MCP 网关=统一入口+鉴权+限流。
+- 实践层：设计 MCP 网关草图。
+
+**前置知识：** 第 8–9 节。
+
+**学习资料：**
+- MCP 官方文档（进阶）：https://modelcontextprotocol.io/
+
+**动手实践：**
+- 步骤1：在 `day40-mcp-adv/` 画多 Server 网关架构。
+- 预期输出：架构图 + 治理要点。
+
+**今日代码产出：**
+- `day40-mcp-adv/gateway.md`。
+
+**今日知识产出：**
+- 一张「MCP 网关」图。
+
+**公众号素材：**
+- 钩子：「当 Agent 要连 50 个 MCP Server，谁来管？」
+
+**验收标准：**
+- 能说清多 Server 治理。
+
+**自测问题：**
+1. MCP 网关解决什么？
+2. Server 鉴权怎么做？
+
+**时间预算：** 进阶 2h。
+
+### 第 41 节 ｜ LangGraph 进阶
+**时间：** 进阶·2h
+
+**今日学习目标：**
+- 理解子图、并行分支、人工节点、流式输出。
+
+**为什么要学习：**
+后续延展：复杂 Graph 的进阶写法。
+
+**知识点讲解：**
+- 入门层：子图=可复用 Graph；并行=同时跑多分支。
+- 原理层：human node 实现断点交互；stream 提升体验。
+- 实践层：给主项目加一个并行检索分支。
+
+**前置知识：** 第 18 节。
+
+**学习资料：**
+- LangGraph 进阶：https://langchain-ai.github.io/langgraph/how-tos/
+
+**动手实践：**
+- 步骤1：在 `day41-langgraph-adv/` 给主项目加并行检索分支。
+- 预期输出：多产品并行检索，速度提升。
+
+**今日代码产出：**
+- 主项目并行检索改造。
+
+**今日知识产出：**
+- 一份「Graph 进阶笔记」。
+
+**公众号素材：**
+- 钩子：「LangGraph 不止线性流，还能'分身'并行。」
+
+**验收标准：**
+- 能说清子图/并行/流式。
+
+**自测问题：**
+1. 并行分支如何汇合？
+2. 流式输出价值？
+
+**时间预算：** 进阶 2h。
+
+### 第 42 节 ｜ 长期延展与后续 90 天
+**时间：** 进阶·2h
+
+**今日学习目标：**
+- 形成后续学习路线，让公众号系列自然延续。
+
+**为什么要学习：**
+高级收尾：42 节不是终点，规划清楚下一步才留得住读者。
+
+**知识点讲解：**
+- 入门层：把未深挖的专题列成后续系列。
+- 原理层：按"读者需求+技术深度"排优先级。
+- 实践层：产出后续 90 天专题表。
+
+**前置知识：** 全部。
+
+**学习资料：**
+- 回顾 E 交付物《公众号长期内容延展规划》。
+
+**动手实践：**
+- 步骤1：写 `后续90天路线.md`：AI Coding / Agent Skills / MCP 进阶 / LangGraph 进阶 / Coding Agent / Multi-Agent / 企业级平台 / Agent 产品实践。
+- 预期输出：一份可发布的后续路线。
+
+**今日代码产出：**
+- `后续90天路线.md`。
+
+**今日知识产出：**
+- 一张「后续专题路线图」。
+
+**公众号素材：**
+- 钩子：「42 节学完，我的 Agent 之路才刚开头（附 90 天路线）。」（收尾+引流）
+
+**验收标准：**
+- 后续路线清晰可执行。
+
+**自测问题：**
+1. 最该先深挖哪个专题？
+2. 如何保持更新节奏？
+
+**时间预算：** 进阶 2h。
 
 ---
 
-## 模块 E · 系统设计（第 19–24 节）
+## 公众号联动与每日素材机制
 
-> 把学习成果转化成企业级 Agent 平台的系统设计能力。每道题讲架构、关键决策、失败模式、评测、成本和容量；每题都强调 Workflow 与 Agent 如何分工。
+每天学习结束记录：①知识点 ②解决的问题 ③完成的代码 ④实验结果 ⑤踩的坑 ⑥新理解 ⑦可沉淀素材 ⑧需补图/架构图/截图。每周统一整理成 1–3 篇文章（科普/实践/复盘组合）。**不让每天写 2000–3000 字挤占编码时间。**
 
-### 第 19 节 ｜ 系统设计答题模板（六步法）
-**时间：90 分钟**
+## 主项目贯穿说明（AI SaaS 竞品研究 Agent）
 
-任务：
-- 固化六步法：
-  1. 澄清需求。
-  2. 整体架构。
-  3. 关键决策与 Trade-off。
-  4. 失败模式。
-  5. 评测与上线。
-  6. 成本与容量。
-- 准备用户规模、QPS、延迟 SLA、数据敏感度、多租户等澄清项。
-- 为每个方案准备至少 2 个备选方案。
-
-案例：
-- 拿 bot 当「小系统」过一遍六步：它为什么是 Workflow、若升级 Agent 架构怎么变。
-
-产出：
-- 一张 A4 系统设计速查卡。
-
-自测题：
-1. 为什么系统设计不能上来就画架构？
-2. 什么是 Trade-off？
-3. 设计中如何体现容量和成本意识？
-
-### 第 20 节 ｜ 系统设计题 1：企业级 Agent 平台
-**时间：90～120 分钟**
-
-题目：
-设计一个支持 100 个 SaaS 工具、多个业务团队和多个模型的 Agent 平台。
-
-重点：
-- 接入层、编排层、工具层、模型层、观测层。
-- 工具注册中心。
-- MCP 与内部 API 的边界。
-- 模型网关、配额和限流。
-- 多租户、权限和审计。
-- 版本发布与兼容。
-
-案例：
-- 把 bot 的「编码 Agent 适配层」放大成平台视角：它只是平台里一个 Agent 接入点的雏形。
-
-产出：
-- 一张完整架构图。
-- 核心模块职责表。
-- 6 种失败模式及应对方案。
-
-自测题：
-1. 从 0 到 1 如何建设企业级 Agent 平台？
-2. 为什么要建设统一模型网关？
-3. 工具注册中心应该管理哪些元数据？
-4. 如何保证不同业务团队之间互不影响？
-
-### 第 21 节 ｜ 系统设计题 2：企业客服 Agent
-**时间：90 分钟**
-
-题目：
-设计支持多轮对话、知识检索、工单处理和人工接管的客服 Agent。
-
-重点：
-- 意图识别。
-- RAG 检索。
-- 工单工具调用。
-- 人工接管条件。
-- 会话状态和上下文交接。
-- 知识库更新和版本管理。
-
-案例：
-- bot 的「意图分发 + 人工确认门」已是客服雏形——本节把它扩成完整客服 Agent 架构。
-
-产出：
-- 一张状态机图。
-- 一份转人工判定规则。
-
-自测题：
-1. 什么时候应该转人工？
-2. 如何把上下文交给人工坐席？
-3. 如何避免 Agent 在错误答案上不断重试？
-4. 知识库更新如何避免旧知识污染新答案？
-
-### 第 22 节 ｜ 系统设计题 3：代码 Agent
-**时间：90 分钟**
-
-题目：
-设计一个能够读取代码、修改文件、运行测试并提交 PR 的代码 Agent。
-
-重点：
-- 沙箱隔离。
-- 仓库权限分级。
-- 命令执行策略。
-- 文件系统和网络出口控制。
-- 测试与 CI。
-- Diff 审计和回滚。
-
-案例：
-- bot 的 `execute_task` 是代码 Agent 调度的最小版——本节把它扩成带沙箱与审计的企业级形态。
-
-产出：
-- 权限分级矩阵。
-- 代码 Agent 执行流程图。
-
-自测题：
-1. 代码 Agent 如何防止执行危险命令？
-2. 如何限制 Agent 的文件和网络访问？
-3. 修改错误代码后如何发现和回滚？
-4. 如何让每次执行都可审计？
-
-### 第 23 节 ｜ 系统设计题 4：多 Agent 协作
-**时间：90 分钟**
-
-题目：
-设计一个包含研究、分析、审核三个角色的 Agent 协作系统。
-
-重点：
-- Supervisor、层级式、对等协作拓扑。
-- 子任务拆分。
-- 任务状态和消息传递。
-- 上下文与权限隔离。
-- 失败传播和任务恢复。
-- A2A 的适用边界。
-
-案例：
-- 对比 bot 单 Agent 适配器：何时该拆多 Agent、拆了之后失败怎么定位。
-
-产出：
-- 多 Agent 架构图。
-- 是否拆分多 Agent 的决策树。
-
-自测题：
-1. 多 Agent 的必要条件是什么？
-2. Supervisor 模式有什么问题？
-3. Agent 之间如何共享状态？
-4. 多 Agent 失败时如何定位责任节点？
-
-### 第 24 节 ｜ 系统设计题 5：Agent Gateway / 开放平台
-**时间：90～120 分钟**
-
-题目：
-设计一个为多个业务方提供统一 Agent 能力的 Gateway。
-
-重点：
-- 统一模型 API。
-- 模型路由。
-- Token 统计和计费。
-- 租户限流与配额。
-- Prompt、模型和工具版本管理。
-- Trace 和审计。
-- 灰度、回滚和 SLA。
-
-案例：
-- bot 的「编码 Agent 适配层」就是内部 gateway 雏形——本节把它做成多租户开放平台。
-
-产出：
-- Trace 字段表。
-- 限流与计费方案。
-- 模型网关架构图。
-
-验收：
-- 任一题都能先澄清需求，再画架构。
-- 至少能讲出 3 个关键 Trade-off。
-- 至少能列出 6 种失败模式及处置。
-- 面对三层追问仍能给出有依据的答案（把第 21 节串讲能力落到这里）。
-
-自测题：
-1. 模型网关需要解决哪些问题？
-2. 如何统计单次任务的真实成本？
-3. 多租户限流如何设计？
-4. 如何实现 Prompt 和模型版本灰度？
-
----
-
-## 模块 F · 落地与复盘（第 25–30 节）
-
-> 把 30 节成果收敛成「可负责企业级 Agent 平台」的能力——完成主项目、补齐分布式与工程化短板，沉淀技术负责人的架构评审、决策记录与跨团队对齐方法。
-
-### 第 25 节 ｜ 主项目完整集成
-**时间：90～120 分钟**
-
-任务：
-- 集成模型网关、Agent Runtime、工具中心、LangGraph、RAG、Memory。
-- 完成竞品监控端到端流程（或直接以「改造后的 bot」作主项目 V0.8）。
-- 补充配置文件、异常处理和启动脚本。
-
-代码：
-- 完成 `app.py` 或 FastAPI 入口。
-- 增加一个 API：提交竞品分析任务。
-- 增加一个 API：查询任务状态和结果。
-
-产出：
-- Agent Platform Lite V0.8（或改造后 bot 的 Agent 版）。
-- 完整架构图。
-
-验收：
-- 一条请求可以从入口走到最终报告。
-- 任务状态可查询。
-- 关键步骤可追踪。
-
-自测题：
-1. 请介绍你的 Agent 平台架构。
-2. 为什么这样划分模块？
-3. 哪些环节是固定 Workflow，哪些环节由 Agent 决策？
-
-### 第 26 节 ｜ 项目指标、故障和安全复盘
-**时间：90 分钟**
-
-任务：
-- 汇总 30 条 Eval 测试结果。
-- 统计成功率、工具调用准确率、P95 延迟、单任务成本。
-- 记录 3 个真实失败案例。
-- 检查 Prompt Injection、越权工具、跨租户数据访问。
-- 编写项目安全检查清单。
-
-案例：
-- 复盘 bot 已踩的硬伤（README 故障表）：飞书超时重试、上下文溢出、编码外部不可控——把 Workflow 的坑和 Agent 的坑分开记。
-
-产出：
-- 项目质量报告。
-- 安全检查清单。
-- 三个故障故事。
-
-验收：
-- 不编造指标，未测量的数据明确标注为未测。
-- 每个失败案例有现象、根因、处理和改进。
-- 能解释 Agent 的安全边界。
-
-自测题：
-1. 你如何证明 Agent 的效果？
-2. Prompt Injection 能彻底防止吗？
-3. 多租户 RAG 如何避免数据串租户？
-4. 你项目中最严重的失败是什么？
-
-### 第 27 节 ｜ 项目复盘与架构讲解（2 / 10 / 30 分钟三档）
-**时间：90 分钟**
-
-任务：
-- 准备 2 分钟版：业务背景 + 为什么用 Agent + 一句话成果。
-- 准备 10 分钟版：架构取舍 + 关键指标 + 1 个失败案例。
-- 准备 30 分钟版：白板从头推导架构，含 Trade-off 与容量。
-- 每档都包含：背景 / 为什么 Agent / 架构取舍 / 指标 / 失败复盘。
-- 用 bot 讲「从 Workflow 长成 Agent」的真实故事（呼应第 17–18 节）。
-
-产出：
-- 三档讲解提纲（可复用为技术评审 / 述职 / 内部分享素材）。
-
-自测题：
-1. 为什么这个场景需要 Agent？
-2. 为什么不直接用规则引擎或普通 Workflow？
-3. 项目里你亲自完成了哪些关键设计？
-4. 如果重新做一次，你会改什么？
-
-### 第 28 节 ｜ Java / 分布式 / Coding 复习
-**时间：90～120 分钟**
-
-复习：
-- JVM 内存与 GC。
-- 线程池、锁、CAS、AQS。
-- HashMap、并发容器。
-- Netty 基本模型。
-- 分布式事务、幂等。
-- 限流、熔断、缓存一致性。
-- HTTP、SSE、WebSocket。
-- Redis、MySQL、消息队列。
-
-Coding：
-- 数组与哈希。
-- 链表。
-- 二叉树 DFS/BFS。
-- 二分查找。
-- TopK。
-- 滑动窗口。
-
-产出：
-- 10 道 Java 高频题答案。
-- 5 道算法题代码。
-- 每道题一份复杂度分析。
-
-验收：
-- 能在 20～30 分钟内完成一道中等难度基础算法题。
-- 能结合真实项目解释 Java 并发与分布式问题。
-
-自测题：
-1. 线程池参数如何设置？
-2. 如何实现分布式幂等？
-3. Redis 缓存与数据库如何保证一致性？
-4. SSE 和 WebSocket 有什么区别？
-5. Agent 工具执行为什么也需要并发控制？
-
-### 第 29 节 ｜ 技术领导力与工程决策
-**时间：90～120 分钟**
-
-学习：
-- 技术负责人（Tech Lead）/ 架构师（Staff Engineer）的职责边界。
-- 架构决策记录（ADR）：何时写、写什么、怎么演进。
-- 方案评审流程：反对意见清单、决策标准、复盘机制。
-- 跨团队对齐：如何推动一个不归你管辖的技术方案。
-- 技术债的量化、可视化与排期。
-
-案例：
-- 第 1–3 节的「Workflow vs Agent 判定清单」，正是技术负责人要给团队定的规范——本节把它落成 ADR 与评审清单。
-
-资料：
-- Google Engineering Practices：https://google.github.io/eng-practices/
-- ADR 模板：https://adr.github.io/
-- Staff Engineer 概念参考：https://staffeng.com/
-
-任务：
-- 为主项目写 1 份 ADR：是否引入 Agent / 为什么选 LangGraph / 为什么用 MCP。
-- 模拟一次方案评审：列出至少 3 条反对意见与应对。
-- 画一张「业务团队—平台—基础设施」职责对齐图。
-- 对照技术负责人能力模型自评（分布式架构 / Agent 平台 / 工程化 / 技术领导力 / 业务理解），标注三态。
-
-产出：
-- ADR 模板 + 1 份真实 ADR。
-- 方案评审清单（含反对意见应对）。
-- 技术领导力自查表 + 能力雷达自评表（五维 + 状态）。
-
-验收：
-- 能说清在「做不做 / 怎么做 / 谁维护」上的决策框架。
-- 能区分技术决策与流程决策，并说明各自落地方式。
-- ADR 能回答「为什么不是更简单方案」。
-
-自测题：
-1. 技术负责人和架构师的核心区别是什么？
-2. 如何推动一个跨团队但对你没有直接管辖权的技术方案？
-3. 为什么要用 ADR 而不是只在 wiki 记结论？
-4. 技术债如何量化并向业务方争取排期？
-5. 你距离独立负责企业级 Agent 平台还差哪 2 项关键能力？
-
-### 第 30 节 ｜ 综合复盘与 90 天进阶路线
-**时间：4 小时**
-
-任务：
-- 回看 30 节全部产出（第 4 节起代码 / 时序图 / 报告）。
-- 绘制能力地图：已会 / 会但没上过生产 / 不会。
-- 写一份「后续 90 天」计划：真实业务场景落地、性能压测、线上值班、开源贡献。
-- 整理可对外分享的技术资产（GitHub README / 公众号文章 / 内部 TechTalk）。
-- 收尾：我的 bot 现在是 Workflow 还是 Agent，你怎么选（呼应第 1 节与第 17 节）。
-
-产出：
-- 30 节复盘报告（认知变化 + 最强 / 最弱项）。
-- 能力地图（三态）。
-- 90 天进阶计划（可验收节点）。
-- 可分享资产清单。
-
-验收：
-- 能一句话说清这 30 节自己提升了什么。
-- 90 天计划有可验收里程碑，且至少有 1 项对外沉淀。
-- 能力地图能指导下一步，而非罗列知识点。
-
-自测题：
-1. 这 30 节你最大的认知变化是什么？
-2. 如果要带一个新人重走这条路，你会怎么改顺序？
-3. 哪些能力必须靠真实生产事故 / 值班才能补齐？
+需求：用户输入若干 SaaS 产品名 + 研究目标，Agent 辅助完成资料收集、整理、对比、报告生成。能力分阶段演进：初级建 Loop → 中级接工具/MCP/RAG/Memory/LangGraph → 高级完成闭环+评测。边界：不做完整商业化 SaaS、不做分布式调度集群、不做多租户计费（仅概念）。模型调用封装为独立接口（第 22 节网关），优先 Mock/免费数据源，付费 API 明确标注。
 
 ---
 

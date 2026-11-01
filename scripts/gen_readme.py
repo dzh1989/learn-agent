@@ -3,8 +3,8 @@
 """
 生成 learn-agent 仓库根目录 README.md。
 
-读取《30 节能力构建与系统复习手册》源稿（Markdown），
-自动解析 6 模块 / 30 节的结构，加上仓库门面与进度总表，
+读取《系统学习 AI Agent》初中高三级手册源稿（Markdown），
+自动解析 3 级 / 42 节的结构，加上仓库门面与进度总表，
 输出到仓库根目录 README.md。
 
 路径规则：所有路径相对本脚本自身，重跑即刷新，不硬编码绝对路径。
@@ -20,7 +20,7 @@ ROOT = os.path.dirname(SCRIPT_DIR)                       # learn-agent/
 # 源稿与 learn-agent 同级（都在 Agent30天计划 下），跨目录引用
 SRC_MD = os.path.join(
     ROOT, "..", "Claw", "求职准备", "文档",
-    "AI-Agent-30天学习执行手册.md",
+    "AI-Agent-系统学习手册.md",
 )
 OUT_MD = os.path.join(ROOT, "README.md")
 
@@ -46,7 +46,7 @@ def lesson_dir(num: int):
 
 
 def build_progress_table(days):
-    rows = ["## 学习进度（30 节）", "",
+    rows = ["## 学习进度（42 节 · 初中高三级）", "",
             "| 节 | 主题 | 代码目录 | 状态 |",
             "|----|------|---------|------|"]
     for num, title in days:
@@ -71,7 +71,7 @@ def build_header():
         "> **终极目标**：具备大型分布式系统经验、能负责企业级 AI Agent 平台与应用工程化落地的技术负责人。",
         "",
         "本仓库是公众号系列 **「30 天把自己重训成 Agent 工程师」**（公众号：**溪月散人**）的",
-        "**代码落地**。计划本身见 [`AI-Agent-30天学习执行手册.html`](AI-Agent-30天学习执行手册.html)；",
+        "**代码落地**。计划本身见 [`AI-Agent-系统学习手册.html`](AI-Agent-系统学习手册.html)；",
         "这里把计划每节变成可运行、可 review、可提交的真实产物。",
         "",
         "## 这个仓库怎么用",
@@ -86,7 +86,7 @@ def build_header():
         "",
         "## 关联资源",
         "",
-        "- 30 节学习计划（自包含 HTML，可浏览器看 / 打印）：[`AI-Agent-30天学习执行手册.html`](AI-Agent-30天学习执行手册.html)",
+        "- 30 节学习计划（自包含 HTML，可浏览器看 / 打印）：[`AI-Agent-系统学习手册.html`](AI-Agent-系统学习手册.html)",
         "- 同名公众号连载：搜索 **溪月散人**（《30 天把自己重训成 Agent 工程师》）",
         "",
         "---",
@@ -120,7 +120,7 @@ def main():
         "",
         "---",
         "",
-        "## 30 节学习计划（总纲）",
+        "## 42 节学习计划（总纲 · 初中高三级）",
         "",
         "\n".join(body),
         "",

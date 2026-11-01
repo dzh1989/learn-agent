@@ -1,8 +1,8 @@
-# Day 01 · 裸写 Agent 主循环（不用任何框架）
+# 第 4 节 · 裸写 Agent 主循环（不用任何框架）
 
 > 系列：「30 天把自己重训成 Agent 工程师」· 代码仓库版
-> 前一天：无（开篇第 1 天）
-> 后一天：[Day 02 Function Calling 与工具设计](../day2)
+> 前一天：第 3 节 · 什么时候需要升级到 Agent（待产）
+> 后一天：[第 5 节 Function Calling 与工具设计](../day05-function-calling)
 
 ## 学习目标
 1. 理解 **LLM / Tool / Agent / Environment** 四者的关系

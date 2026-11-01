@@ -1,8 +1,8 @@
-# Day 02 · Function Calling 与工具设计
+# 第 5 节 · Function Calling 与工具设计
 
 > 系列：「30 天把自己重训成 Agent 工程师」· 代码仓库版
-> 前一天：[Day 01 裸写 Agent 主循环](../day1)
-> 后一天：[Day 03 MCP 协议与工具接入架构](../day3)（待产）
+> 前一天：[第 4 节 裸写 Agent 主循环](../day04-agent-loop)
+> 后一天：第 6 节 · MCP 协议与工具接入架构（待产）
 
 ## 学习目标
 1. `tool_choice` 的 `auto` / `required` / 指定工具 三种模式分别解决什么问题

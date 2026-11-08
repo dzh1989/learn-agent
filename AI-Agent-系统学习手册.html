@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>系统学习 AI Agent：从入门到独立构建（初中高三级）</title>
+<title>AI Agent 实战成长计划 · 系统学习手册</title>
 <style>
 :root{
   --accent:#2f5bff; --bg:#eef1f6; --card:#fff; --text:#1f2430; --muted:#6b7385;
@@ -15,7 +15,7 @@ body{
   font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
   font-size:16px;line-height:1.85;
 }
-.wrap{max-width:920px;margin:0 auto;padding:0 20px 80px}
+.wrap{max-width:960px;margin:0 auto;padding:0 20px 80px}
 .doc-header{
   background:linear-gradient(120deg,#0d1220,#1e2c56);color:#fff;
   padding:46px 20px 40px;text-align:center;margin-bottom:26px;
@@ -37,6 +37,10 @@ body{
   border-bottom:2px solid var(--accent);padding-bottom:10px;
 }
 .week-no{color:#fff;font-size:14px;font-weight:700;padding:3px 12px;border-radius:20px}
+.module-banner{
+  margin:14px 0 10px;padding:6px 14px;background:#f3f5fb;border-radius:8px;
+  font-size:14.5px;font-weight:700;color:#2f3a52;
+}
 .goal-banner{
   background:linear-gradient(120deg,#16224a,#243a78);color:#eaf0ff;
   border-radius:12px;padding:20px 22px;margin:0 0 22px;
@@ -51,12 +55,13 @@ body{
   background:var(--card);border:1px solid var(--line);border-radius:12px;
   padding:18px 20px;margin:0 0 16px;box-shadow:0 6px 22px -18px rgba(20,30,60,.4);
 }
-.day-head{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:6px}
-.day-head h3{margin:0;font-size:17.5px;color:#141821}
-.time{
-  background:#eef2ff;color:#1f3ea8;font-size:12.5px;font-weight:600;
-  padding:3px 10px;border-radius:20px;white-space:nowrap;
-}
+.day-head{margin-bottom:6px}
+.day-head h3{margin:0 0 8px;font-size:17.5px;color:#141821}
+.chip-row{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:6px}
+.chip{font-size:12px;font-weight:600;padding:3px 10px;border-radius:20px;white-space:nowrap}
+.chip-tier{color:#fff}
+.chip-time{background:#eef2ff;color:#1f3ea8}
+.rec-title{font-size:13.5px;color:#b8551b;margin:2px 0 4px;font-weight:600}
 .sec{margin:12px 0;padding-left:0}
 .sec-label{
   display:inline-block;color:#fff;font-size:12px;font-weight:700;letter-spacing:.04em;
@@ -81,23 +86,29 @@ footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
 </head>
 <body>
 <header class="doc-header">
-  <h1>系统学习 AI Agent</h1>
-  <p>从入门到独立构建 · 初中高三级体系 · 手写 Agent Loop · Workflow vs Agent · 生产化落地 · 企业级平台架构</p>
+  <h1>AI Agent 实战成长计划</h1>
+  <p>从理解原理，到独立构建，再到工程化落地 · 核心 36 篇 + 专题扩展 · 手写 Agent Loop · Workflow vs Agent · 生产化落地</p>
 </header>
 <div class="wrap">
-['<nav class="toc"><div class="toc-title">目录（3 级 / 42 节）</div><ul>', '<li><a href="#tier-1">初级（10节）</a></li>', '<li><a href="#tier-2">中级（18节）</a></li>', '<li><a href="#tier-3">高级（14节）</a></li>', '</ul></nav>']
-<div class="goal-banner"><span class="gb-tag">北极星目标</span><p><strong>北极星目标（个人成长）：</strong> 具备大型分布式系统经验、能够负责企业级 AI Agent 平台和应用工程化落地的技术负责人。 <strong>本手册定位（双轨）：</strong> 上面是你的长期成长目标，也是你个人的北极星；但手册正文与配套公众号面向「有一定计算机基础的开发者 / AI 技术爱好者」，先理解再深入，不写零基础编程、不写面试题库、不写纯概念科普。你照着这本手册学完初+中+高三级，既能自己真正掌握 Agent，也能带着新人一起学。 <strong>节奏参考：</strong> 「30 天」是个人学习节奏建议（约 65–76 小时：工作日 1.5–2h、周末 4h），不是节数硬约束。初级 + 中级约可在 30 天内攻完，高级作为进阶延展，可顺接「后续 90 天」。</p></div>
+['<nav class="toc"><div class="toc-title">目录（36 篇核心 + 6 专题）</div><ul>', '<li><a href="#tier-1">初级（6篇）</a></li>', '<li><a href="#tier-2">中级（16篇）</a></li>', '<li><a href="#tier-3">高级（14篇）</a></li>', '<li><a href="#tier-4">专题扩展（6篇）</a></li>', '</ul></nav>']
+<div class="goal-banner"><span class="gb-tag">北极星目标</span><p><strong>北极星目标（个人成长）：</strong> 具备大型分布式系统经验、能够负责企业级 AI Agent 平台和应用工程化落地的技术负责人。 <strong>本手册定位（双轨）：</strong> 上面是你的长期成长目标，也是你个人的北极星；但手册正文与配套公众号面向「有一定计算机基础的开发者 / AI 技术爱好者」，先理解再深入。你照着这本手册学完初 + 中 + 高三级，既能自己真正掌握 Agent，也能带着新人一起学。 <strong>课程规模：</strong> 核心课程 36 篇（初级 6 / 中级 16 / 高级 14），专题扩展不固定（新技术、专项深入持续补充）。</p></div>
 <section class="week" id="tier-1">
-<h2><span class="week-no" style="background:#1f8a70">初级</span>初级 · 共10节</h2>
+<h2><span class="week-no" style="background:#1f8a70">初级</span>初级 · 共6篇</h2>
+<div class="module-banner" style="border-left:4px solid #1f8a70">基础认知</div>
 <article class="day" id="d1">
 <div class="day-head">
 <h3>第 1 节 · 大模型基础认知</h3>
+<div class="chip-row"><span class="chip chip-tier" style="background:#1f8a70">初级</span><span class="chip chip-time">基础·1.5h</span></div>
+<div class="rec-title">📌 公众号标题：大模型根本不懂你在说什么，它只是在猜下一个字</div>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#2f5bff">今日学习目标</span>
+<span class="sec-label" style="background:#5b6b8f">目标读者</span>
 <ul>
-<li>理解 LLM、Token、Context Window、Prompt、Temperature 是什么。</li>
-<li>能独立用官方 SDK 完成一次模型调用。</li>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#b8551b">核心问题</span>
+<ul>
 </ul>
 </div>
 <div class="sec">
@@ -106,11 +117,20 @@ footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#1f8a70">知识点讲解</span>
+<span class="sec-label" style="background:#2f5bff">学习目标</span>
 <ul>
-<li>入门层：LLM 是"预测下一个 token 的概率模型"；Token 是最小计费/处理单元（中文约 1–2 字一个 token）；Context Window 是单次对话模型能"看到"的 token 上限；Prompt 是你给模型的指令；Temperature 控制随机性（0 稳、1 发散）。</li>
-<li>原理层：模型基于前面所有 token 预测下一个；超出 Context Window 的内容会被截断或需压缩。</li>
-<li>实践层：用 SDK 发一条消息，观察返回结构（content / usage / finish_reason）。</li>
+<li>理解 LLM、Token、Context Window、Prompt、Temperature 是什么。</li>
+<li>能独立用官方 SDK 完成一次模型调用，看懂返回的 content / usage / finish_reason。</li>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#1f8a70">核心知识点</span>
+<ul>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#0a8f6f">技术原理</span>
+<ul>
 </ul>
 </div>
 <div class="sec">
@@ -119,58 +139,43 @@ footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#0a8f6f">学习资料</span>
+<span class="sec-label" style="background:#5b6b8f">前后关系</span>
 <ul>
-<li>OpenAI 快速开始（含 API Key 与首次调用）：<a href="https://platform.openai.com/docs/quickstart" target="_blank" rel="noopener">https://platform.openai.com/docs/quickstart</a></li>
-<li>OpenAI 文本生成指南（讲 messages / usage / finish_reason）：<a href="https://platform.openai.com/docs/guides/text-generation" target="_blank" rel="noopener">https://platform.openai.com/docs/guides/text-generation</a></li>
-<li>Anthropic 文档（Messages API 对照看）：<a href="https://docs.anthropic.com/en/docs/" target="_blank" rel="noopener">https://docs.anthropic.com/en/docs/</a></li>
-<li>Token 计数与编码（tiktoken，可本地数 token）：<a href="https://github.com/openai/tiktoken" target="_blank" rel="noopener">https://github.com/openai/tiktoken</a></li>
-<li>各模型 Context Window 与价格对照（以官方定价页为准，下面是官方入口）：OpenAI <a href="https://platform.openai.com/docs/pricing" target="_blank" rel="noopener">https://platform.openai.com/docs/pricing</a> · Claude <a href="https://www.anthropic.com/pricing" target="_blank" rel="noopener">https://www.anthropic.com/pricing</a> · 国内兼容 OpenAI 协议的大模型（DeepSeek / 通义千问 / 智谱 GLM 等）也走同一套 `chat.completions` 接口，只换 `base_url` 和 `api_key`；正文示例用占位，读者可换成自己申请的 key。</li>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#7a4fd6">主项目应用</span>
+<ul>
 </ul>
 </div>
 <div class="sec">
 <span class="sec-label" style="background:#b8551b">动手实践</span>
 <ul>
-<li>步骤1：安装 SDK：`pip install openai`（用国内兼容模型同样装这个包，只换 base_url）。</li>
-<li>步骤2：新建 `day01-llm-basics/call_llm.py`，内容见下方「今日代码产出」。</li>
-<li>步骤3：运行 `python3 day01-llm-basics/call_llm.py`，观察返回。</li>
-<li>预期输出：先打印模型回答文本，再打印 usage，形如</li>
+<li>步骤1：在 `day01-llm-basics/` 运行 `00_hello_llm.py --mock`，观察返回的 content / usage / finish_reason。</li>
+<li>步骤2：运行 `01_tokens_and_cost.py --mock`，看中/英/代码文本的 token 切分差异与估算成本。</li>
+<li>步骤3：运行 `06_tiny_predictor.py`，看一个从零实现的"下一个字预测器"，理解 LLM 本质。</li>
+<li>预期输出：三处都能离线跑通（无需 key），输出结构清晰。</li>
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#2563a8">今日代码产出</span>
+<span class="sec-label" style="background:#2563a8">代码产出</span>
 <ul>
-<li>`day01-llm-basics/call_llm.py`：封装一次最小调用，打印 usage。完整代码：</li>
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#7a4fd6">今日知识产出</span>
+<span class="sec-label" style="background:#7a4fd6">知识产出</span>
 <ul>
-<li>一张「Token / Context Window / Temperature」概念卡。</li>
-</ul>
-</div>
-<div class="sec">
-<span class="sec-label" style="background:#c2410c">公众号素材</span>
-<ul>
-<li>钩子：「为什么你写的 Prompt 有时灵有时不灵？先搞懂 token 和温度。」</li>
 </ul>
 </div>
 <div class="sec">
 <span class="sec-label" style="background:#c23b6a">验收标准</span>
 <ul>
 <li>能独立跑通调用并打印 token 用量；能口头说清 token 与 Context Window 的关系。</li>
+<li>能解释 finish_reason 的常见取值与含义。</li>
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#1f6feb">自测问题</span>
-<ol>
-<li>一段 500 汉字约多少 token？Context Window 不够会怎样？</li>
-<li>Temperature=0 和 =1 输出差异是什么？</li>
-<li>finish_reason 常见取值有哪些，各代表什么？</li>
-</ol>
-</div>
-<div class="sec">
-<span class="sec-label" style="background:#8a6d3b">时间预算</span>
+<span class="sec-label" style="background:#c2410c">公众号素材</span>
 <ul>
 </ul>
 </div>
@@ -178,12 +183,17 @@ footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
 <article class="day" id="d2">
 <div class="day-head">
 <h3>第 2 节 · Prompt Engineering</h3>
+<div class="chip-row"><span class="chip chip-tier" style="background:#1f8a70">初级</span><span class="chip chip-time">基础·1.5h</span></div>
+<div class="rec-title">📌 公众号标题：让大模型乖乖返回 JSON，而不是一堆废话，只要这一步</div>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#2f5bff">今日学习目标</span>
+<span class="sec-label" style="background:#5b6b8f">目标读者</span>
 <ul>
-<li>区分 System / User / Assistant 角色。</li>
-<li>掌握结构化输出、少样本、约束格式三种基本技巧。</li>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#b8551b">核心问题</span>
+<ul>
 </ul>
 </div>
 <div class="sec">
@@ -192,11 +202,20 @@ footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#1f8a70">知识点讲解</span>
+<span class="sec-label" style="background:#2f5bff">学习目标</span>
 <ul>
-<li>入门层：System 设定角色与规则，User 给任务，Assistant 是模型历史回复；结构化输出让程序好解析。</li>
-<li>原理层：上下文顺序、示例数量、格式约束都会影响稳定性；避免歧义能显著降低出错。</li>
-<li>实践层：让模型只返回 JSON，并定义字段。</li>
+<li>区分 System / User / Assistant 角色与职责。</li>
+<li>掌握结构化输出、少样本、约束格式三种基本技巧。</li>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#1f8a70">核心知识点</span>
+<ul>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#0a8f6f">技术原理</span>
+<ul>
 </ul>
 </div>
 <div class="sec">
@@ -205,9 +224,13 @@ footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#0a8f6f">学习资料</span>
+<span class="sec-label" style="background:#5b6b8f">前后关系</span>
 <ul>
-<li>Anthropic Prompt 工程总览：<a href="https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview" target="_blank" rel="noopener">https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview</a></li>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#7a4fd6">主项目应用</span>
+<ul>
 </ul>
 </div>
 <div class="sec">
@@ -215,43 +238,28 @@ footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
 <ul>
 <li>步骤1：在 `day02-prompt/` 写 `struct_output.py`，System 要求"只返回 JSON，字段为 {name, diff}"。</li>
 <li>步骤2：输入"比较 Notion 和 飞书 的差异"，解析返回的 JSON。</li>
-<li>预期输出：可 `json.loads` 的合法 JSON，不含解释性废话。</li>
+<li>步骤3：故意少写约束，观察模型夹带说明文字，再用兜底解析处理。</li>
+<li>预期输出：可 `json.loads` 的合法 JSON，不含解释性废话（或能被兜底吸收）。</li>
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#2563a8">今日代码产出</span>
+<span class="sec-label" style="background:#2563a8">代码产出</span>
 <ul>
-<li>`day02-prompt/struct_output.py`：强制结构化输出的最小示例。</li>
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#7a4fd6">今日知识产出</span>
+<span class="sec-label" style="background:#7a4fd6">知识产出</span>
 <ul>
-<li>一张「System/User/Assistant + 结构化输出」对照卡。</li>
-</ul>
-</div>
-<div class="sec">
-<span class="sec-label" style="background:#c2410c">公众号素材</span>
-<ul>
-<li>钩子：「让大模型乖乖返回 JSON，而不是一堆废话，只要这一步。」</li>
 </ul>
 </div>
 <div class="sec">
 <span class="sec-label" style="background:#c23b6a">验收标准</span>
 <ul>
-<li>模型稳定返回可解析 JSON；能说出 System/User 区别。</li>
+<li>模型稳定返回可解析 JSON；能说出 System/User 区别与少样本适用场景。</li>
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#1f6feb">自测问题</span>
-<ol>
-<li>为什么让模型"只返回 JSON"仍可能夹带说明文字？如何兜底？</li>
-<li>少样本（few-shot）适合什么场景？</li>
-<li>结构化输出与 Function Calling 有何不同？</li>
-</ol>
-</div>
-<div class="sec">
-<span class="sec-label" style="background:#8a6d3b">时间预算</span>
+<span class="sec-label" style="background:#c2410c">公众号素材</span>
 <ul>
 </ul>
 </div>
@@ -259,12 +267,17 @@ footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
 <article class="day" id="d3">
 <div class="day-head">
 <h3>第 3 节 · Workflow 与 Agent 的区别</h3>
+<div class="chip-row"><span class="chip chip-tier" style="background:#1f8a70">初级</span><span class="chip chip-time">基础·1.5h</span></div>
+<div class="rec-title">📌 公众号标题：你以为的 Agent，可能只是个 if-else</div>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#2f5bff">今日学习目标</span>
+<span class="sec-label" style="background:#5b6b8f">目标读者</span>
 <ul>
-<li>说清 Workflow 与 Agent 的核心区别。</li>
-<li>能判断一个任务该用 Workflow 还是 Agent。</li>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#b8551b">核心问题</span>
+<ul>
 </ul>
 </div>
 <div class="sec">
@@ -273,11 +286,20 @@ footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#1f8a70">知识点讲解</span>
+<span class="sec-label" style="background:#2f5bff">学习目标</span>
 <ul>
-<li>入门层：Workflow = 你（代码）写死步骤，LLM 只是流程里一个固定节点；Agent = 模型自己决定下一步调哪个工具、做几步。</li>
-<li>原理层：Workflow 确定性高、可控、好测试；Agent 灵活但难预测、需可靠性和成本护栏。</li>
-<li>实践层：看 `ai-requirement-bot` —— 它用 `if/elif` 路由意图、LLM 只在固定步骤调用一次、`MAX_SPEC_ROUND=3` 硬上限，是典型 Workflow。</li>
+<li>说清 Workflow 与 Agent 的核心区别。</li>
+<li>能判断一个任务该用 Workflow 还是 Agent；能识别"混合编排"。</li>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#1f8a70">核心知识点</span>
+<ul>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#0a8f6f">技术原理</span>
+<ul>
 </ul>
 </div>
 <div class="sec">
@@ -286,53 +308,42 @@ footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#0a8f6f">学习资料</span>
+<span class="sec-label" style="background:#5b6b8f">前后关系</span>
 <ul>
-<li>Anthropic《Effective Agents》（Workflow vs Agent 经典论述）：<a href="https://www.anthropic.com/research/building-effective-agents" target="_blank" rel="noopener">https://www.anthropic.com/research/building-effective-agents</a></li>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#7a4fd6">主项目应用</span>
+<ul>
 </ul>
 </div>
 <div class="sec">
 <span class="sec-label" style="background:#b8551b">动手实践</span>
 <ul>
-<li>步骤1：读 `ai-requirement-bot/process_message.py`，画出它的分支流程图。</li>
-<li>步骤2：列出三个"它处理不了、需要 Agent 自主决策"的场景。</li>
-<li>预期输出：一张流程图 + 三条场景说明。</li>
+<li>步骤1：读 `ai-requirement-bot/process_message.py`，画出它的 `if/elif` 分支流程图（确定性 Workflow 范例）。</li>
+<li>步骤2：读 DeepSeek《Super-agent 设计探索》，识别其 Router（workflow 调度）与 Worker（agent 执行）两层，画出骨架。</li>
+<li>步骤3：列出三个"bot 处理不了、需要 Agent 自主决策"的场景。</li>
+<li>预期输出：两张流程图 + 三条场景说明。</li>
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#2563a8">今日代码产出</span>
+<span class="sec-label" style="background:#2563a8">代码产出</span>
 <ul>
-<li>`day03-workflow-vs-agent/notes.md`：Workflow vs Agent 对比笔记 + bot 流程图。</li>
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#7a4fd6">今日知识产出</span>
+<span class="sec-label" style="background:#7a4fd6">知识产出</span>
 <ul>
-<li>一张「Workflow vs Agent 决策表」（适合/不适合场景）。</li>
-</ul>
-</div>
-<div class="sec">
-<span class="sec-label" style="background:#c2410c">公众号素材</span>
-<ul>
-<li>钩子：「你以为的 Agent，可能只是个 if-else。」（认知纠偏型）</li>
 </ul>
 </div>
 <div class="sec">
 <span class="sec-label" style="background:#c23b6a">验收标准</span>
 <ul>
-<li>能用自己的话区分两者；能针对给定任务判断该用哪种。</li>
+<li>能用自己的话区分两者；能针对给定任务判断该用哪种；能指出 DeepSeek super-agent 的混合结构。</li>
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#1f6feb">自测问题</span>
-<ol>
-<li>什么情况下 Workflow 优于 Agent？</li>
-<li>Agent 的"不可预测"会带来哪些工程风险？</li>
-<li>两者能否组合？举一个组合例子。</li>
-</ol>
-</div>
-<div class="sec">
-<span class="sec-label" style="background:#8a6d3b">时间预算</span>
+<span class="sec-label" style="background:#c2410c">公众号素材</span>
 <ul>
 </ul>
 </div>
@@ -340,12 +351,17 @@ footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
 <article class="day" id="d4">
 <div class="day-head">
 <h3>第 4 节 · Agent 的基本组成</h3>
+<div class="chip-row"><span class="chip chip-tier" style="background:#1f8a70">初级</span><span class="chip chip-time">核心·2h</span></div>
+<div class="rec-title">📌 公众号标题：一个能干活 AI Agent，肚子里到底装了哪 6 样东西</div>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#2f5bff">今日学习目标</span>
+<span class="sec-label" style="background:#5b6b8f">目标读者</span>
 <ul>
-<li>说清 Agent 的 6 个基本组成：LLM / Tools / Memory / Planning / Environment / Runtime。</li>
-<li>画出一次任务的端到端流程。</li>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#b8551b">核心问题</span>
+<ul>
 </ul>
 </div>
 <div class="sec">
@@ -354,11 +370,20 @@ footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#1f8a70">知识点讲解</span>
+<span class="sec-label" style="background:#2f5bff">学习目标</span>
 <ul>
-<li>入门层：LLM 是大脑，Tools 是手，Memory 是记忆，Planning 是计划，Environment 是外部世界，Runtime 是跑起来的容器。</li>
-<li>原理层：Runtime 负责循环调度；Planning 决定先做什么；Tools 改变 Environment 并返回观察。</li>
-<li>实践层：在纸上画出"用户提问 → Planning → 调 Tool → 观察 → 再决策 → 回答"的闭环。</li>
+<li>说清 Agent 的 6 个基本组成：LLM / Tools / Memory / Planning / Environment / Runtime。</li>
+<li>画出一次任务的端到端流程。</li>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#1f8a70">核心知识点</span>
+<ul>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#0a8f6f">技术原理</span>
+<ul>
 </ul>
 </div>
 <div class="sec">
@@ -367,53 +392,41 @@ footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#0a8f6f">学习资料</span>
+<span class="sec-label" style="background:#5b6b8f">前后关系</span>
 <ul>
-<li>Anthropic《Effective Agents》：<a href="https://www.anthropic.com/research/building-effective-agents" target="_blank" rel="noopener">https://www.anthropic.com/research/building-effective-agents</a></li>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#7a4fd6">主项目应用</span>
+<ul>
 </ul>
 </div>
 <div class="sec">
 <span class="sec-label" style="background:#b8551b">动手实践</span>
 <ul>
-<li>步骤1：在 `day04-agent-components/` 写 `components.py`，用注释+空函数定义 6 个组件接口。</li>
-<li>步骤2：画一张流程图（mermaid 或手绘拍照）。</li>
+<li>步骤1：在 `day04-agent-components/` 写 `components.py`，用注释 + 空函数定义 6 个组件接口。</li>
+<li>步骤2：画一张流程图（mermaid 或手绘拍照），标注"用户提问 → Planning → 调 Tool → 观察 → 再决策 → 回答"。</li>
 <li>预期输出：6 个组件占位代码 + 一张流程图。</li>
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#2563a8">今日代码产出</span>
+<span class="sec-label" style="background:#2563a8">代码产出</span>
 <ul>
-<li>`day04-agent-components/components.py`：组件接口骨架。</li>
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#7a4fd6">今日知识产出</span>
+<span class="sec-label" style="background:#7a4fd6">知识产出</span>
 <ul>
-<li>一张「Agent 六组件」架构图。</li>
-</ul>
-</div>
-<div class="sec">
-<span class="sec-label" style="background:#c2410c">公众号素材</span>
-<ul>
-<li>钩子：「一个能干活 AI Agent，肚子里到底装了哪 6 样东西？」</li>
 </ul>
 </div>
 <div class="sec">
 <span class="sec-label" style="background:#c23b6a">验收标准</span>
 <ul>
-<li>能画出端到端流程图并解释每个组件职责。</li>
+<li>能画出端到端流程图并解释每个组件职责；能回答"没有 Memory 的 Agent 算 Agent 吗"。</li>
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#1f6feb">自测问题</span>
-<ol>
-<li>Planning 和 Tools 谁先发生？</li>
-<li>Runtime 和 Environment 的区别？</li>
-<li>没有 Memory 的 Agent 算 Agent 吗？</li>
-</ol>
-</div>
-<div class="sec">
-<span class="sec-label" style="background:#8a6d3b">时间预算</span>
+<span class="sec-label" style="background:#c2410c">公众号素材</span>
 <ul>
 </ul>
 </div>
@@ -421,12 +434,17 @@ footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
 <article class="day" id="d5">
 <div class="day-head">
 <h3>第 5 节 · Agent Loop（手写主循环）</h3>
+<div class="chip-row"><span class="chip chip-tier" style="background:#1f8a70">初级</span><span class="chip chip-time">核心·2h</span></div>
+<div class="rec-title">📌 公众号标题：盯着一个 while 循环发呆的那晚，我终于懂了 Agent</div>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#2f5bff">今日学习目标</span>
+<span class="sec-label" style="background:#5b6b8f">目标读者</span>
 <ul>
-<li>不依赖任何框架，手写一个 Agent 主循环。</li>
-<li>理解"思考→行动→观察→再决策→终止"的全过程。</li>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#b8551b">核心问题</span>
+<ul>
 </ul>
 </div>
 <div class="sec">
@@ -435,11 +453,20 @@ footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#1f8a70">知识点讲解</span>
+<span class="sec-label" style="background:#2f5bff">学习目标</span>
 <ul>
-<li>入门层：循环里模型决定"直接回答"还是"调工具"；工具结果回传给模型；满足终止条件就停。</li>
-<li>原理层：模型输出 tool_calls → 执行 → 把结果拼回 messages → 再请求；用 `finish_reason` 或自定义"终止词"判断结束。</li>
-<li>实践层：`while` 循环 + 最大轮次保护，避免无限循环。</li>
+<li>不依赖任何框架，手写一个 Agent 主循环。</li>
+<li>理解"思考→行动→观察→再决策→终止"的全过程。</li>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#1f8a70">核心知识点</span>
+<ul>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#0a8f6f">技术原理</span>
+<ul>
 </ul>
 </div>
 <div class="sec">
@@ -448,36 +475,32 @@ footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#0a8f6f">学习资料</span>
+<span class="sec-label" style="background:#5b6b8f">前后关系</span>
 <ul>
-<li>OpenAI Function Calling 指南：<a href="https://platform.openai.com/docs/guides/function-calling" target="_blank" rel="noopener">https://platform.openai.com/docs/guides/function-calling</a></li>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#7a4fd6">主项目应用</span>
+<ul>
 </ul>
 </div>
 <div class="sec">
 <span class="sec-label" style="background:#b8551b">动手实践</span>
 <ul>
-<li>步骤1：在 `day05-agent-loop/` 写 `day5_agent_loop.py`，实现 `RealLLM` 包装（统一 `.next(messages)` 接口）。</li>
-<li>步骤2：注册一个 `get_weather(city)` 工具桩，循环里解析 tool_calls 并回传。</li>
-<li>步骤3：设 `MAX_TURNS=5`，跑"北京天气怎么样，适合跑步吗"。</li>
-<li>预期输出：控制台打印每轮"思考/调用/观察"，最终给出结论。</li>
+<li>步骤1：在 `day05-agent-loop/` 跑 `day5_agent_loop.py`，看"北京天气怎么样，适合跑步吗"逐轮打印"思考/调用/观察"。</li>
+<li>步骤2：读源码，理解 `RealLLM` 包装（统一 `.next(messages)` 接口）与 MAX_TURNS 退出逻辑。</li>
+<li>步骤3：把工具桩 `get_weather` 换成"查竞品价格"桩，验证循环复用。</li>
+<li>预期输出：控制台打印每轮过程，最终给出结论；超 MAX_TURNS 安全退出。</li>
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#2563a8">今日代码产出</span>
+<span class="sec-label" style="background:#2563a8">代码产出</span>
 <ul>
-<li>`day05-agent-loop/day5_agent_loop.py`：可运行的手写 Agent Loop（Mock/真实 LLM 可切换）。</li>
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#7a4fd6">今日知识产出</span>
+<span class="sec-label" style="background:#7a4fd6">知识产出</span>
 <ul>
-<li>一张「Agent Loop 时序图」（参考 day1 旧时序图）。</li>
-</ul>
-</div>
-<div class="sec">
-<span class="sec-label" style="background:#c2410c">公众号素材</span>
-<ul>
-<li>钩子：「盯着一个 while 循环发呆的那晚，我终于懂了 Agent。」（个人故事型，呼应第 0 篇）</li>
 </ul>
 </div>
 <div class="sec">
@@ -487,28 +510,25 @@ footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#1f6feb">自测问题</span>
-<ol>
-<li>工具结果如何"回传"给模型？</li>
-<li>为什么必须设最大轮次？</li>
-<li>模型怎么决定"直接回答"还是"调工具"？</li>
-</ol>
-</div>
-<div class="sec">
-<span class="sec-label" style="background:#8a6d3b">时间预算</span>
+<span class="sec-label" style="background:#c2410c">公众号素材</span>
 <ul>
 </ul>
 </div>
 </article>
 <article class="day" id="d6">
 <div class="day-head">
-<h3>第 6 节 · Function Calling / Tool Calling</h3>
+<h3>第 6 节 · Function Calling 与第一个简单 Agent 实战</h3>
+<div class="chip-row"><span class="chip chip-tier" style="background:#1f8a70">初级</span><span class="chip chip-time">核心·2.5h</span></div>
+<div class="rec-title">📌 公众号标题：大模型不会用工具，是你没给它"说明书"</div>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#2f5bff">今日学习目标</span>
+<span class="sec-label" style="background:#5b6b8f">目标读者</span>
 <ul>
-<li>理解 Function Calling 机制：模型输出工具名+参数，你来执行。</li>
-<li>用 JSON Schema 定义工具参数。</li>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#b8551b">核心问题</span>
+<ul>
 </ul>
 </div>
 <div class="sec">
@@ -517,11 +537,20 @@ footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#1f8a70">知识点讲解</span>
+<span class="sec-label" style="background:#2f5bff">学习目标</span>
 <ul>
-<li>入门层：你给模型一份"工具说明书"（名称/描述/参数 schema），模型返回要调哪个、参数是什么。</li>
-<li>原理层：JSON Schema 描述类型与必填；模型做"填表"，不真执行。</li>
-<li>实践层：把第 5 节的 `get_weather` 改成标准 tools 声明。</li>
+<li>理解 Function Calling 机制：模型输出工具名 + 参数，你来执行。</li>
+<li>用 JSON Schema 定义工具参数，整合 Loop + 单工具，产出主项目雏形。</li>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#1f8a70">核心知识点</span>
+<ul>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#0a8f6f">技术原理</span>
+<ul>
 </ul>
 </div>
 <div class="sec">
@@ -530,66 +559,64 @@ footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#0a8f6f">学习资料</span>
+<span class="sec-label" style="background:#5b6b8f">前后关系</span>
 <ul>
-<li>OpenAI Function Calling：<a href="https://platform.openai.com/docs/guides/function-calling" target="_blank" rel="noopener">https://platform.openai.com/docs/guides/function-calling</a></li>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#7a4fd6">主项目应用</span>
+<ul>
 </ul>
 </div>
 <div class="sec">
 <span class="sec-label" style="background:#b8551b">动手实践</span>
 <ul>
 <li>步骤1：在 `day06-function-calling/` 定义 `tools=[{type, function:{name, description, parameters}}]`。</li>
-<li>步骤2：跑"对比北京和上海今天温度"，观察模型分两次调用。</li>
-<li>预期输出：两次 tool_calls，参数分别为两城市。</li>
+<li>步骤2：跑"对比北京和上海今天温度"，观察模型分两次调用、参数分别为两城市。</li>
+<li>步骤3：把第 5 节 Loop 与本节工具合并，输入"分析一下飞书"，输出初步竞品信息。</li>
+<li>预期输出：两次 tool_calls 参数正确；合并后的 Agent 能产出竞品初步分析。</li>
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#2563a8">今日代码产出</span>
+<span class="sec-label" style="background:#2563a8">代码产出</span>
 <ul>
-<li>`day06-function-calling/day6_function_calling.py`：标准 Function Calling 示例。</li>
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#7a4fd6">今日知识产出</span>
+<span class="sec-label" style="background:#7a4fd6">知识产出</span>
 <ul>
-<li>一张「Function Calling 调用时序」图。</li>
-</ul>
-</div>
-<div class="sec">
-<span class="sec-label" style="background:#c2410c">公众号素材</span>
-<ul>
-<li>钩子：「大模型不会用工具，是你没给它'说明书'。」</li>
 </ul>
 </div>
 <div class="sec">
 <span class="sec-label" style="background:#c23b6a">验收标准</span>
 <ul>
-<li>能用 JSON Schema 定义工具；模型正确返回工具名与参数。</li>
+<li>能用 JSON Schema 定义工具；模型正确返回工具名与参数；合并 Agent 能跑通竞品初步分析。</li>
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#1f6feb">自测问题</span>
-<ol>
-<li>模型返回 tool_calls 后，谁来真正执行？</li>
-<li>parameters 里 required 字段的作用？</li>
-<li>Function Calling 和"让模型输出 JSON 让你执行"有何异同？</li>
-</ol>
-</div>
-<div class="sec">
-<span class="sec-label" style="background:#8a6d3b">时间预算</span>
+<span class="sec-label" style="background:#c2410c">公众号素材</span>
 <ul>
 </ul>
 </div>
 </article>
+</section>
+<section class="week" id="tier-2">
+<h2><span class="week-no" style="background:#2f5bff">中级</span>中级 · 共16篇</h2>
+<div class="module-banner" style="border-left:4px solid #2f5bff">模块一 工具与执行机制</div>
 <article class="day" id="d7">
 <div class="day-head">
 <h3>第 7 节 · Tool Registry 工具注册与管理</h3>
+<div class="chip-row"><span class="chip chip-tier" style="background:#2f5bff">中级</span><span class="chip chip-time">核心·2h</span></div>
+<div class="rec-title">📌 公众号标题：Agent 有 30 个工具时，别再用 if-else 了</div>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#2f5bff">今日学习目标</span>
+<span class="sec-label" style="background:#5b6b8f">目标读者</span>
 <ul>
-<li>设计工具注册中心：名称、描述、参数、执行、异常处理、权限。</li>
-<li>支持并行调用与错误隔离。</li>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#b8551b">核心问题</span>
+<ul>
 </ul>
 </div>
 <div class="sec">
@@ -598,11 +625,20 @@ footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#1f8a70">知识点讲解</span>
+<span class="sec-label" style="background:#2f5bff">学习目标</span>
 <ul>
-<li>入门层：工具=一个带元数据的函数；注册中心用字典按名查。</li>
-<li>原理层：用 `tool_call_id` 配对"请求-结果"；并行执行用并发；单工具失败不影响整体（错误隔离）。</li>
-<li>实践层：在上节基础上抽 `ToolRegistry`，加参数校验与异常捕获。</li>
+<li>设计工具注册中心：名称、描述、参数、执行、异常处理、权限。</li>
+<li>支持并行调用与错误隔离。</li>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#1f8a70">核心知识点</span>
+<ul>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#0a8f6f">技术原理</span>
+<ul>
 </ul>
 </div>
 <div class="sec">
@@ -611,9 +647,13 @@ footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#0a8f6f">学习资料</span>
+<span class="sec-label" style="background:#5b6b8f">前后关系</span>
 <ul>
-<li>LangChain Tool 概念（参考，不必用框架）：<a href="https://python.langchain.com/docs/concepts/tools/" target="_blank" rel="noopener">https://python.langchain.com/docs/concepts/tools/</a></li>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#7a4fd6">主项目应用</span>
+<ul>
 </ul>
 </div>
 <div class="sec">
@@ -625,21 +665,13 @@ footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#2563a8">今日代码产出</span>
+<span class="sec-label" style="background:#2563a8">代码产出</span>
 <ul>
-<li>`day07-tool-registry/agent/tools/registry.py`：工具注册中心 V0。</li>
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#7a4fd6">今日知识产出</span>
+<span class="sec-label" style="background:#7a4fd6">知识产出</span>
 <ul>
-<li>一张「Tool Registry 结构」图（含权限字段预留）。</li>
-</ul>
-</div>
-<div class="sec">
-<span class="sec-label" style="background:#c2410c">公众号素材</span>
-<ul>
-<li>钩子：「Agent 有 30 个工具时，别再用 if-else 了。」</li>
 </ul>
 </div>
 <div class="sec">
@@ -649,28 +681,25 @@ footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#1f6feb">自测问题</span>
-<ol>
-<li>为什么要用 tool_call_id 配对？</li>
-<li>并行调用时如何保证结果不乱序？</li>
-<li>工具权限字段预留解决什么问题？</li>
-</ol>
-</div>
-<div class="sec">
-<span class="sec-label" style="background:#8a6d3b">时间预算</span>
+<span class="sec-label" style="background:#c2410c">公众号素材</span>
 <ul>
 </ul>
 </div>
 </article>
 <article class="day" id="d8">
 <div class="day-head">
-<h3>第 8 节 · MCP 协议</h3>
+<h3>第 8 节 · MCP 协议原理</h3>
+<div class="chip-row"><span class="chip chip-tier" style="background:#2f5bff">中级</span><span class="chip chip-time">核心·2h</span></div>
+<div class="rec-title">📌 公众号标题：MCP 火了，但它不是 Agent，只是个插头</div>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#2f5bff">今日学习目标</span>
+<span class="sec-label" style="background:#5b6b8f">目标读者</span>
 <ul>
-<li>说清 MCP 是什么、解决什么、与 Function Calling 的区别。</li>
-<li>理解 Host / Client / Server / Tools / Resources / Prompts。</li>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#b8551b">核心问题</span>
+<ul>
 </ul>
 </div>
 <div class="sec">
@@ -679,11 +708,20 @@ footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#1f8a70">知识点讲解</span>
+<span class="sec-label" style="background:#2f5bff">学习目标</span>
 <ul>
-<li>入门层：MCP = Model Context Protocol，让任意工具/数据源用统一协议被 Agent 调用，避免每家重写适配。</li>
-<li>原理层：Host 跑 Agent，Client 连 Server，Server 暴露 Tools/Resources/Prompts；通信走标准协议。</li>
-<li>实践层：对比——Function Calling 是"模型调工具的格式"，MCP 是"工具怎么被发现的传输层"。</li>
+<li>说清 MCP 是什么、解决什么、与 Function Calling 的区别。</li>
+<li>理解 Host / Client / Server / Tools / Resources / Prompts。</li>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#1f8a70">核心知识点</span>
+<ul>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#0a8f6f">技术原理</span>
+<ul>
 </ul>
 </div>
 <div class="sec">
@@ -692,36 +730,31 @@ footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#0a8f6f">学习资料</span>
+<span class="sec-label" style="background:#5b6b8f">前后关系</span>
 <ul>
-<li>MCP 官方文档（架构）：<a href="https://modelcontextprotocol.io/docs/concepts/architecture" target="_blank" rel="noopener">https://modelcontextprotocol.io/docs/concepts/architecture</a></li>
-<li>MCP 快速开始：<a href="https://modelcontextprotocol.io/quickstart" target="_blank" rel="noopener">https://modelcontextprotocol.io/quickstart</a></li>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#7a4fd6">主项目应用</span>
+<ul>
 </ul>
 </div>
 <div class="sec">
 <span class="sec-label" style="background:#b8551b">动手实践</span>
 <ul>
 <li>步骤1：读 MCP 架构文档，画出 Host/Client/Server 关系图。</li>
-<li>步骤2：列出 MCP 的 Tools/Resources/Prompts 分别解决什么。</li>
+<li>步骤2：列出 Tools / Resources / Prompts 分别解决什么。</li>
 <li>预期输出：一张架构图 + 三段说明。</li>
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#2563a8">今日代码产出</span>
+<span class="sec-label" style="background:#2563a8">代码产出</span>
 <ul>
-<li>`day08-mcp/mcp_notes.md`：MCP 概念笔记 + 架构图。</li>
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#7a4fd6">今日知识产出</span>
+<span class="sec-label" style="background:#7a4fd6">知识产出</span>
 <ul>
-<li>一张「MCP vs Function Calling」对比表。</li>
-</ul>
-</div>
-<div class="sec">
-<span class="sec-label" style="background:#c2410c">公众号素材</span>
-<ul>
-<li>钩子：「MCP 火了，但它不是 Agent，只是个插头。」（认知纠偏）</li>
 </ul>
 </div>
 <div class="sec">
@@ -731,15 +764,7 @@ footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#1f6feb">自测问题</span>
-<ol>
-<li>MCP 解决的核心痛点是什么？</li>
-<li>Resources 和 Tools 的区别？</li>
-<li>为什么 MCP 不等于 Agent？</li>
-</ol>
-</div>
-<div class="sec">
-<span class="sec-label" style="background:#8a6d3b">时间预算</span>
+<span class="sec-label" style="background:#c2410c">公众号素材</span>
 <ul>
 </ul>
 </div>
@@ -747,12 +772,17 @@ footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
 <article class="day" id="d9">
 <div class="day-head">
 <h3>第 9 节 · MCP 实战</h3>
+<div class="chip-row"><span class="chip chip-tier" style="background:#2f5bff">中级</span><span class="chip chip-time">核心·2.5h</span></div>
+<div class="rec-title">📌 公众号标题：30 行代码，让你自己的工具被任意 Agent 调用</div>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#2f5bff">今日学习目标</span>
+<span class="sec-label" style="background:#5b6b8f">目标读者</span>
 <ul>
-<li>自己实现一个简单 MCP Server，暴露一个工具。</li>
-<li>用 MCP Client 连接，让 Agent 通过 MCP 调工具。</li>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#b8551b">核心问题</span>
+<ul>
 </ul>
 </div>
 <div class="sec">
@@ -761,11 +791,20 @@ footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#1f8a70">知识点讲解</span>
+<span class="sec-label" style="background:#2f5bff">学习目标</span>
 <ul>
-<li>入门层：Server 用 SDK 注册一个 tool；Client 连上后把工具列表交给模型。</li>
-<li>原理层：Client 把 MCP 工具翻译成模型可用的 tools 声明；调用经协议转发到 Server 执行。</li>
-<li>实践层：用官方 SDK 写最小 Server + Client。</li>
+<li>自己实现一个简单 MCP Server，暴露一个工具。</li>
+<li>用 MCP Client 连接，让手写 Agent Loop（第 5 节）通过 MCP 调工具。</li>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#1f8a70">核心知识点</span>
+<ul>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#0a8f6f">技术原理</span>
+<ul>
 </ul>
 </div>
 <div class="sec">
@@ -774,37 +813,32 @@ footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#0a8f6f">学习资料</span>
+<span class="sec-label" style="background:#5b6b8f">前后关系</span>
 <ul>
-<li>MCP Python SDK：<a href="https://github.com/modelcontextprotocol/python-sdk" target="_blank" rel="noopener">https://github.com/modelcontextprotocol/python-sdk</a></li>
-<li>MCP 快速开始：<a href="https://modelcontextprotocol.io/quickstart" target="_blank" rel="noopener">https://modelcontextprotocol.io/quickstart</a></li>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#7a4fd6">主项目应用</span>
+<ul>
 </ul>
 </div>
 <div class="sec">
 <span class="sec-label" style="background:#b8551b">动手实践</span>
 <ul>
-<li>步骤1：在 `day09-mcp-lab/` 用 `mcp` SDK 写 `server.py`，暴露 `get_weather(city)`。</li>
+<li>步骤1：在 `day09-mcp-lab/` 用 `mcp` SDK 写 `server.py`，暴露 `get_weather(city)` 或 `search_competitor(name)`。</li>
 <li>步骤2：写 `client.py` 连接，把工具交给手写 Agent Loop（第 5 节）。</li>
-<li>步骤3：跑"北京天气"，观察完整调用链路。</li>
+<li>步骤3：跑一次任务，观察完整调用链路。</li>
 <li>预期输出：Agent 经 MCP 调工具并打印结果。</li>
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#2563a8">今日代码产出</span>
+<span class="sec-label" style="background:#2563a8">代码产出</span>
 <ul>
-<li>`day09-mcp-lab/server.py` + `client.py`：最小可运行 MCP 链路。</li>
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#7a4fd6">今日知识产出</span>
+<span class="sec-label" style="background:#7a4fd6">知识产出</span>
 <ul>
-<li>一张「MCP 完整调用链路」时序图。</li>
-</ul>
-</div>
-<div class="sec">
-<span class="sec-label" style="background:#c2410c">公众号素材</span>
-<ul>
-<li>钩子：「30 行代码，让你自己的工具被任意 Agent 调用。」（实战型）</li>
 </ul>
 </div>
 <div class="sec">
@@ -814,28 +848,25 @@ footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#1f6feb">自测问题</span>
-<ol>
-<li>MCP Server 启动后，Client 怎么知道有哪些工具？</li>
-<li>用 MCP 和直接写函数，对 Agent 代码有什么区别？</li>
-<li>一个 Server 暴露多个工具怎么做？</li>
-</ol>
-</div>
-<div class="sec">
-<span class="sec-label" style="background:#8a6d3b">时间预算</span>
+<span class="sec-label" style="background:#c2410c">公众号素材</span>
 <ul>
 </ul>
 </div>
 </article>
 <article class="day" id="d10">
 <div class="day-head">
-<h3>第 10 节 · 多轮对话 Agent 实战</h3>
+<h3>第 10 节 · 执行范式（ReAct / Plan-and-Execute / Reflexion）</h3>
+<div class="chip-row"><span class="chip chip-tier" style="background:#2f5bff">中级</span><span class="chip chip-time">核心·2h</span></div>
+<div class="rec-title">📌 公众号标题：Agent 不会思考？三种"思考套路"给它装上</div>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#2f5bff">今日学习目标</span>
+<span class="sec-label" style="background:#5b6b8f">目标读者</span>
 <ul>
-<li>实现一个支持多轮、多工具、有历史管理、记录 Token 的 Agent。</li>
-<li>对比简单 Chatbot 与 Agent 的差异。</li>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#b8551b">核心问题</span>
+<ul>
 </ul>
 </div>
 <div class="sec">
@@ -844,94 +875,20 @@ footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#1f8a70">知识点讲解</span>
-<ul>
-<li>入门层：多轮=把历史 messages 一直传回；多工具=注册多个；历史管理=控制长度。</li>
-<li>原理层：Token 预算决定能留多少历史；最大轮次防失控。</li>
-<li>实践层：在主项目目录落地 `agent.py` 雏形。</li>
-</ul>
-</div>
-<div class="sec">
-<span class="sec-label" style="background:#5b6b8f">前置知识</span>
-<ul>
-</ul>
-</div>
-<div class="sec">
-<span class="sec-label" style="background:#0a8f6f">学习资料</span>
-<ul>
-<li>复习第 5、7 节代码。</li>
-</ul>
-</div>
-<div class="sec">
-<span class="sec-label" style="background:#b8551b">动手实践</span>
-<ul>
-<li>步骤1：在 `day10-multi-turn/` 整合 Loop + Registry + 历史裁剪，支持 2 个工具。</li>
-<li>步骤2：连续问两个问题，验证历史生效；打印累计 token。</li>
-<li>预期输出：两轮对话连贯，token 累计正确。</li>
-</ul>
-</div>
-<div class="sec">
-<span class="sec-label" style="background:#2563a8">今日代码产出</span>
-<ul>
-<li>`day10-multi-turn/agent.py`：多轮多工具 Agent 雏形（主项目基座）。</li>
-</ul>
-</div>
-<div class="sec">
-<span class="sec-label" style="background:#7a4fd6">今日知识产出</span>
-<ul>
-<li>一张「Chatbot vs Agent」差异表。</li>
-</ul>
-</div>
-<div class="sec">
-<span class="sec-label" style="background:#c2410c">公众号素材</span>
-<ul>
-<li>钩子：「Chatbot 和 Agent 差的不只是一个循环。」（结果导向）</li>
-</ul>
-</div>
-<div class="sec">
-<span class="sec-label" style="background:#c23b6a">验收标准</span>
-<ul>
-<li>多轮对话连贯；Token 可统计；能说清与 Chatbot 差异。</li>
-</ul>
-</div>
-<div class="sec">
-<span class="sec-label" style="background:#1f6feb">自测问题</span>
-<ol>
-<li>历史越长，成本和效果怎么变？</li>
-<li>为什么要裁剪历史？</li>
-<li>多工具下模型如何选对的那个？</li>
-</ol>
-</div>
-<div class="sec">
-<span class="sec-label" style="background:#8a6d3b">时间预算</span>
-<ul>
-</ul>
-</div>
-</article>
-</section>
-<section class="week" id="tier-2">
-<h2><span class="week-no" style="background:#2f5bff">中级</span>中级 · 共18节</h2>
-<article class="day" id="d11">
-<div class="day-head">
-<h3>第 11 节 · 执行范式（ReAct / Plan-and-Execute / Reflexion）</h3>
-</div>
-<div class="sec">
-<span class="sec-label" style="background:#2f5bff">今日学习目标</span>
+<span class="sec-label" style="background:#2f5bff">学习目标</span>
 <ul>
 <li>理解三种经典 Agent 范式及适用场景。</li>
+<li>能对比其灵活性与可控性。</li>
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#6b7385">为什么要学习</span>
+<span class="sec-label" style="background:#1f8a70">核心知识点</span>
 <ul>
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#1f8a70">知识点讲解</span>
+<span class="sec-label" style="background:#0a8f6f">技术原理</span>
 <ul>
-<li>入门层：ReAct=边想边做；Plan-and-Execute=先列计划再执行；Reflexion=做完反思改进。</li>
-<li>原理层：ReAct 灵活但易散；Plan 适合长任务但计划可能过期；Reflexion 加自我批评提升质量。</li>
-<li>实践层：在 `day11-paradigms/` 各写最小骨架对比。</li>
 </ul>
 </div>
 <div class="sec">
@@ -940,36 +897,30 @@ footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#0a8f6f">学习资料</span>
+<span class="sec-label" style="background:#5b6b8f">前后关系</span>
 <ul>
-<li>ReAct 论文：<a href="https://arxiv.org/abs/2210.03629" target="_blank" rel="noopener">https://arxiv.org/abs/2210.03629</a></li>
-<li>Reflexion 论文：<a href="https://arxiv.org/abs/2303.11366" target="_blank" rel="noopener">https://arxiv.org/abs/2303.11366</a></li>
-<li>LangGraph Plan-and-Execute：<a href="https://langchain-ai.github.io/langgraph/tutorials/plan-and-execute/" target="_blank" rel="noopener">https://langchain-ai.github.io/langgraph/tutorials/plan-and-execute/</a></li>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#7a4fd6">主项目应用</span>
+<ul>
 </ul>
 </div>
 <div class="sec">
 <span class="sec-label" style="background:#b8551b">动手实践</span>
 <ul>
-<li>步骤1：写 `react.py` / `plan_execute.py` 骨架，注释关键差异。</li>
+<li>步骤1：在 `day10-paradigms/` 写 `react.py` / `plan_execute.py` / `reflexion.py` 骨架，注释关键差异。</li>
 <li>预期输出：三个可运行骨架 + 一段对比笔记。</li>
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#2563a8">今日代码产出</span>
+<span class="sec-label" style="background:#2563a8">代码产出</span>
 <ul>
-<li>`day11-paradigms/`：三种范式最小骨架。</li>
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#7a4fd6">今日知识产出</span>
+<span class="sec-label" style="background:#7a4fd6">知识产出</span>
 <ul>
-<li>一张「三范式对比」表（灵活性/可控性/适用）。</li>
-</ul>
-</div>
-<div class="sec">
-<span class="sec-label" style="background:#c2410c">公众号素材</span>
-<ul>
-<li>钩子：「Agent 不会思考？三种'思考套路'给它装上。」</li>
 </ul>
 </div>
 <div class="sec">
@@ -979,28 +930,109 @@ footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#1f6feb">自测问题</span>
-<ol>
-<li>长任务为什么更适合 Plan-and-Execute？</li>
-<li>Reflexion 的"反思"存在哪里？</li>
-<li>三范式能否组合？</li>
-</ol>
+<span class="sec-label" style="background:#c2410c">公众号素材</span>
+<ul>
+</ul>
+</div>
+</article>
+<div class="module-banner" style="border-left:4px solid #2f5bff">模块二 上下文与记忆</div>
+<article class="day" id="d11">
+<div class="day-head">
+<h3>第 11 节 · Context Engineering</h3>
+<div class="chip-row"><span class="chip chip-tier" style="background:#2f5bff">中级</span><span class="chip chip-time">核心·2h</span></div>
+<div class="rec-title">📌 公众号标题：Agent 笨，可能因为你把上下文喂错了</div>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#8a6d3b">时间预算</span>
+<span class="sec-label" style="background:#5b6b8f">目标读者</span>
+<ul>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#b8551b">核心问题</span>
+<ul>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#6b7385">为什么要学习</span>
+<ul>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#2f5bff">学习目标</span>
+<ul>
+<li>理解上下文工程：如何组织 Prompt/历史/工具结果。</li>
+<li>掌握上下文压缩与历史管理（含上下文压缩实战）。</li>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#1f8a70">核心知识点</span>
+<ul>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#0a8f6f">技术原理</span>
+<ul>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#5b6b8f">前置知识</span>
+<ul>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#5b6b8f">前后关系</span>
+<ul>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#7a4fd6">主项目应用</span>
+<ul>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#b8551b">动手实践</span>
+<ul>
+<li>步骤1：在 `day11-context/` 实现 `compress_history(messages)`，超过 N token 则摘要。</li>
+<li>步骤2（压缩实战）：对一段 20 轮研究对话跑压缩，对比压缩前后 token 与回答质量。</li>
+<li>预期输出：长对话下 token 不再线性增长；关键结论不丢失。</li>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#2563a8">代码产出</span>
+<ul>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#7a4fd6">知识产出</span>
+<ul>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#c23b6a">验收标准</span>
+<ul>
+<li>能解释压缩/裁剪；长对话 token 受控且质量不降。</li>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#c2410c">公众号素材</span>
 <ul>
 </ul>
 </div>
 </article>
 <article class="day" id="d12">
 <div class="day-head">
-<h3>第 12 节 · Context Engineering</h3>
+<h3>第 12 节 · RAG 基础</h3>
+<div class="chip-row"><span class="chip chip-tier" style="background:#2f5bff">中级</span><span class="chip chip-time">核心·2h</span></div>
+<div class="rec-title">📌 公众号标题：让大模型读懂你的公司内部文档，靠的不是微调</div>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#2f5bff">今日学习目标</span>
+<span class="sec-label" style="background:#5b6b8f">目标读者</span>
 <ul>
-<li>理解上下文工程：如何组织 Prompt/历史/工具结果。</li>
-<li>掌握上下文压缩与历史管理。</li>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#b8551b">核心问题</span>
+<ul>
 </ul>
 </div>
 <div class="sec">
@@ -1009,91 +1041,20 @@ footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#1f8a70">知识点讲解</span>
-<ul>
-<li>入门层：Context = 系统提示+历史+工具结果+当前任务；塞太多废话会干扰。</li>
-<li>原理层：Context Window 有限；压缩=摘要旧历史/只留关键；裁剪=丢最旧。</li>
-<li>实践层：给第 10 节的 Agent 加"历史超阈值自动摘要"。</li>
-</ul>
-</div>
-<div class="sec">
-<span class="sec-label" style="background:#5b6b8f">前置知识</span>
-<ul>
-</ul>
-</div>
-<div class="sec">
-<span class="sec-label" style="background:#0a8f6f">学习资料</span>
-<ul>
-<li>Anthropic《Context Engineering》：<a href="https://www.anthropic.com/engineering/effective-context-engineering" target="_blank" rel="noopener">https://www.anthropic.com/engineering/effective-context-engineering</a></li>
-</ul>
-</div>
-<div class="sec">
-<span class="sec-label" style="background:#b8551b">动手实践</span>
-<ul>
-<li>步骤1：在 `day12-context/` 实现 `compress_history(messages)`，超过 N token 则摘要。</li>
-<li>预期输出：长对话下 token 不再线性增长。</li>
-</ul>
-</div>
-<div class="sec">
-<span class="sec-label" style="background:#2563a8">今日代码产出</span>
-<ul>
-<li>`day12-context/compress.py`：上下文压缩模块。</li>
-</ul>
-</div>
-<div class="sec">
-<span class="sec-label" style="background:#7a4fd6">今日知识产出</span>
-<ul>
-<li>一张「上下文组成与压缩策略」图。</li>
-</ul>
-</div>
-<div class="sec">
-<span class="sec-label" style="background:#c2410c">公众号素材</span>
-<ul>
-<li>钩子：「Agent 笨，可能因为你把上下文喂错了。」</li>
-</ul>
-</div>
-<div class="sec">
-<span class="sec-label" style="background:#c23b6a">验收标准</span>
-<ul>
-<li>能解释压缩/裁剪；长对话 token 受控。</li>
-</ul>
-</div>
-<div class="sec">
-<span class="sec-label" style="background:#1f6feb">自测问题</span>
-<ol>
-<li>压缩和裁剪的区别？</li>
-<li>什么信息绝不能丢？</li>
-<li>工具结果太长怎么处理？</li>
-</ol>
-</div>
-<div class="sec">
-<span class="sec-label" style="background:#8a6d3b">时间预算</span>
-<ul>
-</ul>
-</div>
-</article>
-<article class="day" id="d13">
-<div class="day-head">
-<h3>第 13 节 · RAG 基础</h3>
-</div>
-<div class="sec">
-<span class="sec-label" style="background:#2f5bff">今日学习目标</span>
+<span class="sec-label" style="background:#2f5bff">学习目标</span>
 <ul>
 <li>理解 RAG 是什么、解决什么、与微调的区别。</li>
 <li>理解文档解析、Chunking、Embedding。</li>
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#6b7385">为什么要学习</span>
+<span class="sec-label" style="background:#1f8a70">核心知识点</span>
 <ul>
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#1f8a70">知识点讲解</span>
+<span class="sec-label" style="background:#0a8f6f">技术原理</span>
 <ul>
-<li>入门层：RAG = 先检索相关文档片段，再让模型基于它回答；解决"模型不知道你私有数据"的问题。</li>
-<li>原理层：文档切块（Chunk）→ 向量化（Embedding）→ 存向量库；提问时检索最相似的块。</li>
-<li>实践层：用 sentence-transformers 做 Embedding 体验。</li>
 </ul>
 </div>
 <div class="sec">
@@ -1102,36 +1063,31 @@ footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#0a8f6f">学习资料</span>
+<span class="sec-label" style="background:#5b6b8f">前后关系</span>
 <ul>
-<li>LangChain RAG 教程：<a href="https://python.langchain.com/docs/tutorials/rag/" target="_blank" rel="noopener">https://python.langchain.com/docs/tutorials/rag/</a></li>
-<li>sentence-transformers：<a href="https://www.sbert.net/" target="_blank" rel="noopener">https://www.sbert.net/</a></li>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#7a4fd6">主项目应用</span>
+<ul>
 </ul>
 </div>
 <div class="sec">
 <span class="sec-label" style="background:#b8551b">动手实践</span>
 <ul>
-<li>步骤1：在 `day13-rag-basics/` 装 `sentence-transformers`，对 3 段文本做 `encode`。</li>
+<li>步骤1：在 `day12-rag-basics/` 装 `sentence-transformers`，对 3 段文本做 `encode`。</li>
 <li>步骤2：计算查询与段落的相似度，取最高。</li>
 <li>预期输出：查询命中最相关段落。</li>
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#2563a8">今日代码产出</span>
+<span class="sec-label" style="background:#2563a8">代码产出</span>
 <ul>
-<li>`day13-rag-basics/embed.py`：最小 Embedding + 相似度示例。</li>
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#7a4fd6">今日知识产出</span>
+<span class="sec-label" style="background:#7a4fd6">知识产出</span>
 <ul>
-<li>一张「RAG 流程图」（解析→切块→向量化→检索→生成）。</li>
-</ul>
-</div>
-<div class="sec">
-<span class="sec-label" style="background:#c2410c">公众号素材</span>
-<ul>
-<li>钩子：「让大模型读懂你的公司内部文档，靠的不是微调。」</li>
 </ul>
 </div>
 <div class="sec">
@@ -1141,41 +1097,47 @@ footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#1f6feb">自测问题</span>
-<ol>
-<li>什么场景 RAG 优于微调？</li>
-<li>Chunk 太大或太小各有什么问题？</li>
-<li>Embedding 模型作用是什么？</li>
-</ol>
-</div>
-<div class="sec">
-<span class="sec-label" style="background:#8a6d3b">时间预算</span>
+<span class="sec-label" style="background:#c2410c">公众号素材</span>
 <ul>
 </ul>
 </div>
 </article>
-<article class="day" id="d14">
+<article class="day" id="d13">
 <div class="day-head">
-<h3>第 14 节 · RAG 检索机制</h3>
+<h3>第 13 节 · RAG 检索机制与优化</h3>
+<div class="chip-row"><span class="chip chip-tier" style="background:#2f5bff">中级</span><span class="chip chip-time">核心·2h</span></div>
+<div class="rec-title">📌 公众号标题：RAG 答非所问？八成是检索这一步错了</div>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#2f5bff">今日学习目标</span>
+<span class="sec-label" style="background:#5b6b8f">目标读者</span>
+<ul>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#b8551b">核心问题</span>
+<ul>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#6b7385">为什么要学习</span>
+<ul>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#2f5bff">学习目标</span>
 <ul>
 <li>理解向量检索、关键词检索、混合检索、Rerank、Query Rewrite。</li>
 <li>知道 RAG 的适用边界。</li>
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#6b7385">为什么要学习</span>
+<span class="sec-label" style="background:#1f8a70">核心知识点</span>
 <ul>
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#1f8a70">知识点讲解</span>
+<span class="sec-label" style="background:#0a8f6f">技术原理</span>
 <ul>
-<li>入门层：向量查语义相似；关键词查字面命中；混合=两者结合；Rerank 再排序；Query Rewrite 改写提问。</li>
-<li>原理层：向量检索召回广但可能不精准；Rerank 用小模型重排提升 top 相关。</li>
-<li>实践层：用 Chroma 做向量检索，对比加/不加 Rerank。</li>
 </ul>
 </div>
 <div class="sec">
@@ -1184,79 +1146,80 @@ footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#0a8f6f">学习资料</span>
+<span class="sec-label" style="background:#5b6b8f">前后关系</span>
 <ul>
-<li>Chroma 文档：<a href="https://docs.trychroma.com/" target="_blank" rel="noopener">https://docs.trychroma.com/</a></li>
-<li>LangChain Reranker 用法：<a href="https://python.langchain.com/docs/integrations/retrievers/" target="_blank" rel="noopener">https://python.langchain.com/docs/integrations/retrievers/</a></li>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#7a4fd6">主项目应用</span>
+<ul>
 </ul>
 </div>
 <div class="sec">
 <span class="sec-label" style="background:#b8551b">动手实践</span>
 <ul>
-<li>步骤1：在 `day14-rag-retrieval/` 用 Chroma 建库，分别跑纯向量与"向量+Rerank"。</li>
+<li>步骤1：在 `day13-rag-retrieval/` 用 Chroma 建库，分别跑纯向量与"向量+Rerank"。</li>
 <li>预期输出：Rerank 后 top1 更相关（人工判断）。</li>
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#2563a8">今日代码产出</span>
+<span class="sec-label" style="background:#2563a8">代码产出</span>
 <ul>
-<li>`day14-rag-retrieval/retrieve.py`：检索+重排对比。</li>
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#7a4fd6">今日知识产出</span>
+<span class="sec-label" style="background:#7a4fd6">知识产出</span>
 <ul>
-<li>一张「检索策略对比」表。</li>
-</ul>
-</div>
-<div class="sec">
-<span class="sec-label" style="background:#c2410c">公众号素材</span>
-<ul>
-<li>钩子：「RAG 答非所问？八成是检索这一步错了。」</li>
 </ul>
 </div>
 <div class="sec">
 <span class="sec-label" style="background:#c23b6a">验收标准</span>
 <ul>
-<li>能说清四种检索机制；Rerank 效果可见。</li>
+<li>能说清四种检索机制；Rerank 效果可见；能说出 RAG 不适用的场景。</li>
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#1f6feb">自测问题</span>
-<ol>
-<li>什么时候该用混合检索？</li>
-<li>Rerank 为什么通常用小模型？</li>
-<li>RAG 不适用的场景？</li>
-</ol>
-</div>
-<div class="sec">
-<span class="sec-label" style="background:#8a6d3b">时间预算</span>
+<span class="sec-label" style="background:#c2410c">公众号素材</span>
 <ul>
 </ul>
 </div>
 </article>
-<article class="day" id="d15">
+<article class="day" id="d14">
 <div class="day-head">
-<h3>第 15 节 · RAG 实战</h3>
+<h3>第 14 节 · RAG 实战</h3>
+<div class="chip-row"><span class="chip chip-tier" style="background:#2f5bff">中级</span><span class="chip chip-time">核心·2.5h</span></div>
+<div class="rec-title">📌 公众号标题：给 Agent 接上"记忆库"，它才开始像专家</div>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#2f5bff">今日学习目标</span>
+<span class="sec-label" style="background:#5b6b8f">目标读者</span>
+<ul>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#b8551b">核心问题</span>
+<ul>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#6b7385">为什么要学习</span>
+<ul>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#2f5bff">学习目标</span>
 <ul>
 <li>导入样本文档，切块、向量化、检索，把结果喂给 Agent。</li>
 <li>对比不同检索策略效果。</li>
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#6b7385">为什么要学习</span>
+<span class="sec-label" style="background:#1f8a70">核心知识点</span>
 <ul>
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#1f8a70">知识点讲解</span>
+<span class="sec-label" style="background:#0a8f6f">技术原理</span>
 <ul>
-<li>入门层：把 RAG 当作一个"知识工具"挂到 Agent 上。</li>
-<li>原理层：检索结果作为上下文注入 Prompt；来源可追溯。</li>
-<li>实践层：在主项目加 `rag_tool`。</li>
 </ul>
 </div>
 <div class="sec">
@@ -1265,35 +1228,31 @@ footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#0a8f6f">学习资料</span>
+<span class="sec-label" style="background:#5b6b8f">前后关系</span>
 <ul>
-<li>同第 13–14 节。</li>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#7a4fd6">主项目应用</span>
+<ul>
 </ul>
 </div>
 <div class="sec">
 <span class="sec-label" style="background:#b8551b">动手实践</span>
 <ul>
-<li>步骤1：在 `day15-rag-lab/` 导入 5 篇示例产品文档，建库。</li>
+<li>步骤1：在 `day14-rag-lab/` 导入 5 篇示例产品文档，建库。</li>
 <li>步骤2：暴露 `search_docs(query)` 工具给 Agent。</li>
 <li>预期输出：问"飞书有哪些独有能力"，Agent 调用检索并基于片段回答。</li>
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#2563a8">今日代码产出</span>
+<span class="sec-label" style="background:#2563a8">代码产出</span>
 <ul>
-<li>`day15-rag-lab/rag_tool.py`：可挂 Agent 的检索工具。</li>
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#7a4fd6">今日知识产出</span>
+<span class="sec-label" style="background:#7a4fd6">知识产出</span>
 <ul>
-<li>一份「不同检索策略效果」实验记录。</li>
-</ul>
-</div>
-<div class="sec">
-<span class="sec-label" style="background:#c2410c">公众号素材</span>
-<ul>
-<li>钩子：「给 Agent 接上'记忆库'，它才开始像专家。」</li>
 </ul>
 </div>
 <div class="sec">
@@ -1303,28 +1262,25 @@ footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#1f6feb">自测问题</span>
-<ol>
-<li>检索结果如何注入 Prompt？</li>
-<li>如何避免检索到的内容过时？</li>
-<li>多文档冲突时怎么办？</li>
-</ol>
-</div>
-<div class="sec">
-<span class="sec-label" style="background:#8a6d3b">时间预算</span>
+<span class="sec-label" style="background:#c2410c">公众号素材</span>
 <ul>
 </ul>
 </div>
 </article>
-<article class="day" id="d16">
+<article class="day" id="d15">
 <div class="day-head">
-<h3>第 16 节 · Agent Memory</h3>
+<h3>第 15 节 · Agent Memory</h3>
+<div class="chip-row"><span class="chip chip-tier" style="background:#2f5bff">中级</span><span class="chip chip-time">核心·2h</span></div>
+<div class="rec-title">📌 公众号标题：为什么你的 Agent 每次都像失忆？缺了这层记忆</div>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#2f5bff">今日学习目标</span>
+<span class="sec-label" style="background:#5b6b8f">目标读者</span>
 <ul>
-<li>区分 Memory 与 Chat History。</li>
-<li>理解短期/长期/结构化/向量记忆及生命周期。</li>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#b8551b">核心问题</span>
+<ul>
 </ul>
 </div>
 <div class="sec">
@@ -1333,11 +1289,20 @@ footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#1f8a70">知识点讲解</span>
+<span class="sec-label" style="background:#2f5bff">学习目标</span>
 <ul>
-<li>入门层：Chat History=本次对话；Memory=跨会话持久化的偏好/事实。</li>
-<li>原理层：短期=当前任务缓冲；长期=落库；结构化=键值；向量=可语义检索。</li>
-<li>实践层：实现 `write/read/update/delete/expire`。</li>
+<li>区分 Memory 与 Chat History。</li>
+<li>理解短期/长期/结构化/向量记忆及生命周期。</li>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#1f8a70">核心知识点</span>
+<ul>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#0a8f6f">技术原理</span>
+<ul>
 </ul>
 </div>
 <div class="sec">
@@ -1346,34 +1311,30 @@ footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#0a8f6f">学习资料</span>
+<span class="sec-label" style="background:#5b6b8f">前后关系</span>
 <ul>
-<li>LangChain Memory 概念：<a href="https://python.langchain.com/docs/concepts/memory/" target="_blank" rel="noopener">https://python.langchain.com/docs/concepts/memory/</a></li>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#7a4fd6">主项目应用</span>
+<ul>
 </ul>
 </div>
 <div class="sec">
 <span class="sec-label" style="background:#b8551b">动手实践</span>
 <ul>
-<li>步骤1：在 `day16-memory/` 实现 `MemoryStore`，支持四种类型与过期删除。</li>
+<li>步骤1：在 `day15-memory/` 实现 `MemoryStore`，支持四种类型与过期删除。</li>
 <li>预期输出：写入偏好后，新会话能读出。</li>
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#2563a8">今日代码产出</span>
+<span class="sec-label" style="background:#2563a8">代码产出</span>
 <ul>
-<li>`day16-memory/store.py`：记忆层。</li>
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#7a4fd6">今日知识产出</span>
+<span class="sec-label" style="background:#7a4fd6">知识产出</span>
 <ul>
-<li>一张「Memory 类型与生命周期」图。</li>
-</ul>
-</div>
-<div class="sec">
-<span class="sec-label" style="background:#c2410c">公众号素材</span>
-<ul>
-<li>钩子：「为什么你的 Agent 每次都像失忆？缺了这层记忆。」</li>
 </ul>
 </div>
 <div class="sec">
@@ -1383,28 +1344,25 @@ footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#1f6feb">自测问题</span>
-<ol>
-<li>Memory 与 History 本质区别？</li>
-<li>什么该进长期记忆？</li>
-<li>过期策略怎么定？</li>
-</ol>
-</div>
-<div class="sec">
-<span class="sec-label" style="background:#8a6d3b">时间预算</span>
+<span class="sec-label" style="background:#c2410c">公众号素材</span>
 <ul>
 </ul>
 </div>
 </article>
-<article class="day" id="d17">
+<article class="day" id="d16">
 <div class="day-head">
-<h3>第 17 节 · Workflow 与 Agent 混合编排</h3>
+<h3>第 16 节 · 多轮对话与状态管理</h3>
+<div class="chip-row"><span class="chip chip-tier" style="background:#2f5bff">中级</span><span class="chip chip-time">核心·2.5h</span></div>
+<div class="rec-title">📌 公众号标题：Chatbot 和 Agent 差的不只是一个循环</div>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#2f5bff">今日学习目标</span>
+<span class="sec-label" style="background:#5b6b8f">目标读者</span>
 <ul>
-<li>理解固定流程与动态决策如何组合。</li>
-<li>知道哪些步骤该代码控制、哪些交给 Agent；引入人工确认节点。</li>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#b8551b">核心问题</span>
+<ul>
 </ul>
 </div>
 <div class="sec">
@@ -1413,11 +1371,20 @@ footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#1f8a70">知识点讲解</span>
+<span class="sec-label" style="background:#2f5bff">学习目标</span>
 <ul>
-<li>入门层：稳定、可测的步骤用代码写死；不确定、需灵活的步骤交给 Agent。</li>
-<li>原理层：人工确认（HITL）放在"不可逆/高风险"动作前；bot 案例里 `if/elif` 路由就是代码控制。</li>
-<li>实践层：在主项目用代码控制"输入校验→检索→生成报告"骨架，把"生成对比分析"交给 Agent。</li>
+<li>实现支持多轮、多工具、有历史管理、记录 Token 的 Agent。</li>
+<li>对比简单 Chatbot 与 Agent 的差异。</li>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#1f8a70">核心知识点</span>
+<ul>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#0a8f6f">技术原理</span>
+<ul>
 </ul>
 </div>
 <div class="sec">
@@ -1426,10 +1393,97 @@ footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#0a8f6f">学习资料</span>
+<span class="sec-label" style="background:#5b6b8f">前后关系</span>
 <ul>
-<li>Anthropic《Effective Agents》（混合编排）：<a href="https://www.anthropic.com/research/building-effective-agents" target="_blank" rel="noopener">https://www.anthropic.com/research/building-effective-agents</a></li>
-<li>复看 `ai-requirement-bot` 的 `if/elif` 路由。</li>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#7a4fd6">主项目应用</span>
+<ul>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#b8551b">动手实践</span>
+<ul>
+<li>步骤1：在 `day16-multi-turn/` 整合 Loop + Registry + 历史裁剪，支持 2 个工具。</li>
+<li>步骤2：连续问两个问题，验证历史生效；打印累计 token。</li>
+<li>预期输出：两轮对话连贯，token 累计正确。</li>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#2563a8">代码产出</span>
+<ul>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#7a4fd6">知识产出</span>
+<ul>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#c23b6a">验收标准</span>
+<ul>
+<li>多轮对话连贯；Token 可统计；能说清与 Chatbot 差异。</li>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#c2410c">公众号素材</span>
+<ul>
+</ul>
+</div>
+</article>
+<div class="module-banner" style="border-left:4px solid #2f5bff">模块三 工作流编排</div>
+<article class="day" id="d17">
+<div class="day-head">
+<h3>第 17 节 · Workflow 与 Agent 混合编排</h3>
+<div class="chip-row"><span class="chip chip-tier" style="background:#2f5bff">中级</span><span class="chip chip-time">核心·2.5h</span></div>
+<div class="rec-title">📌 公众号标题：别迷信纯 Agent，成熟系统都是"半自动"的</div>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#5b6b8f">目标读者</span>
+<ul>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#b8551b">核心问题</span>
+<ul>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#6b7385">为什么要学习</span>
+<ul>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#2f5bff">学习目标</span>
+<ul>
+<li>理解固定流程与动态决策如何组合。</li>
+<li>知道哪些步骤该代码控制、哪些交给 Agent；引入人工确认节点。</li>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#1f8a70">核心知识点</span>
+<ul>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#0a8f6f">技术原理</span>
+<ul>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#5b6b8f">前置知识</span>
+<ul>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#5b6b8f">前后关系</span>
+<ul>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#7a4fd6">主项目应用</span>
+<ul>
 </ul>
 </div>
 <div class="sec">
@@ -1441,21 +1495,13 @@ footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#2563a8">今日代码产出</span>
+<span class="sec-label" style="background:#2563a8">代码产出</span>
 <ul>
-<li>`day17-hybrid/flow.py`：混合编排骨架（含 HITL 桩）。</li>
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#7a4fd6">今日知识产出</span>
+<span class="sec-label" style="background:#7a4fd6">知识产出</span>
 <ul>
-<li>一张「哪些步骤用代码/哪些用 Agent」决策表。</li>
-</ul>
-</div>
-<div class="sec">
-<span class="sec-label" style="background:#c2410c">公众号素材</span>
-<ul>
-<li>钩子：「别迷信纯 Agent，成熟系统都是'半自动'的。」（经验型）</li>
 </ul>
 </div>
 <div class="sec">
@@ -1465,28 +1511,25 @@ footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#1f6feb">自测问题</span>
-<ol>
-<li>什么步骤绝不交给 Agent？</li>
-<li>HITL 放在哪最合理？</li>
-<li>混合编排如何测试？</li>
-</ol>
-</div>
-<div class="sec">
-<span class="sec-label" style="background:#8a6d3b">时间预算</span>
+<span class="sec-label" style="background:#c2410c">公众号素材</span>
 <ul>
 </ul>
 </div>
 </article>
 <article class="day" id="d18">
 <div class="day-head">
-<h3>第 18 节 · LangGraph</h3>
+<h3>第 18 节 · LangGraph 核心</h3>
+<div class="chip-row"><span class="chip chip-tier" style="background:#2f5bff">中级</span><span class="chip chip-time">进阶·2.5h</span></div>
+<div class="rec-title">📌 公众号标题：手写 Agent Loop 之后，为什么我还是换了 LangGraph</div>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#2f5bff">今日学习目标</span>
+<span class="sec-label" style="background:#5b6b8f">目标读者</span>
 <ul>
-<li>理解 LangGraph 的 State / Node / Edge / 条件路由 / Checkpoint。</li>
-<li>把手写 Loop 改造成 Graph。</li>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#b8551b">核心问题</span>
+<ul>
 </ul>
 </div>
 <div class="sec">
@@ -1495,11 +1538,20 @@ footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#1f8a70">知识点讲解</span>
+<span class="sec-label" style="background:#2f5bff">学习目标</span>
 <ul>
-<li>入门层：Node=一步；Edge=流转；State=共享数据；条件路由=按状态选下一步。</li>
-<li>原理层：Checkpoint 把 State 存下来，可中断恢复；Graph 比 while 更可视、可调试。</li>
-<li>实践层：把第 10 节 Agent 改成 LangGraph。</li>
+<li>理解 LangGraph 的 State / Node / Edge / 条件路由 / Checkpoint。</li>
+<li>把手写 Loop（第 16 节）改造成 Graph。</li>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#1f8a70">核心知识点</span>
+<ul>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#0a8f6f">技术原理</span>
+<ul>
 </ul>
 </div>
 <div class="sec">
@@ -1508,10 +1560,13 @@ footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#0a8f6f">学习资料</span>
+<span class="sec-label" style="background:#5b6b8f">前后关系</span>
 <ul>
-<li>LangGraph 介绍：<a href="https://langchain-ai.github.io/langgraph/" target="_blank" rel="noopener">https://langchain-ai.github.io/langgraph/</a></li>
-<li>LangGraph 入门教程：<a href="https://langchain-ai.github.io/langgraph/tutorials/introduction/" target="_blank" rel="noopener">https://langchain-ai.github.io/langgraph/tutorials/introduction/</a></li>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#7a4fd6">主项目应用</span>
+<ul>
 </ul>
 </div>
 <div class="sec">
@@ -1522,21 +1577,13 @@ footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#2563a8">今日代码产出</span>
+<span class="sec-label" style="background:#2563a8">代码产出</span>
 <ul>
-<li>`day18-langgraph/graph.py`：LangGraph 版 Agent。</li>
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#7a4fd6">今日知识产出</span>
+<span class="sec-label" style="background:#7a4fd6">知识产出</span>
 <ul>
-<li>一张「手写 Loop vs LangGraph」对照图。</li>
-</ul>
-</div>
-<div class="sec">
-<span class="sec-label" style="background:#c2410c">公众号素材</span>
-<ul>
-<li>钩子：「手写 Agent Loop 之后，为什么我还是换了 LangGraph？」</li>
 </ul>
 </div>
 <div class="sec">
@@ -1546,28 +1593,25 @@ footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#1f6feb">自测问题</span>
-<ol>
-<li>State 在 Graph 里怎么流动？</li>
-<li>条件路由 vs 固定 Edge？</li>
-<li>Checkpoint 解决了什么？</li>
-</ol>
-</div>
-<div class="sec">
-<span class="sec-label" style="background:#8a6d3b">时间预算</span>
+<span class="sec-label" style="background:#c2410c">公众号素材</span>
 <ul>
 </ul>
 </div>
 </article>
 <article class="day" id="d19">
 <div class="day-head">
-<h3>第 19 节 · Checkpoint、Human-in-the-loop 与 Evaluation</h3>
+<h3>第 19 节 · Checkpoint 与 Human-in-the-Loop</h3>
+<div class="chip-row"><span class="chip chip-tier" style="background:#2f5bff">中级</span><span class="chip chip-time">核心·2h</span></div>
+<div class="rec-title">📌 公众号标题：Agent 跑一半断了？让它能"存档续命"</div>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#2f5bff">今日学习目标</span>
+<span class="sec-label" style="background:#5b6b8f">目标读者</span>
 <ul>
-<li>理解任务状态持久化、中断恢复、人工审批。</li>
-<li>建立 Agent 评测意识：测试集/成功率/工具准确率。</li>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#b8551b">核心问题</span>
+<ul>
 </ul>
 </div>
 <div class="sec">
@@ -1576,11 +1620,20 @@ footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#1f8a70">知识点讲解</span>
+<span class="sec-label" style="background:#2f5bff">学习目标</span>
 <ul>
-<li>入门层：Checkpoint=中途存档，断网可续；HITL=关键处等人确认；Eval=用数据测好坏。</li>
-<li>原理层：Eval 集要覆盖典型/边界用例；成功率+工具选择准确率双指标。</li>
-<li>实践层：用 LangGraph Checkpoint 实现中断恢复；写一个最小测试集。</li>
+<li>理解任务状态持久化、中断恢复、人工审批。</li>
+<li>在 LangGraph 中实现 Checkpoint 与 HITL 节点。</li>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#1f8a70">核心知识点</span>
+<ul>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#0a8f6f">技术原理</span>
+<ul>
 </ul>
 </div>
 <div class="sec">
@@ -1589,66 +1642,60 @@ footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#0a8f6f">学习资料</span>
+<span class="sec-label" style="background:#5b6b8f">前后关系</span>
 <ul>
-<li>LangGraph 持久化：<a href="https://langchain-ai.github.io/langgraph/how-tos/persistence/" target="_blank" rel="noopener">https://langchain-ai.github.io/langgraph/how-tos/persistence/</a></li>
-<li>LangChain Evaluators：<a href="https://python.langchain.com/docs/concepts/evaluation/" target="_blank" rel="noopener">https://python.langchain.com/docs/concepts/evaluation/</a></li>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#7a4fd6">主项目应用</span>
+<ul>
 </ul>
 </div>
 <div class="sec">
 <span class="sec-label" style="background:#b8551b">动手实践</span>
 <ul>
-<li>步骤1：在 `day19-checkpoint-eval/` 给 Graph 加 MemorySaver，模拟中断后续跑。</li>
-<li>步骤2：写 `eval_set.jsonl`（10 条），统计成功率。</li>
-<li>预期输出：中断恢复成功；成功率可统计。</li>
+<li>步骤1：在 `day19-checkpoint-hitl/` 给 Graph 加 MemorySaver，模拟中断后续跑。</li>
+<li>步骤2：加一个 HITL 节点，暂停等待确认。</li>
+<li>预期输出：中断恢复成功；HITL 节点正确暂停/继续。</li>
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#2563a8">今日代码产出</span>
+<span class="sec-label" style="background:#2563a8">代码产出</span>
 <ul>
-<li>`day19-checkpoint-eval/`：Checkpoint + 最小评测集。</li>
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#7a4fd6">今日知识产出</span>
+<span class="sec-label" style="background:#7a4fd6">知识产出</span>
 <ul>
-<li>一份「评测指标清单」。</li>
-</ul>
-</div>
-<div class="sec">
-<span class="sec-label" style="background:#c2410c">公众号素材</span>
-<ul>
-<li>钩子：「Agent 跑通就完了？先问问它'做对了几题'。」</li>
 </ul>
 </div>
 <div class="sec">
 <span class="sec-label" style="background:#c23b6a">验收标准</span>
 <ul>
-<li>Checkpoint 可恢复；能定义并跑最小评测。</li>
+<li>Checkpoint 可恢复；HITL 节点正确暂停/继续。</li>
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#1f6feb">自测问题</span>
-<ol>
-<li>为什么 Eval 集要含边界用例？</li>
-<li>HITL 与 Checkpoint 如何配合？</li>
-<li>成功率低先查哪？</li>
-</ol>
-</div>
-<div class="sec">
-<span class="sec-label" style="background:#8a6d3b">时间预算</span>
+<span class="sec-label" style="background:#c2410c">公众号素材</span>
 <ul>
 </ul>
 </div>
 </article>
+<div class="module-banner" style="border-left:4px solid #2f5bff">模块四 质量与效果</div>
 <article class="day" id="d20">
 <div class="day-head">
-<h3>第 20 节 · Agent 可靠性</h3>
+<h3>第 20 节 · Agent Evaluation</h3>
+<div class="chip-row"><span class="chip chip-tier" style="background:#2f5bff">中级</span><span class="chip chip-time">核心·2h</span></div>
+<div class="rec-title">📌 公众号标题：Agent 跑通就完了？先问问它"做对了几题"</div>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#2f5bff">今日学习目标</span>
+<span class="sec-label" style="background:#5b6b8f">目标读者</span>
 <ul>
-<li>掌握超时、重试、幂等、异常、最大轮次、Token 预算、长任务管理。</li>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#b8551b">核心问题</span>
+<ul>
 </ul>
 </div>
 <div class="sec">
@@ -1657,11 +1704,20 @@ footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#1f8a70">知识点讲解</span>
+<span class="sec-label" style="background:#2f5bff">学习目标</span>
 <ul>
-<li>入门层：超时防卡死；重试防偶发失败；幂等防重复副作用。</li>
-<li>原理层：Token 预算避免成本爆炸；长任务拆段+状态保存。</li>
-<li>实践层：给工具调用加超时/重试装饰器。</li>
+<li>建立 Agent 评测意识：测试集 / 成功率 / 工具选择准确率 / RAG 检索质量 / 输出质量 / Token 成本 / 响应延迟 / 失败案例。</li>
+<li>能构造最小评测集并跑出指标。</li>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#1f8a70">核心知识点</span>
+<ul>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#0a8f6f">技术原理</span>
+<ul>
 </ul>
 </div>
 <div class="sec">
@@ -1670,64 +1726,59 @@ footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#0a8f6f">学习资料</span>
+<span class="sec-label" style="background:#5b6b8f">前后关系</span>
 <ul>
-<li>Anthropic《Building Effective Agents》（可靠性）：<a href="https://www.anthropic.com/research/building-effective-agents" target="_blank" rel="noopener">https://www.anthropic.com/research/building-effective-agents</a></li>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#7a4fd6">主项目应用</span>
+<ul>
 </ul>
 </div>
 <div class="sec">
 <span class="sec-label" style="background:#b8551b">动手实践</span>
 <ul>
-<li>步骤1：在 `day20-reliability/` 写 `with_timeout` / `with_retry` 装饰器。</li>
-<li>预期输出：超时/失败被捕获并可重试，幂等工具不重复写。</li>
+<li>步骤1：在 `day20-evaluation/` 写 `eval_set.jsonl`（10 条），字段含任务/期望工具/期望结论。</li>
+<li>步骤2：写 `run_eval.py` 统计成功率、工具准确率、平均 token 与延迟。</li>
+<li>预期输出：一份含 4 项指标的报告（Mock 数据即可，标注"待真实模型验证"）。</li>
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#2563a8">今日代码产出</span>
+<span class="sec-label" style="background:#2563a8">代码产出</span>
 <ul>
-<li>`day20-reliability/guards.py`：可靠性护栏。</li>
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#7a4fd6">今日知识产出</span>
+<span class="sec-label" style="background:#7a4fd6">知识产出</span>
 <ul>
-<li>一张「可靠性检查清单」。</li>
-</ul>
-</div>
-<div class="sec">
-<span class="sec-label" style="background:#c2410c">公众号素材</span>
-<ul>
-<li>钩子：「Demo 五分钟，上生产五小时——Agent 可靠性清单。」</li>
 </ul>
 </div>
 <div class="sec">
 <span class="sec-label" style="background:#c23b6a">验收标准</span>
 <ul>
-<li>工具调用有超时/重试/幂等保护。</li>
+<li>能定义并跑最小评测；报告含成功率/工具准确率/成本/延迟。</li>
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#1f6feb">自测问题</span>
-<ol>
-<li>什么工具必须幂等？</li>
-<li>Token 预算超了怎么降级？</li>
-<li>长任务如何不被中断打断？</li>
-</ol>
-</div>
-<div class="sec">
-<span class="sec-label" style="background:#8a6d3b">时间预算</span>
+<span class="sec-label" style="background:#c2410c">公众号素材</span>
 <ul>
 </ul>
 </div>
 </article>
 <article class="day" id="d21">
 <div class="day-head">
-<h3>第 21 节 · Agent 安全</h3>
+<h3>第 21 节 · 中级项目实战：竞品研究 Agent 骨架</h3>
+<div class="chip-row"><span class="chip chip-tier" style="background:#2f5bff">中级</span><span class="chip chip-time">核心·3h（周末）</span></div>
+<div class="rec-title">📌 公众号标题：把前面学的 15 节，拼成一个能用的 Agent</div>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#2f5bff">今日学习目标</span>
+<span class="sec-label" style="background:#5b6b8f">目标读者</span>
 <ul>
-<li>理解 Prompt Injection、工具权限、敏感信息保护、用户授权、调用审计。</li>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#b8551b">核心问题</span>
+<ul>
 </ul>
 </div>
 <div class="sec">
@@ -1736,11 +1787,20 @@ footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#1f8a70">知识点讲解</span>
+<span class="sec-label" style="background:#2f5bff">学习目标</span>
 <ul>
-<li>入门层：Prompt Injection=被外部内容"骗"去执行恶意指令；权限=工具最小授权。</li>
-<li>原理层：不可信内容（检索结果/网页）不应直接获得指令权；审计记录每次调用。</li>
-<li>实践层：在第 17 节 HITL 基础上加"工具权限表+调用日志"。</li>
+<li>把中级所学整合：给主项目接上 Tool Calling + MCP + RAG + Memory + LangGraph 骨架。</li>
+<li>跑通"分析 Notion/飞书/ClickUp 差异"的初步流程。</li>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#1f8a70">核心知识点</span>
+<ul>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#0a8f6f">技术原理</span>
+<ul>
 </ul>
 </div>
 <div class="sec">
@@ -1749,65 +1809,59 @@ footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#0a8f6f">学习资料</span>
+<span class="sec-label" style="background:#5b6b8f">前后关系</span>
 <ul>
-<li>OWASP LLM Top 10：<a href="https://owasp.org/www-project-top-10-for-large-language-model-applications/" target="_blank" rel="noopener">https://owasp.org/www-project-top-10-for-large-language-model-applications/</a></li>
-<li>Anthropic Agent 安全实践：<a href="https://www.anthropic.com/research" target="_blank" rel="noopener">https://www.anthropic.com/research</a></li>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#7a4fd6">主项目应用</span>
+<ul>
 </ul>
 </div>
 <div class="sec">
 <span class="sec-label" style="background:#b8551b">动手实践</span>
 <ul>
-<li>步骤1：在 `day21-security/` 加 `permission_map` + `audit_log`。</li>
-<li>预期输出：高危工具需授权，所有调用留痕。</li>
+<li>步骤1：在 `projects/saas-competitor-agent/` 整合 Registry + RAG 工具 + Memory + LangGraph。</li>
+<li>步骤2：跑"分析 Notion/飞书/ClickUp 差异"，输出对比草稿。</li>
+<li>预期输出：Agent 能检索 + 记忆 + 生成对比草稿。</li>
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#2563a8">今日代码产出</span>
+<span class="sec-label" style="background:#2563a8">代码产出</span>
 <ul>
-<li>`day21-security/security.py`：权限+审计模块。</li>
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#7a4fd6">今日知识产出</span>
+<span class="sec-label" style="background:#7a4fd6">知识产出</span>
 <ul>
-<li>一张「安全风险与对策」表。</li>
-</ul>
-</div>
-<div class="sec">
-<span class="sec-label" style="background:#c2410c">公众号素材</span>
-<ul>
-<li>钩子：「Agent 被网页'骗'去删库？Prompt 注入不是段子。」</li>
 </ul>
 </div>
 <div class="sec">
 <span class="sec-label" style="background:#c23b6a">验收标准</span>
 <ul>
-<li>能解释注入风险；工具权限与审计落地。</li>
+<li>主项目骨架可跑通对比分析流程；各模块接口对齐。</li>
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#1f6feb">自测问题</span>
-<ol>
-<li>为什么检索内容可能是注入源？</li>
-<li>最小权限原则怎么落到工具？</li>
-<li>审计日志必须记什么？</li>
-</ol>
-</div>
-<div class="sec">
-<span class="sec-label" style="background:#8a6d3b">时间预算</span>
+<span class="sec-label" style="background:#c2410c">公众号素材</span>
 <ul>
 </ul>
 </div>
 </article>
 <article class="day" id="d22">
 <div class="day-head">
-<h3>第 22 节 · 模型网关与模型管理</h3>
+<h3>第 22 节 · 中级复盘与验收</h3>
+<div class="chip-row"><span class="chip chip-tier" style="background:#2f5bff">中级</span><span class="chip chip-time">核心·2h</span></div>
+<div class="rec-title">📌 公众号标题：学完中级，我离"能造 Agent"还差什么</div>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#2f5bff">今日学习目标</span>
+<span class="sec-label" style="background:#5b6b8f">目标读者</span>
 <ul>
-<li>理解 Model Gateway：多模型接入、适配层、路由、限流、降级、成本管理。</li>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#b8551b">核心问题</span>
+<ul>
 </ul>
 </div>
 <div class="sec">
@@ -1816,11 +1870,20 @@ footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#1f8a70">知识点讲解</span>
+<span class="sec-label" style="background:#2f5bff">学习目标</span>
 <ul>
-<li>入门层：网关统一封装多家模型，业务侧只调一个接口。</li>
-<li>原理层：适配层抹平 API 差异；路由按任务/价格选模型；限流防超支；降级保可用。</li>
-<li>实践层：把第 5 节的 `RealLLM` 扩成支持多 provider 的 `ModelGateway`。</li>
+<li>对中级 16 节做整体复盘，跑通中级验收表。</li>
+<li>找出薄弱节，决定高级重点。</li>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#1f8a70">核心知识点</span>
+<ul>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#0a8f6f">技术原理</span>
+<ul>
 </ul>
 </div>
 <div class="sec">
@@ -1829,64 +1892,62 @@ footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#0a8f6f">学习资料</span>
+<span class="sec-label" style="background:#5b6b8f">前后关系</span>
 <ul>
-<li>各模型厂商 API 文档（OpenAI/Anthropic/国内厂商）对比 endpoints。</li>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#7a4fd6">主项目应用</span>
+<ul>
 </ul>
 </div>
 <div class="sec">
 <span class="sec-label" style="background:#b8551b">动手实践</span>
 <ul>
-<li>步骤1：在 `day22-gateway/` 写 `ModelGateway`，按配置路由到不同 provider。</li>
-<li>预期输出：切换 provider 无需改业务代码。</li>
+<li>步骤1：逐项核对中级验收清单，标记未完成项。</li>
+<li>预期输出：一份中级验收表（完成/遗留）+ 能力地图。</li>
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#2563a8">今日代码产出</span>
+<span class="sec-label" style="background:#2563a8">代码产出</span>
 <ul>
-<li>`day22-gateway/gateway.py`：模型网关雏形。</li>
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#7a4fd6">今日知识产出</span>
+<span class="sec-label" style="background:#7a4fd6">知识产出</span>
 <ul>
-<li>一张「网关核心模块」图。</li>
-</ul>
-</div>
-<div class="sec">
-<span class="sec-label" style="background:#c2410c">公众号素材</span>
-<ul>
-<li>钩子：「别把 Agent 绑死一家模型，网关帮你随时换。」</li>
 </ul>
 </div>
 <div class="sec">
 <span class="sec-label" style="background:#c23b6a">验收标准</span>
 <ul>
-<li>能解释网关价值；多 provider 可切换。</li>
+<li>中级验收表填写完整；明确高级优先补强项。</li>
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#1f6feb">自测问题</span>
-<ol>
-<li>适配层解决什么？</li>
-<li>路由按什么维度？</li>
-<li>限流和降级区别？</li>
-</ol>
-</div>
-<div class="sec">
-<span class="sec-label" style="background:#8a6d3b">时间预算</span>
+<span class="sec-label" style="background:#c2410c">公众号素材</span>
 <ul>
 </ul>
 </div>
 </article>
+</section>
+<section class="week" id="tier-3">
+<h2><span class="week-no" style="background:#b8551b">高级</span>高级 · 共14篇</h2>
+<div class="module-banner" style="border-left:4px solid #b8551b">模块五 工程可靠性</div>
 <article class="day" id="d23">
 <div class="day-head">
-<h3>第 23 节 · Agent 可观测性</h3>
+<h3>第 23 节 · Agent Runtime 与任务生命周期</h3>
+<div class="chip-row"><span class="chip chip-tier" style="background:#b8551b">高级</span><span class="chip chip-time">进阶·2.5h</span></div>
+<div class="rec-title">📌 公众号标题：一个 Agent 脚本，和"一个平台"，差在哪</div>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#2f5bff">今日学习目标</span>
+<span class="sec-label" style="background:#5b6b8f">目标读者</span>
 <ul>
-<li>理解 Trace、模型/工具调用记录、Token、延迟、成功率、成本分析。</li>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#b8551b">核心问题</span>
+<ul>
 </ul>
 </div>
 <div class="sec">
@@ -1895,11 +1956,20 @@ footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#1f8a70">知识点讲解</span>
+<span class="sec-label" style="background:#2f5bff">学习目标</span>
 <ul>
-<li>入门层：Trace=一次任务全流程记录；能看到每步耗时/花费。</li>
-<li>原理层：把 Loop 每轮输入/输出/工具调用打点；聚合看成本与失败。</li>
-<li>实践层：给主项目加简单 trace 装饰器，输出 JSONL。</li>
+<li>理解 Runtime / Task Runtime / Tool Registry / Session / 状态 / 多用户隔离。</li>
+<li>能画出简化平台架构。</li>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#1f8a70">核心知识点</span>
+<ul>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#0a8f6f">技术原理</span>
+<ul>
 </ul>
 </div>
 <div class="sec">
@@ -1908,35 +1978,276 @@ footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#0a8f6f">学习资料</span>
+<span class="sec-label" style="background:#5b6b8f">前后关系</span>
 <ul>
-<li>LangSmith 概念（可参考，不必用）：<a href="https://docs.smith.langchain.com/" target="_blank" rel="noopener">https://docs.smith.langchain.com/</a></li>
-<li>OpenTelemetry：<a href="https://opentelemetry.io/" target="_blank" rel="noopener">https://opentelemetry.io/</a></li>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#7a4fd6">主项目应用</span>
+<ul>
 </ul>
 </div>
 <div class="sec">
 <span class="sec-label" style="background:#b8551b">动手实践</span>
 <ul>
-<li>步骤1：在 `day23-observability/` 写 `trace_step`，记录每步 token/延迟。</li>
-<li>预期输出：一次任务生成可读 trace 日志。</li>
+<li>步骤1：在 `day23-runtime/` 画简化平台架构（含模块职责）。</li>
+<li>步骤2：写 `runtime.py` 管理 Session 与 Task 生命周期（最简骨架）。</li>
+<li>预期输出：一张架构图 + 模块职责表 + 运行骨架。</li>
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#2563a8">今日代码产出</span>
+<span class="sec-label" style="background:#2563a8">代码产出</span>
 <ul>
-<li>`day23-observability/trace.py`：trace 模块。</li>
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#7a4fd6">今日知识产出</span>
+<span class="sec-label" style="background:#7a4fd6">知识产出</span>
 <ul>
-<li>一张「可观测性指标面板」草图。</li>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#c23b6a">验收标准</span>
+<ul>
+<li>能画出平台架构并说清模块职责；能解释 Session 与 Task 区别。</li>
 </ul>
 </div>
 <div class="sec">
 <span class="sec-label" style="background:#c2410c">公众号素材</span>
 <ul>
-<li>钩子：「Agent 慢又贵？先把它'透视'了再说。」</li>
+</ul>
+</div>
+</article>
+<article class="day" id="d24">
+<div class="day-head">
+<h3>第 24 节 · 可靠性工程（超时/重试/幂等/异常恢复）</h3>
+<div class="chip-row"><span class="chip chip-tier" style="background:#b8551b">高级</span><span class="chip chip-time">核心·2h</span></div>
+<div class="rec-title">📌 公众号标题：Demo 五分钟，上生产五小时——Agent 可靠性清单</div>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#5b6b8f">目标读者</span>
+<ul>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#b8551b">核心问题</span>
+<ul>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#6b7385">为什么要学习</span>
+<ul>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#2f5bff">学习目标</span>
+<ul>
+<li>掌握超时、重试、幂等、异常、最大轮次、Token 预算、长任务管理。</li>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#1f8a70">核心知识点</span>
+<ul>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#0a8f6f">技术原理</span>
+<ul>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#5b6b8f">前置知识</span>
+<ul>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#5b6b8f">前后关系</span>
+<ul>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#7a4fd6">主项目应用</span>
+<ul>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#b8551b">动手实践</span>
+<ul>
+<li>步骤1：在 `day24-reliability/` 写 `with_timeout` / `with_retry` / `idempotent` 装饰器。</li>
+<li>预期输出：超时/失败被捕获并可重试，幂等工具不重复写。</li>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#2563a8">代码产出</span>
+<ul>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#7a4fd6">知识产出</span>
+<ul>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#c23b6a">验收标准</span>
+<ul>
+<li>工具调用有超时/重试/幂等保护；清单可落地。</li>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#c2410c">公众号素材</span>
+<ul>
+</ul>
+</div>
+</article>
+<article class="day" id="d25">
+<div class="day-head">
+<h3>第 25 节 · Agent 安全（Prompt Injection/权限/审计）</h3>
+<div class="chip-row"><span class="chip chip-tier" style="background:#b8551b">高级</span><span class="chip chip-time">核心·2h</span></div>
+<div class="rec-title">📌 公众号标题：Agent 被网页"骗"去删库？Prompt 注入不是段子</div>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#5b6b8f">目标读者</span>
+<ul>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#b8551b">核心问题</span>
+<ul>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#6b7385">为什么要学习</span>
+<ul>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#2f5bff">学习目标</span>
+<ul>
+<li>理解 Prompt Injection、工具权限、敏感信息保护、用户授权、调用审计。</li>
+<li>能实现最小权限 + 审计日志。</li>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#1f8a70">核心知识点</span>
+<ul>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#0a8f6f">技术原理</span>
+<ul>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#5b6b8f">前置知识</span>
+<ul>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#5b6b8f">前后关系</span>
+<ul>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#7a4fd6">主项目应用</span>
+<ul>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#b8551b">动手实践</span>
+<ul>
+<li>步骤1：在 `day25-security/` 加 `permission_map` + `audit_log`。</li>
+<li>步骤2：写一个注入测试用例，验证不可信内容无法越权。</li>
+<li>预期输出：高危工具需授权，所有调用留痕；注入被拦截。</li>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#2563a8">代码产出</span>
+<ul>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#7a4fd6">知识产出</span>
+<ul>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#c23b6a">验收标准</span>
+<ul>
+<li>能解释注入风险；工具权限与审计落地；注入用例被拦截。</li>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#c2410c">公众号素材</span>
+<ul>
+</ul>
+</div>
+</article>
+<article class="day" id="d26">
+<div class="day-head">
+<h3>第 26 节 · 可观测性（Trace/日志/成本/延迟）</h3>
+<div class="chip-row"><span class="chip chip-tier" style="background:#b8551b">高级</span><span class="chip chip-time">核心·2h</span></div>
+<div class="rec-title">📌 公众号标题：Agent 慢又贵？先把它"透视"了再说</div>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#5b6b8f">目标读者</span>
+<ul>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#b8551b">核心问题</span>
+<ul>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#6b7385">为什么要学习</span>
+<ul>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#2f5bff">学习目标</span>
+<ul>
+<li>理解 Trace、模型/工具调用记录、Token、延迟、成功率、成本分析。</li>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#1f8a70">核心知识点</span>
+<ul>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#0a8f6f">技术原理</span>
+<ul>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#5b6b8f">前置知识</span>
+<ul>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#5b6b8f">前后关系</span>
+<ul>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#7a4fd6">主项目应用</span>
+<ul>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#b8551b">动手实践</span>
+<ul>
+<li>步骤1：在 `day26-observability/` 写 `trace_step`，记录每步 token/延迟。</li>
+<li>预期输出：一次任务生成可读 trace 日志。</li>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#2563a8">代码产出</span>
+<ul>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#7a4fd6">知识产出</span>
+<ul>
 </ul>
 </div>
 <div class="sec">
@@ -1946,263 +2257,25 @@ footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#1f6feb">自测问题</span>
-<ol>
-<li>Trace 和日志区别？</li>
-<li>哪些指标必须监控？</li>
-<li>成本异常先查哪？</li>
-</ol>
-</div>
-<div class="sec">
-<span class="sec-label" style="background:#8a6d3b">时间预算</span>
-<ul>
-</ul>
-</div>
-</article>
-<article class="day" id="d24">
-<div class="day-head">
-<h3>第 24 节 · Agent Runtime 与平台架构</h3>
-</div>
-<div class="sec">
-<span class="sec-label" style="background:#2f5bff">今日学习目标</span>
-<ul>
-<li>理解 Runtime / Task Runtime / Tool Registry / Session / 状态 / 多用户隔离。</li>
-</ul>
-</div>
-<div class="sec">
-<span class="sec-label" style="background:#6b7385">为什么要学习</span>
-<ul>
-</ul>
-</div>
-<div class="sec">
-<span class="sec-label" style="background:#1f8a70">知识点讲解</span>
-<ul>
-<li>入门层：Runtime=跑 Agent 的容器；Session=一次用户会话；隔离=用户数据互不串。</li>
-<li>原理层：平台把 Registry/Runtime/Session/状态管理做成独立服务。</li>
-<li>实践层：画一张简化平台架构图。</li>
-</ul>
-</div>
-<div class="sec">
-<span class="sec-label" style="background:#5b6b8f">前置知识</span>
-<ul>
-</ul>
-</div>
-<div class="sec">
-<span class="sec-label" style="background:#0a8f6f">学习资料</span>
-<ul>
-<li>Anthropic 平台化思路：<a href="https://www.anthropic.com/research/building-effective-agents" target="_blank" rel="noopener">https://www.anthropic.com/research/building-effective-agents</a></li>
-</ul>
-</div>
-<div class="sec">
-<span class="sec-label" style="background:#b8551b">动手实践</span>
-<ul>
-<li>步骤1：在 `day24-platform/` 画简化平台架构（含模块职责）。</li>
-<li>预期输出：一张架构图 + 模块职责表。</li>
-</ul>
-</div>
-<div class="sec">
-<span class="sec-label" style="background:#2563a8">今日代码产出</span>
-<ul>
-<li>`day24-platform/architecture.md`：平台架构笔记。</li>
-</ul>
-</div>
-<div class="sec">
-<span class="sec-label" style="background:#7a4fd6">今日知识产出</span>
-<ul>
-<li>一张「Agent 平台架构」图。</li>
-</ul>
-</div>
-<div class="sec">
 <span class="sec-label" style="background:#c2410c">公众号素材</span>
-<ul>
-<li>钩子：「一个 Agent 脚本，和'一个平台'，差在哪？」</li>
-</ul>
-</div>
-<div class="sec">
-<span class="sec-label" style="background:#c23b6a">验收标准</span>
-<ul>
-<li>能画出平台架构并说清模块职责。</li>
-</ul>
-</div>
-<div class="sec">
-<span class="sec-label" style="background:#1f6feb">自测问题</span>
-<ol>
-<li>多用户隔离怎么做？</li>
-<li>Session 与 Task 区别？</li>
-<li>Registry 为什么是平台级服务？</li>
-</ol>
-</div>
-<div class="sec">
-<span class="sec-label" style="background:#8a6d3b">时间预算</span>
-<ul>
-</ul>
-</div>
-</article>
-<article class="day" id="d25">
-<div class="day-head">
-<h3>第 25 节 · 中级项目实战（竞品 Agent 骨架）</h3>
-</div>
-<div class="sec">
-<span class="sec-label" style="background:#2f5bff">今日学习目标</span>
-<ul>
-<li>把中级所学整合：给主项目接上 Tool Calling + MCP + RAG + Memory 骨架。</li>
-</ul>
-</div>
-<div class="sec">
-<span class="sec-label" style="background:#6b7385">为什么要学习</span>
-<ul>
-</ul>
-</div>
-<div class="sec">
-<span class="sec-label" style="background:#1f8a70">知识点讲解</span>
-<ul>
-<li>入门层：复用前面模块拼出主项目基座。</li>
-<li>原理层：Registry 管工具、RAG 管知识、Memory 管偏好、Loop/Graph 管流转。</li>
-<li>实践层：在 `learn-agent` 主项目目录落地整合版 `agent.py`。</li>
-</ul>
-</div>
-<div class="sec">
-<span class="sec-label" style="background:#5b6b8f">前置知识</span>
-<ul>
-</ul>
-</div>
-<div class="sec">
-<span class="sec-label" style="background:#0a8f6f">学习资料</span>
-<ul>
-<li>复习第 10、15、16、18 节代码。</li>
-</ul>
-</div>
-<div class="sec">
-<span class="sec-label" style="background:#b8551b">动手实践</span>
-<ul>
-<li>步骤1：整合 Registry + RAG 工具 + Memory + LangGraph，跑"分析 Notion/飞书/ClickUp 差异"。</li>
-<li>预期输出：Agent 能检索+记忆+生成对比草稿。</li>
-</ul>
-</div>
-<div class="sec">
-<span class="sec-label" style="background:#2563a8">今日代码产出</span>
-<ul>
-<li>主项目 `agent.py` 中级整合版。</li>
-</ul>
-</div>
-<div class="sec">
-<span class="sec-label" style="background:#7a4fd6">今日知识产出</span>
-<ul>
-<li>一份「中级整合验收」记录。</li>
-</ul>
-</div>
-<div class="sec">
-<span class="sec-label" style="background:#c2410c">公众号素材</span>
-<ul>
-<li>钩子：「把 15 天学的东西，拼成一个能用的 Agent。」</li>
-</ul>
-</div>
-<div class="sec">
-<span class="sec-label" style="background:#c23b6a">验收标准</span>
-<ul>
-<li>主项目骨架可跑通对比分析流程。</li>
-</ul>
-</div>
-<div class="sec">
-<span class="sec-label" style="background:#1f6feb">自测问题</span>
-<ol>
-<li>各模块如何协作？</li>
-<li>哪块最易出错？</li>
-<li>下一步高级要补什么？</li>
-</ol>
-</div>
-<div class="sec">
-<span class="sec-label" style="background:#8a6d3b">时间预算</span>
-<ul>
-</ul>
-</div>
-</article>
-<article class="day" id="d26">
-<div class="day-head">
-<h3>第 26 节 · 工具调用评测</h3>
-</div>
-<div class="sec">
-<span class="sec-label" style="background:#2f5bff">今日学习目标</span>
-<ul>
-<li>度量工具选择准确率与参数正确性。</li>
-</ul>
-</div>
-<div class="sec">
-<span class="sec-label" style="background:#6b7385">为什么要学习</span>
-<ul>
-</ul>
-</div>
-<div class="sec">
-<span class="sec-label" style="background:#1f8a70">知识点讲解</span>
-<ul>
-<li>入门层：工具评测=模型是否选对工具、参数是否合法。</li>
-<li>原理层：用标注集对比"期望工具/参数"与"实际"。</li>
-<li>实践层：在 `day26-tool-eval/` 扩展第 19 节评测集。</li>
-</ul>
-</div>
-<div class="sec">
-<span class="sec-label" style="background:#5b6b8f">前置知识</span>
-<ul>
-</ul>
-</div>
-<div class="sec">
-<span class="sec-label" style="background:#0a8f6f">学习资料</span>
-<ul>
-<li>LangChain 工具评测：<a href="https://python.langchain.com/docs/concepts/evaluation/" target="_blank" rel="noopener">https://python.langchain.com/docs/concepts/evaluation/</a></li>
-</ul>
-</div>
-<div class="sec">
-<span class="sec-label" style="background:#b8551b">动手实践</span>
-<ul>
-<li>步骤1：写工具评测，统计选择准确率与参数合格率。</li>
-<li>预期输出：两份准确率报告。</li>
-</ul>
-</div>
-<div class="sec">
-<span class="sec-label" style="background:#2563a8">今日代码产出</span>
-<ul>
-<li>`day26-tool-eval/tool_eval.py`。</li>
-</ul>
-</div>
-<div class="sec">
-<span class="sec-label" style="background:#7a4fd6">今日知识产出</span>
-<ul>
-<li>一份「工具评测报告」模板。</li>
-</ul>
-</div>
-<div class="sec">
-<span class="sec-label" style="background:#c2410c">公众号素材</span>
-<ul>
-<li>钩子：「Agent 选错工具，比说错话更坑。」</li>
-</ul>
-</div>
-<div class="sec">
-<span class="sec-label" style="background:#c23b6a">验收标准</span>
-<ul>
-<li>能度量工具调用质量。</li>
-</ul>
-</div>
-<div class="sec">
-<span class="sec-label" style="background:#1f6feb">自测问题</span>
-<ol>
-<li>参数合法但工具选错，算对吗？</li>
-<li>如何构造工具评测集？</li>
-</ol>
-</div>
-<div class="sec">
-<span class="sec-label" style="background:#8a6d3b">时间预算</span>
 <ul>
 </ul>
 </div>
 </article>
 <article class="day" id="d27">
 <div class="day-head">
-<h3>第 27 节 · 上下文压缩实战</h3>
+<h3>第 27 节 · Token 成本优化与性能调优</h3>
+<div class="chip-row"><span class="chip chip-tier" style="background:#b8551b">高级</span><span class="chip chip-time">核心·2h</span></div>
+<div class="rec-title">📌 公众号标题：Agent 烧钱又快又猛？这几招先压住</div>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#2f5bff">今日学习目标</span>
+<span class="sec-label" style="background:#5b6b8f">目标读者</span>
 <ul>
-<li>在长任务中落地上下文压缩，控制成本与质量。</li>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#b8551b">核心问题</span>
+<ul>
 </ul>
 </div>
 <div class="sec">
@@ -2211,11 +2284,19 @@ footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#1f8a70">知识点讲解</span>
+<span class="sec-label" style="background:#2f5bff">学习目标</span>
 <ul>
-<li>入门层：长研究任务历史会爆窗口。</li>
-<li>原理层：分段摘要+关键保留。</li>
-<li>实践层：主项目长会话启用压缩。</li>
+<li>掌握上下文压缩（接第 11 节）、模型路由（接高-28）、缓存、批量、降级等优化手段。</li>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#1f8a70">核心知识点</span>
+<ul>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#0a8f6f">技术原理</span>
+<ul>
 </ul>
 </div>
 <div class="sec">
@@ -2224,63 +2305,58 @@ footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#0a8f6f">学习资料</span>
+<span class="sec-label" style="background:#5b6b8f">前后关系</span>
 <ul>
-<li>同第 12 节。</li>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#7a4fd6">主项目应用</span>
+<ul>
 </ul>
 </div>
 <div class="sec">
 <span class="sec-label" style="background:#b8551b">动手实践</span>
 <ul>
-<li>步骤1：在主项目接 `compress_history`，跑多轮研究任务。</li>
-<li>预期输出：长任务 token 受控且质量不降。</li>
+<li>步骤1：在 `day27-cost/` 组合"压缩 + 缓存 + 模型路由"，对比优化前后 token 与延迟。</li>
+<li>预期输出：一份优化前后对比报告（Mock 数据，标注"待真实验证"）。</li>
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#2563a8">今日代码产出</span>
+<span class="sec-label" style="background:#2563a8">代码产出</span>
 <ul>
-<li>主项目上下文压缩接入。</li>
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#7a4fd6">今日知识产出</span>
+<span class="sec-label" style="background:#7a4fd6">知识产出</span>
 <ul>
-<li>一份「压缩前后对比」记录。</li>
-</ul>
-</div>
-<div class="sec">
-<span class="sec-label" style="background:#c2410c">公众号素材</span>
-<ul>
-<li>钩子：「让 Agent 做长任务，上下文不爆的秘诀。」</li>
 </ul>
 </div>
 <div class="sec">
 <span class="sec-label" style="background:#c23b6a">验收标准</span>
 <ul>
-<li>长任务 token 受控。</li>
+<li>能列出 ≥3 种优化手段并量化效果（或标注待验证）。</li>
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#1f6feb">自测问题</span>
-<ol>
-<li>摘要会丢关键信息吗？如何缓解？</li>
-<li>压缩阈值怎么定？</li>
-</ol>
-</div>
-<div class="sec">
-<span class="sec-label" style="background:#8a6d3b">时间预算</span>
+<span class="sec-label" style="background:#c2410c">公众号素材</span>
 <ul>
 </ul>
 </div>
 </article>
 <article class="day" id="d28">
 <div class="day-head">
-<h3>第 28 节 · 中级复盘与验收</h3>
+<h3>第 28 节 · 模型网关与多模型路由</h3>
+<div class="chip-row"><span class="chip chip-tier" style="background:#b8551b">高级</span><span class="chip chip-time">进阶·2h</span></div>
+<div class="rec-title">📌 公众号标题：别把 Agent 绑死一家模型，网关帮你随时换</div>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#2f5bff">今日学习目标</span>
+<span class="sec-label" style="background:#5b6b8f">目标读者</span>
 <ul>
-<li>对中级 18 节做整体复盘，跑通中级验收表。</li>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#b8551b">核心问题</span>
+<ul>
 </ul>
 </div>
 <div class="sec">
@@ -2289,11 +2365,19 @@ footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#1f8a70">知识点讲解</span>
+<span class="sec-label" style="background:#2f5bff">学习目标</span>
 <ul>
-<li>入门层：对照中级验收清单逐项打勾。</li>
-<li>原理层：找出薄弱节，决定高级重点。</li>
-<li>实践层：填写中级验收表。</li>
+<li>理解 Model Gateway：多模型接入、适配层、路由、限流、降级、成本管理。</li>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#1f8a70">核心知识点</span>
+<ul>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#0a8f6f">技术原理</span>
+<ul>
 </ul>
 </div>
 <div class="sec">
@@ -2302,80 +2386,81 @@ footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#0a8f6f">学习资料</span>
+<span class="sec-label" style="background:#5b6b8f">前后关系</span>
 <ul>
-<li>回顾本手册中级各节验收标准。</li>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#7a4fd6">主项目应用</span>
+<ul>
 </ul>
 </div>
 <div class="sec">
 <span class="sec-label" style="background:#b8551b">动手实践</span>
 <ul>
-<li>步骤1：逐项核对中级验收，标记未完成项。</li>
-<li>预期输出：一份中级验收表（完成/遗留）。</li>
+<li>步骤1：在 `day28-gateway/` 写 `ModelGateway`，按配置路由到不同 provider。</li>
+<li>预期输出：切换 provider 无需改业务代码。</li>
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#2563a8">今日代码产出</span>
+<span class="sec-label" style="background:#2563a8">代码产出</span>
 <ul>
-<li>`中级验收表.md`。</li>
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#7a4fd6">今日知识产出</span>
+<span class="sec-label" style="background:#7a4fd6">知识产出</span>
 <ul>
-<li>一张「中级能力地图」。</li>
-</ul>
-</div>
-<div class="sec">
-<span class="sec-label" style="background:#c2410c">公众号素材</span>
-<ul>
-<li>钩子：「学完中级，我离'能造 Agent'还差什么？」（阶段复盘）</li>
 </ul>
 </div>
 <div class="sec">
 <span class="sec-label" style="background:#c23b6a">验收标准</span>
 <ul>
-<li>中级验收表填写完整。</li>
+<li>能解释网关价值；多 provider 可切换。</li>
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#1f6feb">自测问题</span>
-<ol>
-<li>中级最薄弱的是哪块？</li>
-<li>高级要优先补什么？</li>
-</ol>
-</div>
-<div class="sec">
-<span class="sec-label" style="background:#8a6d3b">时间预算</span>
+<span class="sec-label" style="background:#c2410c">公众号素材</span>
 <ul>
 </ul>
 </div>
 </article>
-</section>
-<section class="week" id="tier-3">
-<h2><span class="week-no" style="background:#b8551b">高级</span>高级 · 共14节</h2>
+<div class="module-banner" style="border-left:4px solid #b8551b">模块六 系统架构与生产实践</div>
 <article class="day" id="d29">
 <div class="day-head">
-<h3>第 29 节 · Multi-Agent</h3>
+<h3>第 29 节 · Multi-Agent 架构与协作</h3>
+<div class="chip-row"><span class="chip chip-tier" style="background:#b8551b">高级</span><span class="chip chip-time">进阶·2h</span></div>
+<div class="rec-title">📌 公众号标题：多 Agent 很酷，但 80% 的场景你用不上</div>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#2f5bff">今日学习目标</span>
+<span class="sec-label" style="background:#5b6b8f">目标读者</span>
+<ul>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#b8551b">核心问题</span>
+<ul>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#6b7385">为什么要学习</span>
+<ul>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#2f5bff">学习目标</span>
 <ul>
 <li>理解 Multi-Agent：为什么需要、Supervisor 模式、协作、通信、局限。</li>
 <li>明确"不要为了复杂度而用 Multi-Agent"。</li>
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#6b7385">为什么要学习</span>
+<span class="sec-label" style="background:#1f8a70">核心知识点</span>
 <ul>
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#1f8a70">知识点讲解</span>
+<span class="sec-label" style="background:#0a8f6f">技术原理</span>
 <ul>
-<li>入门层：多个专职 Agent 协作，由一个 Supervisor 调度。</li>
-<li>原理层：通信=消息传递；成本=多次模型调用；局限=调试难、易失控。</li>
-<li>实践层：设计一个 Supervisor+2 工人的最小多 Agent（仅示意）。</li>
 </ul>
 </div>
 <div class="sec">
@@ -2384,10 +2469,13 @@ footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#0a8f6f">学习资料</span>
+<span class="sec-label" style="background:#5b6b8f">前后关系</span>
 <ul>
-<li>Anthropic《Effective Agents》（Multi-Agent）：<a href="https://www.anthropic.com/research/building-effective-agents" target="_blank" rel="noopener">https://www.anthropic.com/research/building-effective-agents</a></li>
-<li>LangGraph 多 Agent：<a href="https://langchain-ai.github.io/langgraph/tutorials/multi_agent/" target="_blank" rel="noopener">https://langchain-ai.github.io/langgraph/tutorials/multi_agent/</a></li>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#7a4fd6">主项目应用</span>
+<ul>
 </ul>
 </div>
 <div class="sec">
@@ -2398,21 +2486,13 @@ footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#2563a8">今日代码产出</span>
+<span class="sec-label" style="background:#2563a8">代码产出</span>
 <ul>
-<li>`day29-multi-agent/supervisor.py`：最小多 Agent。</li>
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#7a4fd6">今日知识产出</span>
+<span class="sec-label" style="background:#7a4fd6">知识产出</span>
 <ul>
-<li>一张「单 Agent vs 多 Agent 决策」表。</li>
-</ul>
-</div>
-<div class="sec">
-<span class="sec-label" style="background:#c2410c">公众号素材</span>
-<ul>
-<li>钩子：「多 Agent 很酷，但 80% 的场景你用不上。」（反常识）</li>
 </ul>
 </div>
 <div class="sec">
@@ -2422,27 +2502,25 @@ footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#1f6feb">自测问题</span>
-<ol>
-<li>什么场景才值得多 Agent？</li>
-<li>Supervisor 失败怎么办？</li>
-<li>多 Agent 如何debug？</li>
-</ol>
-</div>
-<div class="sec">
-<span class="sec-label" style="background:#8a6d3b">时间预算</span>
+<span class="sec-label" style="background:#c2410c">公众号素材</span>
 <ul>
 </ul>
 </div>
 </article>
 <article class="day" id="d30">
 <div class="day-head">
-<h3>第 30 节 · 综合项目架构设计</h3>
+<h3>第 30 节 · 综合项目：架构设计</h3>
+<div class="chip-row"><span class="chip chip-tier" style="background:#b8551b">高级</span><span class="chip chip-time">进阶·4h（周末）</span></div>
+<div class="rec-title">📌 公众号标题：我要造一个"竞品分析 Agent"，这是它的设计图</div>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#2f5bff">今日学习目标</span>
+<span class="sec-label" style="background:#5b6b8f">目标读者</span>
 <ul>
-<li>完成主项目（AI SaaS 竞品研究 Agent）架构设计。</li>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#b8551b">核心问题</span>
+<ul>
 </ul>
 </div>
 <div class="sec">
@@ -2451,11 +2529,19 @@ footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#1f8a70">知识点讲解</span>
+<span class="sec-label" style="background:#2f5bff">学习目标</span>
 <ul>
-<li>入门层：需求→架构→流程→工具→数据→选型。</li>
-<li>原理层：分层（接入/检索/分析/报告）；Mock 数据先跑通闭环。</li>
-<li>实践层：产出架构文档与目录结构。</li>
+<li>完成主项目架构设计：需求、系统架构、Agent 流程、工具设计、数据结构、技术选型。</li>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#1f8a70">核心知识点</span>
+<ul>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#0a8f6f">技术原理</span>
+<ul>
 </ul>
 </div>
 <div class="sec">
@@ -2464,34 +2550,30 @@ footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#0a8f6f">学习资料</span>
+<span class="sec-label" style="background:#5b6b8f">前后关系</span>
 <ul>
-<li>复习第 17、25 节整合设计。</li>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#7a4fd6">主项目应用</span>
+<ul>
 </ul>
 </div>
 <div class="sec">
 <span class="sec-label" style="background:#b8551b">动手实践</span>
 <ul>
-<li>步骤1：写 `项目架构.md`：需求、系统架构、Agent 流程、工具设计、数据结构、技术选型。</li>
+<li>步骤1：写 `架构设计.md`：需求、系统架构、Agent 流程、工具设计、数据结构、技术选型。</li>
 <li>预期输出：一份可执行的架构文档。</li>
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#2563a8">今日代码产出</span>
+<span class="sec-label" style="background:#2563a8">代码产出</span>
 <ul>
-<li>主项目 `项目架构.md`。</li>
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#7a4fd6">今日知识产出</span>
+<span class="sec-label" style="background:#7a4fd6">知识产出</span>
 <ul>
-<li>一张「竞品研究 Agent 架构图」。</li>
-</ul>
-</div>
-<div class="sec">
-<span class="sec-label" style="background:#c2410c">公众号素材</span>
-<ul>
-<li>钩子：「我要用 30 天造一个'竞品分析 Agent'，这是它的设计图。」（项目开篇）</li>
 </ul>
 </div>
 <div class="sec">
@@ -2501,26 +2583,25 @@ footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#1f6feb">自测问题</span>
-<ol>
-<li>主流程哪几步用代码、哪几步用 Agent？</li>
-<li>先用 Mock 数据的好处？</li>
-</ol>
-</div>
-<div class="sec">
-<span class="sec-label" style="background:#8a6d3b">时间预算</span>
+<span class="sec-label" style="background:#c2410c">公众号素材</span>
 <ul>
 </ul>
 </div>
 </article>
 <article class="day" id="d31">
 <div class="day-head">
-<h3>第 31 节 · 综合项目开发</h3>
+<h3>第 31 节 · 综合项目：核心开发</h3>
+<div class="chip-row"><span class="chip chip-tier" style="background:#b8551b">高级</span><span class="chip chip-time">进阶·4h（周末）</span></div>
+<div class="rec-title">📌 公众号标题：竞品 Agent 第一天：它真的能查资料了</div>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#2f5bff">今日学习目标</span>
+<span class="sec-label" style="background:#5b6b8f">目标读者</span>
 <ul>
-<li>实现主项目核心：Agent Loop + Tool Calling + MCP + Workflow 编排 + 业务流。</li>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#b8551b">核心问题</span>
+<ul>
 </ul>
 </div>
 <div class="sec">
@@ -2529,11 +2610,19 @@ footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#1f8a70">知识点讲解</span>
+<span class="sec-label" style="background:#2f5bff">学习目标</span>
 <ul>
-<li>入门层：接第 25 节整合版，补业务闭环。</li>
-<li>原理层：输入产品名→检索→分析→报告。</li>
-<li>实践层：实现端到端 run。</li>
+<li>实现主项目核心：Agent Loop + Tool Calling + MCP + Workflow 编排 + 业务流。</li>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#1f8a70">核心知识点</span>
+<ul>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#0a8f6f">技术原理</span>
+<ul>
 </ul>
 </div>
 <div class="sec">
@@ -2542,63 +2631,58 @@ footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#0a8f6f">学习资料</span>
+<span class="sec-label" style="background:#5b6b8f">前后关系</span>
 <ul>
-<li>同第 30 节。</li>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#7a4fd6">主项目应用</span>
+<ul>
 </ul>
 </div>
 <div class="sec">
 <span class="sec-label" style="background:#b8551b">动手实践</span>
 <ul>
-<li>步骤1：在 `learn-agent/` 实现 `run.py`，串起检索/分析/报告。</li>
+<li>步骤1：在 `projects/saas-competitor-agent/` 实现 `run.py`，串起检索/分析/报告。</li>
 <li>预期输出：输入 3 个产品名，产出对比草稿。</li>
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#2563a8">今日代码产出</span>
+<span class="sec-label" style="background:#2563a8">代码产出</span>
 <ul>
-<li>主项目 `run.py` 核心链路。</li>
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#7a4fd6">今日知识产出</span>
+<span class="sec-label" style="background:#7a4fd6">知识产出</span>
 <ul>
-<li>一份「开发日志」。</li>
-</ul>
-</div>
-<div class="sec">
-<span class="sec-label" style="background:#c2410c">公众号素材</span>
-<ul>
-<li>钩子：「竞品 Agent 第一天：它真的能查资料了。」</li>
 </ul>
 </div>
 <div class="sec">
 <span class="sec-label" style="background:#c23b6a">验收标准</span>
 <ul>
-<li>主链路可运行出草稿。</li>
+<li>主链路可运行出草稿；Mock 数据闭环完整。</li>
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#1f6feb">自测问题</span>
-<ol>
-<li>哪步最容易卡？</li>
-<li>如何验证输出不是幻觉？</li>
-</ol>
-</div>
-<div class="sec">
-<span class="sec-label" style="background:#8a6d3b">时间预算</span>
+<span class="sec-label" style="background:#c2410c">公众号素材</span>
 <ul>
 </ul>
 </div>
 </article>
 <article class="day" id="d32">
 <div class="day-head">
-<h3>第 32 节 · 综合项目增强</h3>
+<h3>第 32 节 · 综合项目：增强</h3>
+<div class="chip-row"><span class="chip chip-tier" style="background:#b8551b">高级</span><span class="chip chip-time">进阶·4h（周末）</span></div>
+<div class="rec-title">📌 公众号标题：给竞品 Agent 加上"记忆"和"刹车"</div>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#2f5bff">今日学习目标</span>
+<span class="sec-label" style="background:#5b6b8f">目标读者</span>
 <ul>
-<li>给主项目加 RAG / Memory / Checkpoint / HITL / 异常处理。</li>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#b8551b">核心问题</span>
+<ul>
 </ul>
 </div>
 <div class="sec">
@@ -2607,11 +2691,19 @@ footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#1f8a70">知识点讲解</span>
+<span class="sec-label" style="background:#2f5bff">学习目标</span>
 <ul>
-<li>入门层：接前面模块。</li>
-<li>原理层：HITL 放在付费检索前；Checkpoint 支持长任务续跑。</li>
-<li>实践层：增强主项目。</li>
+<li>给主项目加 RAG / Memory / Checkpoint / HITL / 异常处理。</li>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#1f8a70">核心知识点</span>
+<ul>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#0a8f6f">技术原理</span>
+<ul>
 </ul>
 </div>
 <div class="sec">
@@ -2620,63 +2712,58 @@ footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#0a8f6f">学习资料</span>
+<span class="sec-label" style="background:#5b6b8f">前后关系</span>
 <ul>
-<li>复习对应节。</li>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#7a4fd6">主项目应用</span>
+<ul>
 </ul>
 </div>
 <div class="sec">
 <span class="sec-label" style="background:#b8551b">动手实践</span>
 <ul>
-<li>步骤1：在主项目接入 RAG+Memory+HITL+异常。</li>
+<li>步骤1：在主项目接入 RAG + Memory + HITL + 异常。</li>
 <li>预期输出：高危动作需确认，长任务可续。</li>
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#2563a8">今日代码产出</span>
+<span class="sec-label" style="background:#2563a8">代码产出</span>
 <ul>
-<li>主项目增强版。</li>
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#7a4fd6">今日知识产出</span>
+<span class="sec-label" style="background:#7a4fd6">知识产出</span>
 <ul>
-<li>一份「增强验收」记录。</li>
-</ul>
-</div>
-<div class="sec">
-<span class="sec-label" style="background:#c2410c">公众号素材</span>
-<ul>
-<li>钩子：「给竞品 Agent 加上'记忆'和'刹车'。」</li>
 </ul>
 </div>
 <div class="sec">
 <span class="sec-label" style="background:#c23b6a">验收标准</span>
 <ul>
-<li>增强模块生效。</li>
+<li>增强模块生效；HITL 与 Checkpoint 正常工作。</li>
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#1f6feb">自测问题</span>
-<ol>
-<li>HITL 放哪最合理？</li>
-<li>Checkpoint 对长任务价值？</li>
-</ol>
-</div>
-<div class="sec">
-<span class="sec-label" style="background:#8a6d3b">时间预算</span>
+<span class="sec-label" style="background:#c2410c">公众号素材</span>
 <ul>
 </ul>
 </div>
 </article>
 <article class="day" id="d33">
 <div class="day-head">
-<h3>第 33 节 · 综合项目评测与优化</h3>
+<h3>第 33 节 · 综合项目：评测与优化</h3>
+<div class="chip-row"><span class="chip chip-tier" style="background:#b8551b">高级</span><span class="chip chip-time">进阶·4h（周末）</span></div>
+<div class="rec-title">📌 公众号标题：我用 20 个案例测了竞品 Agent，成功率只有…</div>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#2f5bff">今日学习目标</span>
+<span class="sec-label" style="background:#5b6b8f">目标读者</span>
 <ul>
-<li>建评测集，度量任务成功率/工具调用率/Token/耗时，分析失败案例并优化。</li>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#b8551b">核心问题</span>
+<ul>
 </ul>
 </div>
 <div class="sec">
@@ -2685,11 +2772,19 @@ footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#1f8a70">知识点讲解</span>
+<span class="sec-label" style="background:#2f5bff">学习目标</span>
 <ul>
-<li>入门层：跑评测→看指标→改弱点。</li>
-<li>原理层：失败归因（检索差/工具错/分析弱）。</li>
-<li>实践层：跑评测并复测。</li>
+<li>建评测集，度量任务成功率/工具调用率/Token/耗时，分析失败案例并优化。</li>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#1f8a70">核心知识点</span>
+<ul>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#0a8f6f">技术原理</span>
+<ul>
 </ul>
 </div>
 <div class="sec">
@@ -2698,9 +2793,13 @@ footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#0a8f6f">学习资料</span>
+<span class="sec-label" style="background:#5b6b8f">前后关系</span>
 <ul>
-<li>同第 19、26 节。</li>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#7a4fd6">主项目应用</span>
+<ul>
 </ul>
 </div>
 <div class="sec">
@@ -2711,21 +2810,13 @@ footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#2563a8">今日代码产出</span>
+<span class="sec-label" style="background:#2563a8">代码产出</span>
 <ul>
-<li>主项目 `eval_report.md`。</li>
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#7a4fd6">今日知识产出</span>
+<span class="sec-label" style="background:#7a4fd6">知识产出</span>
 <ul>
-<li>一份「评测与优化报告」。</li>
-</ul>
-</div>
-<div class="sec">
-<span class="sec-label" style="background:#c2410c">公众号素材</span>
-<ul>
-<li>钩子：「我用 20 个案例测了竞品 Agent，成功率只有…」</li>
 </ul>
 </div>
 <div class="sec">
@@ -2735,26 +2826,25 @@ footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#1f6feb">自测问题</span>
-<ol>
-<li>失败主要归因哪类？</li>
-<li>优化优先级怎么排？</li>
-</ol>
-</div>
-<div class="sec">
-<span class="sec-label" style="background:#8a6d3b">时间预算</span>
+<span class="sec-label" style="background:#c2410c">公众号素材</span>
 <ul>
 </ul>
 </div>
 </article>
 <article class="day" id="d34">
 <div class="day-head">
-<h3>第 34 节 · 综合项目演示与阶段总结</h3>
+<h3>第 34 节 · 综合项目：演示、复盘与高级验收</h3>
+<div class="chip-row"><span class="chip chip-tier" style="background:#b8551b">高级</span><span class="chip chip-time">进阶·4h（周末）</span></div>
+<div class="rec-title">📌 公众号标题：我做出了一个能分析竞品的 Agent（全程复盘）</div>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#2f5bff">今日学习目标</span>
+<span class="sec-label" style="background:#5b6b8f">目标读者</span>
 <ul>
-<li>完整演示主项目，做技术复盘与知识地图。</li>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#b8551b">核心问题</span>
+<ul>
 </ul>
 </div>
 <div class="sec">
@@ -2763,11 +2853,19 @@ footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#1f8a70">知识点讲解</span>
+<span class="sec-label" style="background:#2f5bff">学习目标</span>
 <ul>
-<li>入门层：演示+复盘+地图。</li>
-<li>原理层：知识地图串联全 42 节。</li>
-<li>实践层：录一次演示，写复盘。</li>
+<li>完整演示主项目，做技术复盘与知识地图，完成高级验收。</li>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#1f8a70">核心知识点</span>
+<ul>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#0a8f6f">技术原理</span>
+<ul>
 </ul>
 </div>
 <div class="sec">
@@ -2776,9 +2874,13 @@ footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#0a8f6f">学习资料</span>
+<span class="sec-label" style="background:#5b6b8f">前后关系</span>
 <ul>
-<li>回顾全手册。</li>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#7a4fd6">主项目应用</span>
+<ul>
 </ul>
 </div>
 <div class="sec">
@@ -2789,50 +2891,41 @@ footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#2563a8">今日代码产出</span>
+<span class="sec-label" style="background:#2563a8">代码产出</span>
 <ul>
-<li>主项目 `项目复盘.md`。</li>
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#7a4fd6">今日知识产出</span>
+<span class="sec-label" style="background:#7a4fd6">知识产出</span>
 <ul>
-<li>一张「42 节知识地图」。</li>
-</ul>
-</div>
-<div class="sec">
-<span class="sec-label" style="background:#c2410c">公众号素材</span>
-<ul>
-<li>钩子：「30 天，我做出了一个能分析竞品的 Agent（全程复盘）。」（结果导向，高收藏）</li>
 </ul>
 </div>
 <div class="sec">
 <span class="sec-label" style="background:#c23b6a">验收标准</span>
 <ul>
-<li>演示可复现；复盘与地图完整。</li>
+<li>演示可复现；复盘与地图完整；高级验收表通过。</li>
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#1f6feb">自测问题</span>
-<ol>
-<li>项目最大短板？</li>
-<li>哪些节最值得回看？</li>
-</ol>
-</div>
-<div class="sec">
-<span class="sec-label" style="background:#8a6d3b">时间预算</span>
+<span class="sec-label" style="background:#c2410c">公众号素材</span>
 <ul>
 </ul>
 </div>
 </article>
 <article class="day" id="d35">
 <div class="day-head">
-<h3>第 35 节 · 企业级平台深入（多租户与隔离）</h3>
+<h3>第 35 节 · 企业级 Agent 平台架构</h3>
+<div class="chip-row"><span class="chip chip-tier" style="background:#b8551b">高级</span><span class="chip chip-time">进阶·2.5h</span></div>
+<div class="rec-title">📌 公众号标题：一个 Agent 平台怎么同时伺候 100 个客户不串味</div>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#2f5bff">今日学习目标</span>
+<span class="sec-label" style="background:#5b6b8f">目标读者</span>
 <ul>
-<li>理解多租户、数据隔离、配额、计费边界（概念级）。</li>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#b8551b">核心问题</span>
+<ul>
 </ul>
 </div>
 <div class="sec">
@@ -2841,11 +2934,20 @@ footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#1f8a70">知识点讲解</span>
+<span class="sec-label" style="background:#2f5bff">学习目标</span>
 <ul>
-<li>入门层：租户=一个客户/团队；隔离=数据不串。</li>
-<li>原理层：逻辑隔离（租户Id）+物理隔离（独立库）；配额防滥用。</li>
-<li>实践层：画多租户平台图。</li>
+<li>理解多租户、数据隔离、配额、计费边界（概念级）。</li>
+<li>理解任务调度、工具权限中心、审计中台。</li>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#1f8a70">核心知识点</span>
+<ul>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#0a8f6f">技术原理</span>
+<ul>
 </ul>
 </div>
 <div class="sec">
@@ -2854,63 +2956,58 @@ footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#0a8f6f">学习资料</span>
+<span class="sec-label" style="background:#5b6b8f">前后关系</span>
 <ul>
-<li>各云厂商多租户架构实践文档。</li>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#7a4fd6">主项目应用</span>
+<ul>
 </ul>
 </div>
 <div class="sec">
 <span class="sec-label" style="background:#b8551b">动手实践</span>
 <ul>
-<li>步骤1：在 `day35-platform-tenant/` 画多租户隔离架构。</li>
-<li>预期输出：架构图 + 隔离策略说明。</li>
+<li>步骤1：在 `day35-platform/` 画多租户隔离 + 权限中心架构图。</li>
+<li>预期输出：架构图 + 隔离/调度策略说明。</li>
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#2563a8">今日代码产出</span>
+<span class="sec-label" style="background:#2563a8">代码产出</span>
 <ul>
-<li>`day35-platform-tenant/tenant.md`。</li>
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#7a4fd6">今日知识产出</span>
+<span class="sec-label" style="background:#7a4fd6">知识产出</span>
 <ul>
-<li>一张「多租户隔离」图。</li>
-</ul>
-</div>
-<div class="sec">
-<span class="sec-label" style="background:#c2410c">公众号素材</span>
-<ul>
-<li>钩子：「一个 Agent 平台怎么同时伺候 100 个客户不串味？」</li>
 </ul>
 </div>
 <div class="sec">
 <span class="sec-label" style="background:#c23b6a">验收标准</span>
 <ul>
-<li>能说清隔离与配额设计。</li>
+<li>能说清隔离与配额设计；能解释权限中心职责。</li>
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#1f6feb">自测问题</span>
-<ol>
-<li>逻辑 vs 物理隔离取舍？</li>
-<li>配额如何设计？</li>
-</ol>
-</div>
-<div class="sec">
-<span class="sec-label" style="background:#8a6d3b">时间预算</span>
+<span class="sec-label" style="background:#c2410c">公众号素材</span>
 <ul>
 </ul>
 </div>
 </article>
 <article class="day" id="d36">
 <div class="day-head">
-<h3>第 36 节 · 企业级平台深入（调度与权限中心）</h3>
+<h3>第 36 节 · 生产化部署与监控</h3>
+<div class="chip-row"><span class="chip chip-tier" style="background:#b8551b">高级</span><span class="chip chip-time">进阶·2.5h</span></div>
+<div class="rec-title">📌 公众号标题：Agent 在笔记本跑通，只是长征第一步</div>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#2f5bff">今日学习目标</span>
+<span class="sec-label" style="background:#5b6b8f">目标读者</span>
 <ul>
-<li>理解任务调度、工具权限中心、审计中台。</li>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#b8551b">核心问题</span>
+<ul>
 </ul>
 </div>
 <div class="sec">
@@ -2919,167 +3016,19 @@ footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#1f8a70">知识点讲解</span>
-<ul>
-<li>入门层：权限中心统一管工具授权；调度管并发。</li>
-<li>原理层：权限中心=策略引擎；调度=队列+限流。</li>
-<li>实践层：设计权限中心接口草图。</li>
-</ul>
-</div>
-<div class="sec">
-<span class="sec-label" style="background:#5b6b8f">前置知识</span>
-<ul>
-</ul>
-</div>
-<div class="sec">
-<span class="sec-label" style="background:#0a8f6f">学习资料</span>
-<ul>
-<li>企业权限/策略引擎（如 OPA）概念：<a href="https://www.openpolicyagent.org/" target="_blank" rel="noopener">https://www.openpolicyagent.org/</a></li>
-</ul>
-</div>
-<div class="sec">
-<span class="sec-label" style="background:#b8551b">动手实践</span>
-<ul>
-<li>步骤1：在 `day36-platform-auth/` 设计 `policy_engine` 接口草图。</li>
-<li>预期输出：权限/调度模块草图。</li>
-</ul>
-</div>
-<div class="sec">
-<span class="sec-label" style="background:#2563a8">今日代码产出</span>
-<ul>
-<li>`day36-platform-auth/policy.md`。</li>
-</ul>
-</div>
-<div class="sec">
-<span class="sec-label" style="background:#7a4fd6">今日知识产出</span>
-<ul>
-<li>一张「权限中心结构」图。</li>
-</ul>
-</div>
-<div class="sec">
-<span class="sec-label" style="background:#c2410c">公众号素材</span>
-<ul>
-<li>钩子：「公司里成百上千个工具，谁来决定 Agent 能用哪个？」</li>
-</ul>
-</div>
-<div class="sec">
-<span class="sec-label" style="background:#c23b6a">验收标准</span>
-<ul>
-<li>能说清权限中心与调度职责。</li>
-</ul>
-</div>
-<div class="sec">
-<span class="sec-label" style="background:#1f6feb">自测问题</span>
-<ol>
-<li>权限中心放哪一层？</li>
-<li>调度如何防雪崩？</li>
-</ol>
-</div>
-<div class="sec">
-<span class="sec-label" style="background:#8a6d3b">时间预算</span>
-<ul>
-</ul>
-</div>
-</article>
-<article class="day" id="d37">
-<div class="day-head">
-<h3>第 37 节 · 评测体系深入（基准与红队）</h3>
-</div>
-<div class="sec">
-<span class="sec-label" style="background:#2f5bff">今日学习目标</span>
-<ul>
-<li>理解 Agent 基准测试、红队测试、回归测试。</li>
-</ul>
-</div>
-<div class="sec">
-<span class="sec-label" style="background:#6b7385">为什么要学习</span>
-<ul>
-</ul>
-</div>
-<div class="sec">
-<span class="sec-label" style="background:#1f8a70">知识点讲解</span>
-<ul>
-<li>入门层：基准=标准题集；红队=故意攻击找漏洞；回归=改完不退化。</li>
-<li>原理层：红队覆盖注入/越权/越界；回归接 CI。</li>
-<li>实践层：设计红队用例集。</li>
-</ul>
-</div>
-<div class="sec">
-<span class="sec-label" style="background:#5b6b8f">前置知识</span>
-<ul>
-</ul>
-</div>
-<div class="sec">
-<span class="sec-label" style="background:#0a8f6f">学习资料</span>
-<ul>
-<li>各实验室 Agent 评测基准（如 AgentBench）论文综述。</li>
-</ul>
-</div>
-<div class="sec">
-<span class="sec-label" style="background:#b8551b">动手实践</span>
-<ul>
-<li>步骤1：在 `day37-eval-deep/` 写 10 条红队用例。</li>
-<li>预期输出：红队用例集 + 结论。</li>
-</ul>
-</div>
-<div class="sec">
-<span class="sec-label" style="background:#2563a8">今日代码产出</span>
-<ul>
-<li>`day37-eval-deep/redteam.jsonl`。</li>
-</ul>
-</div>
-<div class="sec">
-<span class="sec-label" style="background:#7a4fd6">今日知识产出</span>
-<ul>
-<li>一份「评测体系清单」。</li>
-</ul>
-</div>
-<div class="sec">
-<span class="sec-label" style="background:#c2410c">公众号素材</span>
-<ul>
-<li>钩子：「别只测'做对没'，还要测'骗不骗得到'。」</li>
-</ul>
-</div>
-<div class="sec">
-<span class="sec-label" style="background:#c23b6a">验收标准</span>
-<ul>
-<li>能设计红队与回归测试。</li>
-</ul>
-</div>
-<div class="sec">
-<span class="sec-label" style="background:#1f6feb">自测问题</span>
-<ol>
-<li>红队测什么？</li>
-<li>回归测试怎么进 CI？</li>
-</ol>
-</div>
-<div class="sec">
-<span class="sec-label" style="background:#8a6d3b">时间预算</span>
-<ul>
-</ul>
-</div>
-</article>
-<article class="day" id="d38">
-<div class="day-head">
-<h3>第 38 节 · 生产化部署与监控</h3>
-</div>
-<div class="sec">
-<span class="sec-label" style="background:#2f5bff">今日学习目标</span>
+<span class="sec-label" style="background:#2f5bff">学习目标</span>
 <ul>
 <li>理解部署形态、监控告警、成本护栏。</li>
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#6b7385">为什么要学习</span>
+<span class="sec-label" style="background:#1f8a70">核心知识点</span>
 <ul>
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#1f8a70">知识点讲解</span>
+<span class="sec-label" style="background:#0a8f6f">技术原理</span>
 <ul>
-<li>入门层：容器化部署；监控=看板+告警；成本护栏=预算封顶。</li>
-<li>原理层：无状态 Runtime 易扩；告警基于第 23 节指标。</li>
-<li>实践层：写部署与监控清单。</li>
 </ul>
 </div>
 <div class="sec">
@@ -3088,63 +3037,62 @@ footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#0a8f6f">学习资料</span>
+<span class="sec-label" style="background:#5b6b8f">前后关系</span>
 <ul>
-<li>各云容器服务文档；Prometheus/Grafana 概念。</li>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#7a4fd6">主项目应用</span>
+<ul>
 </ul>
 </div>
 <div class="sec">
 <span class="sec-label" style="background:#b8551b">动手实践</span>
 <ul>
-<li>步骤1：在 `day38-deploy/` 写部署+监控+成本护栏清单。</li>
+<li>步骤1：在 `day36-deploy/` 写部署 + 监控 + 成本护栏清单。</li>
 <li>预期输出：一份上线 checklist。</li>
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#2563a8">今日代码产出</span>
+<span class="sec-label" style="background:#2563a8">代码产出</span>
 <ul>
-<li>`day38-deploy/checklist.md`。</li>
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#7a4fd6">今日知识产出</span>
+<span class="sec-label" style="background:#7a4fd6">知识产出</span>
 <ul>
-<li>一张「上线 checklist」。</li>
-</ul>
-</div>
-<div class="sec">
-<span class="sec-label" style="background:#c2410c">公众号素材</span>
-<ul>
-<li>钩子：「Agent 在笔记本跑通，只是长征第一步。」</li>
 </ul>
 </div>
 <div class="sec">
 <span class="sec-label" style="background:#c23b6a">验收标准</span>
 <ul>
-<li>能列出上线关键项。</li>
+<li>能列出上线关键项与成本护栏设置方式。</li>
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#1f6feb">自测问题</span>
-<ol>
-<li>成本护栏怎么设？</li>
-<li>哪些指标必须告警？</li>
-</ol>
-</div>
-<div class="sec">
-<span class="sec-label" style="background:#8a6d3b">时间预算</span>
+<span class="sec-label" style="background:#c2410c">公众号素材</span>
 <ul>
 </ul>
 </div>
 </article>
-<article class="day" id="d39">
+</section>
+<section class="week" id="tier-4">
+<h2><span class="week-no" style="background:#7a4fd6">专题扩展</span>专题扩展 · 共6篇</h2>
+<div class="module-banner" style="border-left:4px solid #7a4fd6">质量专项</div>
+<article class="day" id="">
 <div class="day-head">
-<h3>第 39 节 · Agent Skills 进阶</h3>
+<h3>专题 T1 ｜ 评测体系深入（基准与红队）</h3>
+<div class="chip-row"><span class="chip chip-tier" style="background:#7a4fd6">专题扩展</span><span class="chip chip-time">进阶·2.5h</span></div>
+<div class="rec-title">📌 公众号标题：别只测"做对没"，还要测"骗不骗得到"</div>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#2f5bff">今日学习目标</span>
+<span class="sec-label" style="background:#5b6b8f">目标读者</span>
 <ul>
-<li>理解 Agent Skills（可复用能力包）的概念与设计。</li>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#b8551b">核心问题</span>
+<ul>
 </ul>
 </div>
 <div class="sec">
@@ -3153,11 +3101,13 @@ footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#1f8a70">知识点讲解</span>
+<span class="sec-label" style="background:#1f8a70">核心知识点</span>
 <ul>
-<li>入门层：Skill=把一类能力（如"读 PDF""写 SQL"）打包复用。</li>
-<li>原理层：Skill 含描述+触发条件+执行逻辑；可被 Agent 动态选用。</li>
-<li>实践层：设计一个 `pdf_read` Skill 草图。</li>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#0a8f6f">技术原理</span>
+<ul>
 </ul>
 </div>
 <div class="sec">
@@ -3166,63 +3116,123 @@ footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#0a8f6f">学习资料</span>
+<span class="sec-label" style="background:#7a4fd6">主项目应用</span>
 <ul>
-<li>各平台 Agent Skills 规范（概念级）。</li>
 </ul>
 </div>
 <div class="sec">
 <span class="sec-label" style="background:#b8551b">动手实践</span>
 <ul>
-<li>步骤1：在 `day39-skills/` 设计 `pdf_read` Skill 描述与接口。</li>
+<li>步骤1：在 `topics/eval-deep/` 写 10 条红队用例。</li>
+<li>预期输出：红队用例集 + 结论。</li>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#2563a8">代码产出</span>
+<ul>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#7a4fd6">知识产出</span>
+<ul>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#c23b6a">验收标准</span>
+<ul>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#c2410c">公众号素材</span>
+<ul>
+</ul>
+</div>
+</article>
+<div class="module-banner" style="border-left:4px solid #7a4fd6">能力模块化专项</div>
+<article class="day" id="">
+<div class="day-head">
+<h3>专题 T2 ｜ Agent Skills 进阶</h3>
+<div class="chip-row"><span class="chip chip-tier" style="background:#7a4fd6">专题扩展</span><span class="chip chip-time">进阶·2h</span></div>
+<div class="rec-title">📌 公众号标题：把 Agent 的能力，像 App 一样装装卸卸</div>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#5b6b8f">目标读者</span>
+<ul>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#b8551b">核心问题</span>
+<ul>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#6b7385">为什么要学习</span>
+<ul>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#1f8a70">核心知识点</span>
+<ul>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#0a8f6f">技术原理</span>
+<ul>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#5b6b8f">前置知识</span>
+<ul>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#7a4fd6">主项目应用</span>
+<ul>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#b8551b">动手实践</span>
+<ul>
+<li>步骤1：在 `topics/skills/` 设计 `pdf_read` Skill 描述与接口。</li>
 <li>预期输出：Skill 设计文档。</li>
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#2563a8">今日代码产出</span>
+<span class="sec-label" style="background:#2563a8">代码产出</span>
 <ul>
-<li>`day39-skills/pdf_read.md`。</li>
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#7a4fd6">今日知识产出</span>
+<span class="sec-label" style="background:#7a4fd6">知识产出</span>
 <ul>
-<li>一张「Skill 结构」图。</li>
-</ul>
-</div>
-<div class="sec">
-<span class="sec-label" style="background:#c2410c">公众号素材</span>
-<ul>
-<li>钩子：「把 Agent 的能力，像 App 一样装装卸卸。」</li>
 </ul>
 </div>
 <div class="sec">
 <span class="sec-label" style="background:#c23b6a">验收标准</span>
 <ul>
-<li>能说清 Skill 结构与价值。</li>
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#1f6feb">自测问题</span>
-<ol>
-<li>Skill 与 Tool 区别？</li>
-<li>如何避免 Skill 冲突？</li>
-</ol>
-</div>
-<div class="sec">
-<span class="sec-label" style="background:#8a6d3b">时间预算</span>
+<span class="sec-label" style="background:#c2410c">公众号素材</span>
 <ul>
 </ul>
 </div>
 </article>
-<article class="day" id="d40">
+<div class="module-banner" style="border-left:4px solid #7a4fd6">连接治理专项</div>
+<article class="day" id="">
 <div class="day-head">
-<h3>第 40 节 · MCP 进阶</h3>
+<h3>专题 T3 ｜ MCP 进阶（多 Server 编排/网关/鉴权）</h3>
+<div class="chip-row"><span class="chip chip-tier" style="background:#7a4fd6">专题扩展</span><span class="chip chip-time">进阶·2h</span></div>
+<div class="rec-title">📌 公众号标题：当 Agent 要连 50 个 MCP Server，谁来管</div>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#2f5bff">今日学习目标</span>
+<span class="sec-label" style="background:#5b6b8f">目标读者</span>
 <ul>
-<li>理解 MCP 多 Server 编排、鉴权、网关化。</li>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#b8551b">核心问题</span>
+<ul>
 </ul>
 </div>
 <div class="sec">
@@ -3231,11 +3241,13 @@ footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#1f8a70">知识点讲解</span>
+<span class="sec-label" style="background:#1f8a70">核心知识点</span>
 <ul>
-<li>入门层：多个 MCP Server 如何被发现与路由。</li>
-<li>原理层：MCP 网关=统一入口+鉴权+限流。</li>
-<li>实践层：设计 MCP 网关草图。</li>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#0a8f6f">技术原理</span>
+<ul>
 </ul>
 </div>
 <div class="sec">
@@ -3244,63 +3256,53 @@ footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#0a8f6f">学习资料</span>
+<span class="sec-label" style="background:#7a4fd6">主项目应用</span>
 <ul>
-<li>MCP 官方文档（进阶）：<a href="https://modelcontextprotocol.io/" target="_blank" rel="noopener">https://modelcontextprotocol.io/</a></li>
 </ul>
 </div>
 <div class="sec">
 <span class="sec-label" style="background:#b8551b">动手实践</span>
 <ul>
-<li>步骤1：在 `day40-mcp-adv/` 画多 Server 网关架构。</li>
+<li>步骤1：在 `topics/mcp-adv/` 画多 Server 网关架构。</li>
 <li>预期输出：架构图 + 治理要点。</li>
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#2563a8">今日代码产出</span>
+<span class="sec-label" style="background:#2563a8">代码产出</span>
 <ul>
-<li>`day40-mcp-adv/gateway.md`。</li>
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#7a4fd6">今日知识产出</span>
+<span class="sec-label" style="background:#7a4fd6">知识产出</span>
 <ul>
-<li>一张「MCP 网关」图。</li>
-</ul>
-</div>
-<div class="sec">
-<span class="sec-label" style="background:#c2410c">公众号素材</span>
-<ul>
-<li>钩子：「当 Agent 要连 50 个 MCP Server，谁来管？」</li>
 </ul>
 </div>
 <div class="sec">
 <span class="sec-label" style="background:#c23b6a">验收标准</span>
 <ul>
-<li>能说清多 Server 治理。</li>
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#1f6feb">自测问题</span>
-<ol>
-<li>MCP 网关解决什么？</li>
-<li>Server 鉴权怎么做？</li>
-</ol>
-</div>
-<div class="sec">
-<span class="sec-label" style="background:#8a6d3b">时间预算</span>
+<span class="sec-label" style="background:#c2410c">公众号素材</span>
 <ul>
 </ul>
 </div>
 </article>
-<article class="day" id="d41">
+<div class="module-banner" style="border-left:4px solid #7a4fd6">编排进阶专项</div>
+<article class="day" id="">
 <div class="day-head">
-<h3>第 41 节 · LangGraph 进阶</h3>
+<h3>专题 T4 ｜ LangGraph 进阶（子图/并行/流式/HITL 节点）</h3>
+<div class="chip-row"><span class="chip chip-tier" style="background:#7a4fd6">专题扩展</span><span class="chip chip-time">进阶·2h</span></div>
+<div class="rec-title">📌 公众号标题：LangGraph 不止线性流，还能"分身"并行</div>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#2f5bff">今日学习目标</span>
+<span class="sec-label" style="background:#5b6b8f">目标读者</span>
 <ul>
-<li>理解子图、并行分支、人工节点、流式输出。</li>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#b8551b">核心问题</span>
+<ul>
 </ul>
 </div>
 <div class="sec">
@@ -3309,11 +3311,13 @@ footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#1f8a70">知识点讲解</span>
+<span class="sec-label" style="background:#1f8a70">核心知识点</span>
 <ul>
-<li>入门层：子图=可复用 Graph；并行=同时跑多分支。</li>
-<li>原理层：human node 实现断点交互；stream 提升体验。</li>
-<li>实践层：给主项目加一个并行检索分支。</li>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#0a8f6f">技术原理</span>
+<ul>
 </ul>
 </div>
 <div class="sec">
@@ -3322,63 +3326,53 @@ footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#0a8f6f">学习资料</span>
+<span class="sec-label" style="background:#7a4fd6">主项目应用</span>
 <ul>
-<li>LangGraph 进阶：<a href="https://langchain-ai.github.io/langgraph/how-tos/" target="_blank" rel="noopener">https://langchain-ai.github.io/langgraph/how-tos/</a></li>
 </ul>
 </div>
 <div class="sec">
 <span class="sec-label" style="background:#b8551b">动手实践</span>
 <ul>
-<li>步骤1：在 `day41-langgraph-adv/` 给主项目加并行检索分支。</li>
+<li>步骤1：在 `topics/langgraph-adv/` 给主项目加并行检索分支。</li>
 <li>预期输出：多产品并行检索，速度提升。</li>
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#2563a8">今日代码产出</span>
+<span class="sec-label" style="background:#2563a8">代码产出</span>
 <ul>
-<li>主项目并行检索改造。</li>
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#7a4fd6">今日知识产出</span>
+<span class="sec-label" style="background:#7a4fd6">知识产出</span>
 <ul>
-<li>一份「Graph 进阶笔记」。</li>
-</ul>
-</div>
-<div class="sec">
-<span class="sec-label" style="background:#c2410c">公众号素材</span>
-<ul>
-<li>钩子：「LangGraph 不止线性流，还能'分身'并行。」</li>
 </ul>
 </div>
 <div class="sec">
 <span class="sec-label" style="background:#c23b6a">验收标准</span>
 <ul>
-<li>能说清子图/并行/流式。</li>
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#1f6feb">自测问题</span>
-<ol>
-<li>并行分支如何汇合？</li>
-<li>流式输出价值？</li>
-</ol>
-</div>
-<div class="sec">
-<span class="sec-label" style="background:#8a6d3b">时间预算</span>
+<span class="sec-label" style="background:#c2410c">公众号素材</span>
 <ul>
 </ul>
 </div>
 </article>
-<article class="day" id="d42">
+<div class="module-banner" style="border-left:4px solid #7a4fd6">工程实践专项</div>
+<article class="day" id="">
 <div class="day-head">
-<h3>第 42 节 · 长期延展与后续 90 天</h3>
+<h3>专题 T5 ｜ Agentic Coding 与 AI 研发工作流</h3>
+<div class="chip-row"><span class="chip chip-tier" style="background:#7a4fd6">专题扩展</span><span class="chip chip-time">进阶·2.5h</span></div>
+<div class="rec-title">📌 公众号标题：让 Agent 帮你写代码，不只是补全那点事</div>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#2f5bff">今日学习目标</span>
+<span class="sec-label" style="background:#5b6b8f">目标读者</span>
 <ul>
-<li>形成后续学习路线，让公众号系列自然延续。</li>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#b8551b">核心问题</span>
+<ul>
 </ul>
 </div>
 <div class="sec">
@@ -3387,11 +3381,13 @@ footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#1f8a70">知识点讲解</span>
+<span class="sec-label" style="background:#1f8a70">核心知识点</span>
 <ul>
-<li>入门层：把未深挖的专题列成后续系列。</li>
-<li>原理层：按"读者需求+技术深度"排优先级。</li>
-<li>实践层：产出后续 90 天专题表。</li>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#0a8f6f">技术原理</span>
+<ul>
 </ul>
 </div>
 <div class="sec">
@@ -3400,51 +3396,104 @@ footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#0a8f6f">学习资料</span>
+<span class="sec-label" style="background:#7a4fd6">主项目应用</span>
 <ul>
-<li>回顾 E 交付物《公众号长期内容延展规划》。</li>
 </ul>
 </div>
 <div class="sec">
 <span class="sec-label" style="background:#b8551b">动手实践</span>
 <ul>
-<li>步骤1：写 `后续90天路线.md`：AI Coding / Agent Skills / MCP 进阶 / LangGraph 进阶 / Coding Agent / Multi-Agent / 企业级平台 / Agent 产品实践。</li>
-<li>预期输出：一份可发布的后续路线。</li>
+<li>步骤1：在 `topics/agentic-coding/` 设计 Coding Agent 的工具集（读写/运行/检索）。</li>
+<li>预期输出：工具集设计 + 一个最小 Coding Loop 示例。</li>
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#2563a8">今日代码产出</span>
+<span class="sec-label" style="background:#2563a8">代码产出</span>
 <ul>
-<li>`后续90天路线.md`。</li>
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#7a4fd6">今日知识产出</span>
+<span class="sec-label" style="background:#7a4fd6">知识产出</span>
 <ul>
-<li>一张「后续专题路线图」。</li>
-</ul>
-</div>
-<div class="sec">
-<span class="sec-label" style="background:#c2410c">公众号素材</span>
-<ul>
-<li>钩子：「42 节学完，我的 Agent 之路才刚开头（附 90 天路线）。」（收尾+引流）</li>
 </ul>
 </div>
 <div class="sec">
 <span class="sec-label" style="background:#c23b6a">验收标准</span>
 <ul>
-<li>后续路线清晰可执行。</li>
 </ul>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#1f6feb">自测问题</span>
-<ol>
-<li>最该先深挖哪个专题？</li>
-<li>如何保持更新节奏？</li>
-</ol>
+<span class="sec-label" style="background:#c2410c">公众号素材</span>
+<ul>
+</ul>
+</div>
+</article>
+<div class="module-banner" style="border-left:4px solid #7a4fd6">前沿追踪专项</div>
+<article class="day" id="">
+<div class="day-head">
+<h3>专题 T6 ｜ 新技术追踪（含 DeepSeek super-agent 拆解）</h3>
+<div class="chip-row"><span class="chip chip-tier" style="background:#7a4fd6">专题扩展</span><span class="chip chip-time">进阶·2h</span></div>
+<div class="rec-title">📌 公众号标题：拆解 DeepSeek super-agent：它到底是不是纯 Agent</div>
 </div>
 <div class="sec">
-<span class="sec-label" style="background:#8a6d3b">时间预算</span>
+<span class="sec-label" style="background:#5b6b8f">目标读者</span>
+<ul>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#b8551b">核心问题</span>
+<ul>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#6b7385">为什么要学习</span>
+<ul>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#1f8a70">核心知识点</span>
+<ul>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#0a8f6f">技术原理</span>
+<ul>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#5b6b8f">前置知识</span>
+<ul>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#7a4fd6">主项目应用</span>
+<ul>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#b8551b">动手实践</span>
+<ul>
+<li>步骤1：在 `topics/frontier/` 写 DeepSeek super-agent 拆解笔记（调度/执行/自主行为三层）。</li>
+<li>预期输出：一份现实系统拆解笔记。</li>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#2563a8">代码产出</span>
+<ul>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#7a4fd6">知识产出</span>
+<ul>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#c23b6a">验收标准</span>
+<ul>
+</ul>
+</div>
+<div class="sec">
+<span class="sec-label" style="background:#c2410c">公众号素材</span>
 <ul>
 </ul>
 </div>
